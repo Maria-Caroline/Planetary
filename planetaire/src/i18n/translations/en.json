@@ -1,0 +1,16 @@
+{
+    "translation": {
+        "Sun": "Sun",
+        "Moon": "Moon",
+        "Earth": "Earth",
+        "Venus": "Venus",
+        "Mercury": "Mercury",
+        "Jupiter": "Jupiter",
+        "Neptune": "Neptune",
+        "Uranus": "Uranus",
+        "Pluto": "Pluto",
+        "Saturn": "Saturn",
+        "Hot": "Hot",
+        "Cold": "Cold"
+    }
+}
