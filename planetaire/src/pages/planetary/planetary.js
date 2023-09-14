@@ -10,19 +10,18 @@ import { Trans } from 'react-i18next';
 import Header from '../../components/header/header';
 
 function Planetary() {
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
-  return (
+    return (
+        <><Header /><div className="container">
+            <div className="floating-div lilybigger">
+                <p className="title"><strong>{t("Sun")}</strong></p>
+            </div>
+            <p>oi</p>
 
-    <div className="container">
-         <div className="floating-div lilybigger">
-        <p className="title"><strong>{t("Sun")}</strong></p>
-      </div>
-      <p>oi</p>
-    <Header/>
-    </div >
+        </div></>
 
-  );
+    );
 };
 
 export default Planetary;

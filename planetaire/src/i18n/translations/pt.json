@@ -11,6 +11,9 @@
         "Pluto": "Plutão",
         "Saturn": "Saturno",
         "Hot": "Quente",
-        "Cold": "Frio"
+        "Cold": "Frio",
+        "Planetary": "Planetário",
+        "Tales": "Contos",
+        "Game": "Jogo"
     }
 }

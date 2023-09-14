@@ -11,6 +11,9 @@
         "Pluto": "Pluto",
         "Saturn": "Saturn",
         "Hot": "Hot",
-        "Cold": "Cold"
+        "Cold": "Cold",
+        "Planetary": "Planetary",
+        "Tales": "Tales",
+        "Game": "Game"
     }
 }
