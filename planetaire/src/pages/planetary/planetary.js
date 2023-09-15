@@ -2,9 +2,8 @@ import React, { useState, useEffect, useTransition } from 'react';
 import './planetary.css';
 import { useRef } from 'react';
 import { Link } from "react-router-dom";
+import Modal from "react-modal";
 import sun from '../../assets/planets/temporary-sun.png'
-// import lilybigger from '../../assets/lily-bigger.webp'
-// import lilymedium from '../../assets/lily-medium.webp'
 import { useTranslation } from 'react-i18next';
 import { Trans } from 'react-i18next';
 import Header from '../../components/header/header';
@@ -12,11 +11,26 @@ import Header from '../../components/header/header';
 function Planetary() {
     const { t } = useTranslation();
 
+    const [isLampModalOpen, setLampModalOpen] = useState(false);
+
+    const openLampModal = () => {
+        setLampModalOpen(true);
+    };
+
+    const closeLampModal = () => {
+        setLampModalOpen(false);
+    };
+
+//modal não funciona
     return (
         <><Header />
             <div className="container-planetary">
                 <div className="circle orbit1">
-                    <img src={sun} alt={t("Mercury")} className="planet" />
+                    <img src={sun} alt={t("Mercury")} onClick={openLampModal} className="planet" />
+                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
+                       <p>hi lorena</p>
+                        <button onClick={closeLampModal}></button>
+                    </Modal>
                 </div>
                 <div className="circle orbit2">
                     <img src={sun} alt={t("Venus")} className="planet" />
