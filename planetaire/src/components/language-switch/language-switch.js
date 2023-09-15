@@ -9,15 +9,15 @@ function LanguageSwitch() {
 
   const LanguageOptions = [
     {
-      name: "Português",
+      name: "PT",
       value: "pt"
     },
     {
-      name: "Français",
+      name: "FR",
       value: "fr"
     },
     {
-      name: "English",
+      name: "EN",
       value: "en"
     }
   ];
@@ -28,16 +28,15 @@ function LanguageSwitch() {
 
   return (
     <div className="language-switch">
-      {LanguageOptions.map(LanguageOption => (
-        <button
-          className={`language-button ${i18n.language === LanguageOption.value ? 'selected' : ''}`}
-          key={LanguageOption.value}
-          onClick={() => handleLanguageChange(LanguageOption.value)}
-        >
-          <span className="button-text">{LanguageOption.name}</span>
-        </button>
-      ))}
+      <select className="language-dropdown" value={i18n.language} onChange={(e) => handleLanguageChange(e.target.value)}>
+        {LanguageOptions.map((LanguageOption) => (
+          <option className="language-dropdown-options" key={LanguageOption.value} value={LanguageOption.value}>
+            {LanguageOption.name}
+          </option>
+        ))}
+      </select>
     </div>
+
   );
 }
 

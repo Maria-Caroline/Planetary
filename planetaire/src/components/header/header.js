@@ -12,11 +12,17 @@ function Header() {
     const { t } = useTranslation();
 
     return (
-        <div className="container-header">
-            <LanguageSwitch />
-
-        </div>
-
+        <>
+            <div className="container-header">
+                <LanguageSwitch />
+                <div className="menu">
+                    <Link to="/" className="menu-option">Planetary</Link>
+                    <Link to="/tales" className="menu-option">Tales</Link>
+                    <Link to="/play" className="menu-option">Play</Link>
+                </div>
+            </div>
+            <div className="container-divider"><hr class="rounded"></hr></div>
+        </>
     );
 };
 

@@ -89,6 +89,15 @@
             "pression": "1.4 x 10^14 nPa",
             "gravity": "10,44 m/s²",
             "temp-type": "Cold"
+        },
+        {
+            "id": 11,
+            "name": "Mars",
+            "med-temp": "-46°C",
+            "mass": "6,4171 x 10^23 kg",
+            "pression": "6 x 10^11 nPa",
+            "gravity": "3,71 m/s²",
+            "temp-type": "Cold"
         }
     ]
 }

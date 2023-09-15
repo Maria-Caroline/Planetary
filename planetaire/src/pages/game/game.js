@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useTransition } from 'react';
-import './tales.css';
+import './game.css';
 import { useRef } from 'react';
 import { Link } from "react-router-dom";
 // import lilysmall from '../../assets/lily.webp'

@@ -1,22 +1,20 @@
-.language-switch button.selected {
-    font-weight: bold;
+.language-dropdown {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--white);
 }
-.language-switch button {
-   font-size: 100%;
-   background-color: transparent;
-   border-left: solid 2.5px rgba(67, 109, 148, 0.418);
-   border-top: 0;
-   color: var(--white);
-   border-bottom: 0;
-   border-right: 0;
+.language-dropdown:focus {
+   background-color: var(--darker-sky-blue);
+   outline: none;
+   border: none;
 }
-
-.language-switch button:hover{
-    color: darkolivegreen;
+.language-dropdown-options{
+    outline: solid 1px var(--darker-sky-blue);
+    padding: 0.5rem;
+    color: var(--white);
 }
-
-@media (max-width: 480px) {
-    .language-switch button {
-        font-size: 80%;
-     }
+.button-text {
+    font-size: 13px;
 }

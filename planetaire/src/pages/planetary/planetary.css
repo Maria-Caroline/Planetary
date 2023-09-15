@@ -1,0 +1,104 @@
+.container-planetary {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh; 
+    overflow-y: hidden;
+}
+.sun {
+    position: relative;
+    width: 5vmax;
+}
+.circle {
+    position: absolute;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    animation: orbit 10s linear infinite;
+}
+
+.planet {
+    background-position: center center;
+    position: absolute;
+    top: 60%;
+    width: 2vmax;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+.moon {
+    background-position: center center;
+    position: absolute;
+    top: 60%;
+    width: 1vmax;
+    left:110%;
+    transform: translate(-50%, -50%);
+    animation: moonOrbit 10s linear infinite;
+}
+@keyframes moonOrbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes orbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+.orbit1 {
+    width: 8vmax;
+    height: 8vmax;
+    animation-duration: 8s;
+}
+.orbit2 {
+    width: 13vmax;
+    height: 13vmax;
+    animation-duration: 12s;
+}
+.orbit3 {
+    width: 18vmax;
+    height: 18vmax;
+    animation-duration: 20s;
+}
+.orbit4 {
+    width:  23vmax;
+    height:  23vmax;
+    animation-duration: 24s;
+}
+.orbit5 {
+    width:  28vmax;
+    height:  28vmax;
+    animation-duration: 30s;
+}
+.orbit6 {
+    width: 33vmax;
+    height:  33vmax;
+    animation-duration: 34s;
+}
+.orbit7 {
+    width:  38vmax;
+    height: 38vmax;
+    animation-duration: 40s;
+}
+.orbit8 {
+    width:  42vmax;
+    height: 42vmax;
+    animation-duration: 12s;
+}
+.orbit9 {
+    width: 46vmax;
+    height: 46vmax;
+    animation-duration: 20s;
+}
