@@ -13,7 +13,7 @@ function Tales() {
     const { t } = useTranslation();
 
     return (
-        <></>
+        <><Header /></>
 
     );
 };

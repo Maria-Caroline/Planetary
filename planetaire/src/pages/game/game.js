@@ -13,7 +13,7 @@ function Game() {
     const { t } = useTranslation();
 
     return (
-        <></>
+        <><Header /></>
 
     );
 };

@@ -9,14 +9,14 @@ import './App.css';
 function App() {
   return (
     <Router>
-    <Routes>
-       <Route path="/" element={<Planetary/>} />
-      <Route path="/tales" element={<Tales/>} />
-      <Route path="/play" element={<Game/>} />
+      <Routes>
+        <Route path="/" element={<Planetary />} />
+        <Route path="/tales" element={<Tales />} />
+        <Route path="/play" element={<Game />} />
 
-      {/* <Route path="*" element={<NotFound />} /> */}
-    </Routes>
-  </Router>
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
+    </Router>
   );
 }
 

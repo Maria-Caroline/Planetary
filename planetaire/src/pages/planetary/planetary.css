@@ -4,12 +4,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 85vh; 
-    overflow-y: hidden;
+    height: 88vh; 
+    overflow: hidden;
 }
 .sun {
     position: relative;
-    width: 5vmax;
+    width: 3.5vmax;
 }
 .circle {
     position: absolute;
@@ -58,47 +58,47 @@
     }
 }
 .orbit1 {
-    width: 8vmax;
-    height: 8vmax;
-    animation-duration: 8s;
+    width: 6vmax;
+    height: 6vmax;
+    animation-duration: 6s;
 }
 .orbit2 {
-    width: 13vmax;
-    height: 13vmax;
-    animation-duration: 12s;
+    width: 10vmax;
+    height: 10vmax;
+    animation-duration: 30s;
 }
 .orbit3 {
-    width: 18vmax;
-    height: 18vmax;
-    animation-duration: 20s;
+    width: 14vmax;
+    height: 14vmax;
+    animation-duration: 45s;
 }
 .orbit4 {
-    width:  23vmax;
-    height:  23vmax;
+    width:  18vmax;
+    height:  18vmax;
     animation-duration: 24s;
 }
 .orbit5 {
-    width:  28vmax;
-    height:  28vmax;
+    width:  22vmax;
+    height:  22vmax;
     animation-duration: 30s;
 }
 .orbit6 {
-    width: 33vmax;
-    height:  33vmax;
-    animation-duration: 34s;
+    width: 26vmax;
+    height:  26vmax;
+    animation-duration: 23s;
 }
 .orbit7 {
-    width:  38vmax;
-    height: 38vmax;
-    animation-duration: 40s;
+    width:  30vmax;
+    height: 30vmax;
+    animation-duration: 28s;
 }
 .orbit8 {
-    width:  42vmax;
-    height: 42vmax;
-    animation-duration: 12s;
+    width:  34vmax;
+    height: 34vmax;
+    animation-duration: 32s;
 }
 .orbit9 {
-    width: 46vmax;
-    height: 46vmax;
-    animation-duration: 20s;
+    width: 38vmax;
+    height: 38vmax;
+    animation-duration: 39s;
 }

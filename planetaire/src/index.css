@@ -19,3 +19,23 @@ code {
   --sky-blue: #10475F;
   --darker-sky-blue: #0c3647;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:  #e8e8e83f; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:var(--darker-sky-blue);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #08232e; 
+}

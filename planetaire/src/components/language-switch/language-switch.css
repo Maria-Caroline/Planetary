@@ -3,17 +3,22 @@
     background-color: transparent;
     border: none;
     outline: none;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     color: var(--white);
+    padding: 0.2rem;
+    border-radius: 6px;
 }
 .language-dropdown:focus {
    background-color: var(--darker-sky-blue);
    outline: none;
    border: none;
+   
 }
 .language-dropdown-options{
     outline: solid 1px var(--darker-sky-blue);
     padding: 0.5rem;
     color: var(--white);
+    padding: 0.2rem;
 }
 .button-text {
     font-size: 13px;
