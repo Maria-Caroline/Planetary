@@ -12,150 +12,103 @@ import Header from '../../components/header/header';
 
 function Planetary() {
     const { t } = useTranslation();
+    const [planetModals, setPlanetModals] = useState({});
 
-    const [isLampModalOpen, setLampModalOpen] = useState(false);
-    const [isEarthOpen, setEarthOpen] = useState(false);
-    const [isMoonOpen, setMoonOpen] = useState(false);
-    const [isSunOpen, setSunOpen] = useState(false);
-    const [isPlutoOpen, setPlutoOpen] = useState(false);
-    const [isNeptuneOpen, setNeptuneOpen] = useState(false);
-    const [isUranusOpen, setUranusOpen] = useState(false);
-    const [isSaturnOpen, setSaturnOpen] = useState(false);
-    const [isJupiterOpen, setJupiterOpen] = useState(false);
 
-    const openLampModal = () => {
-        setLampModalOpen(true);
+    const openModal = (planetName) => {
+        setPlanetModals({ ...planetModals, [planetName]: true });
     };
 
-    const closeLampModal = () => {
-        setLampModalOpen(false);
+
+    const closeModal = (planetName) => {
+        setPlanetModals({ ...planetModals, [planetName]: false });
     };
 
-    const openEarth = () => {
-        setEarthOpen(true);
-    };
-
-    const closeEarth = () => {
-        setEarthOpen(false);
-    };
-
-    const openSun = () => {
-        setSunOpen(true);
-    };
-
-    const closeSun = () => {
-        setSunOpen(false);
-    };
-
-    const openMoon = () => {
-        setMoonOpen(true);
-    };
-
-    const closeMoon = () => {
-        setMoonOpen(false);
-    };
-
-    const openPluto = () => {
-        setPlutoOpen(true);
-    };
-
-    const closePluto = () => {
-        setPlutoOpen(false);
-    };
-
-    const openNeptune = () => {
-        setNeptuneOpen(true);
-    };
-
-    const closeNeptune = () => {
-        setNeptuneOpen(false);
-    };
 
     return (
         <><Header />
             <div className="container-planetary">
                 <div className="circle orbit9">
-                    <img onClick={openPluto} src={sun} alt={t("Pluto")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isPlutoOpen} onRequestClose={closePluto} >
-                        <p>pluto</p>
-                        <button onClick={closePluto}></button>
+                    <img onClick={() => openModal('Pluto')} src={sun} alt={t('Pluto')} className="planet" />
+                    <Modal className="somethingModal" isOpen={planetModals['Pluto'] || false} onRequestClose={() => closeModal('Pluto')}>
+                        <p>Pluto</p>
+                        <button onClick={() => closeModal('Pluto')}>Fechar</button>
                     </Modal>
                 </div>
+
                 <div className="circle orbit8">
-                    <img onClick={openNeptune} src={sun} alt={t("Neptune")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isNeptuneOpen} onRequestClose={closeNeptune} >
+                    <img onClick={() => openModal('Neptune')} src={sun} alt={t('Neptune')} className="planet" />
+                    <Modal className="somethingModal" isOpen={planetModals['Neptune'] || false} onRequestClose={() => closeModal('Neptune')}>
                         <p>neptune</p>
-                        <button onClick={closeNeptune}></button>
+                        <button onClick={() => closeModal('Neptune')}>Fechar</button>
                     </Modal>
                 </div>
 
                 <div className="circle orbit7">
-                    <img onClick={openLampModal} src={sun} alt={t("Uranus")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi lorena</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={() => openModal('Uranus')} src={sun} alt={t("Uranus")} className="planet" />
+                    <Modal className="somethingModal" isOpen={planetModals['Uranus'] || false} onRequestClose={() => closeModal('Uranus')}>
+                        <p>uranus</p>
+                        <button onClick={() => closeModal('Uranus')}>Fechar</button>
                     </Modal>
                 </div>
 
                 <div className="circle orbit6">
-                    <img onClick={openLampModal} src={sun} alt={t("Saturn")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi lorena</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={() => openModal('Saturn')} src={sun} alt={t("Saturn")} className="planet" />
+                    <Modal className="somethingModal" isOpen={planetModals['Saturn'] || false} onRequestClose={() => closeModal('Saturn')}>
+                        <p>Saturn</p>
+                        <button onClick={() => closeModal('Saturn')}>Fechar</button>
                     </Modal>
                 </div>
 
                 <div className="circle orbit5">
-                    <img onClick={openLampModal} src={sun} alt={t("Jupiter")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi lorena</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={() => openModal('Jupiter')} src={sun} alt={t("Jupiter")} className="planet" />
+                    <Modal className="somethingModal" isOpen={planetModals['Jupiter'] || false} onRequestClose={() => closeModal('Jupiter')}>
+                        <p>Jupiter</p>
+                        <button onClick={() => closeModal('Jupiter')}>Fechar</button>
                     </Modal>
                 </div>
 
                 <div className="circle orbit4">
-                    <img onClick={openLampModal} src={sun} alt={t("Mars")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi lorena</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={() => openModal('Mars')} src={sun} alt={t("Mars")} className="planet" />
+                    <Modal className="somethingModal" isOpen={planetModals['Mars'] || false} onRequestClose={() => closeModal('Mars')}>
+                        <p>Mars</p>
+                        <button onClick={() => closeModal('Mars')}>Fechar</button>
                     </Modal>
                 </div>
 
                 <div className="circle orbit3">
-                    <img onClick={openEarth} src={earth} alt={t("Earth")} className="earth" />
-                    <Modal className="somethingModal" isOpen={isEarthOpen} onRequestClose={closeEarth} >
-                        <p>earth</p>
-                        <button onClick={closeEarth}></button>
+                    <img onClick={() => openModal('Earth')} src={earth} alt={t("Earth")} className="earth" />
+                    <Modal className="somethingModal" isOpen={planetModals['Earth'] || false} onRequestClose={() => closeModal('Earth')}>
+                        <p>Earth</p>
+                        <button onClick={() => closeModal('Earth')}>Fechar</button>
                     </Modal>
-
-                    <img onClick={openMoon} src={moon} alt={t("Moon")} className="moon" />
-                    <Modal className="somethingModal" isOpen={isMoonOpen} onRequestClose={closeMoon} >
-                        <p>moon</p>
-                        <button onClick={closeMoon}></button>
+                    <img onClick={() => openModal('Moon')} src={moon} alt={t("Moon")} className="moon" />
+                    <Modal className="somethingModal" isOpen={planetModals['Moon'] || false} onRequestClose={() => closeModal('Moon')}>
+                        <p>Moon</p>
+                        <button onClick={() => closeModal('Moon')}>Fechar</button>
                     </Modal>
-
                 </div>
 
                 <div className="circle orbit2">
-                    <img onClick={openLampModal} src={sun} alt={t("Venus")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi lorena</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={() => openModal('Venus')} src={sun} alt={t("Venus")} className="planet" />
+                    <Modal className="somethingModal" isOpen={planetModals['Venus'] || false} onRequestClose={() => closeModal('Venus')}>
+                        <p>Venus</p>
+                        <button onClick={() => closeModal('Venus')}>Fechar</button>
                     </Modal>
                 </div>
 
                 <div className="circle orbit1">
-                    <img onClick={openLampModal} src={sun} alt={t("Mercury")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={() => openModal('Mercury')} src={sun} alt={t("Mercury")} className="planet" />
+                    <Modal className="somethingModal" isOpen={planetModals['Mercury'] || false} onRequestClose={() => closeModal('Mercury')}>
+                        <p>Mercury</p>
+                        <button onClick={() => closeModal('Mercury')}>Fechar</button>
                     </Modal>
                 </div>
 
-                <img className="sun" alt={t("Sun")} onClick={openSun} src={sun} />
-                <Modal className="somethingModal" isOpen={isSunOpen} onRequestClose={closeSun} >
-                    <p>sun</p>
-                    <button onClick={closeSun}></button>
+                <img onClick={() => openModal('Sun')} src={sun} alt={t("Sun")} className="sun" />
+                <Modal className="somethingModal" isOpen={planetModals['Sun'] || false} onRequestClose={() => closeModal('Sun')}>
+                    <p>Sun</p>
+                    <button onClick={() => closeModal('Sun')}>Fechar</button>
                 </Modal>
             </div>
         </>
