@@ -3,101 +3,104 @@
         {
             "id": 1,
             "name": "Sun",
-            "med-temp": "+ 15.000.000 ºC",
+            "img" : "./assets/cards/sun.png",
+            "medTemp": "+ 15.000.000 ºC",
             "mass": "1,989 x 10^30 kg",
             "pression": "2,4 x 10^16 nPa",
             "gravity": "274 m/s²",
-            "temp-type": "Hot"
+            "tempType": "Hot"
         },
         {
             "id": 2,
             "name": "Moon",
-            "med-temp": "-53,1 ºC",
+            "img" : "../card/cards/moon.png",
+            "medTemp": "-53,1 ºC",
             "mass": "7,342 x 10^22 kg",
             "pression": "0,3 nPa",
             "gravity": "1,62 m/s²",
-            "temp-type": "Cold"
+            "tempType": "Cold"
         },
         {
             "id": 3,
             "name": "Earth",
-            "med-temp": "15°C",
+            "img" : "earth.png",
+            "medTemp": "15°C",
             "mass": "5,972 x 10^24 kg",
             "pression": "101.3 nPa",
             "gravity": "9,81 m/s²",
-            "temp-type": "Cold"
+            "tempType": "Cold"
         },
         {
             "id": 4,
             "name": "Venus",
-            "med-temp": "461 ºC",
+            "medTemp": "461 ºC",
             "mass": "4,8675 x 10^24 kg",
             "pression": "9.2 x 10^4 nPa",
             "gravity": "8,87 m/s²",
-            "temp-type": "Hot"
+            "tempType": "Hot"
         },
         {
             "id": 5,
             "name": "Mercury",
-            "med-temp": "175°C",
+            "medTemp": "175°C",
             "mass": "3,3011 x 10^23 kg",
             "pression": "0",
             "gravity": "3,7 m/s²",
-            "temp-type": "Hot"
+            "tempType": "Hot"
         },
         {
             "id": 6,
             "name": "Jupiter",
-            "med-temp": "-145°C",
+            "medTemp": "-145°C",
             "mass": "1,8982 x 10^27 kg",
             "pression": "1 x 10^14 nPa",
             "gravity": "24,79 m/s²",
-            "temp-type": "Cold"
+            "tempType": "Cold"
         },
         {
             "id": 7,
             "name": "Neptune",
-            "med-temp": "-214°C",
+            "medTemp": "-214°C",
             "mass": "1,02413 x 10^26 kg",
             "pression": "1 x 10^13 nPa",
             "gravity": "11,15 m/s²",
-            "temp-type": "Cold"
+            "tempType": "Cold"
         },
         {
             "id": 8,
             "name": "Uranus",
-            "med-temp": "-224°C",
+            "medTemp": "-224°C",
             "mass": "8,6810 x 10^25 kg",
             "pression": "1,2 x 10^12 nPa",
             "gravity": "8,69 m/s",
-            "temp-type": "Cold"
+            "tempType": "Cold"
         },
         {
             "id": 9,
             "name": "Pluto",
-            "med-temp": "-225°C",
+            "medTemp": "-225°C",
             "mass": "1,303 x 10^22 kg",
             "pression": "1 x 10^9 nPa",
             "gravity": "0,58 m/s²",
-            "temp-type": "Cold"
+            "tempType": "Cold"
         },
         {
             "id": 10,
             "name": "Saturn",
-            "med-temp": "-178°C",
+            "medTemp": "-178°C",
             "mass": "5,683 x 10^26 kg",
             "pression": "1.4 x 10^14 nPa",
             "gravity": "10,44 m/s²",
-            "temp-type": "Cold"
+            "tempType": "Cold"
         },
         {
             "id": 11,
             "name": "Mars",
-            "med-temp": "-46°C",
+            "medTemp": "-46°C",
             "mass": "6,4171 x 10^23 kg",
             "pression": "6 x 10^11 nPa",
             "gravity": "3,71 m/s²",
-            "temp-type": "Cold"
+            "tempType": "Cold"
         }
     ]
 }

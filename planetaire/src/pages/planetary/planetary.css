@@ -4,15 +4,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 88vh; 
+    height: 88vh;
     overflow: hidden;
 }
+
 .sun {
     cursor: pointer;
     position: relative;
     width: 4vmax;
     animation: sun 10s linear infinite;
 }
+
 .circle {
     position: absolute;
     border: 1px solid var(--white);
@@ -29,12 +31,13 @@
     background-position: center center;
     position: absolute;
     top: 60%;
-   cursor: pointer;
+    cursor: pointer;
     width: 2vmax;
     left: 100%;
     z-index: 2;
     transform: translate(-50%, -50%);
 }
+
 .earth {
     cursor: pointer;
     background-position: center center;
@@ -45,32 +48,38 @@
     left: 100%;
     transform: translate(-50%, -50%);
 }
+
 .moon {
     cursor: pointer;
     background-position: center center;
     position: absolute;
     top: 60%;
     width: 0.8vmax;
-    left:110%;
+    left: 110%;
     transform: translate(-50%, -50%);
     animation: moonOrbit 10s linear infinite;
 }
+
 @keyframes moonOrbit {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
+
 @keyframes sun {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(-360deg);
+        transform: rotate(-360deg);
     }
-  }
+}
+
 @keyframes orbit {
     0% {
         transform: translate(-50%, -50%) rotate(0deg);
@@ -80,56 +89,62 @@
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+
 .orbit1 {
     width: 6vmax;
     height: 6vmax;
     animation-duration: 6s;
 }
+
 .orbit2 {
-  
     width: 10vmax;
     height: 10vmax;
     animation-duration: 30s;
 }
+
 .orbit3 {
- 
     width: 14vmax;
     height: 14vmax;
     animation-duration: 45s;
 }
+
 .orbit4 {
- 
-    width:  18vmax;
-    height:  18vmax;
+    width: 18vmax;
+    height: 18vmax;
     animation-duration: 24s;
 }
+
 .orbit5 {
-   
-    width:  22vmax;
-    height:  22vmax;
+    width: 22vmax;
+    height: 22vmax;
     animation-duration: 30s;
 }
+
 .orbit6 {
-   
     width: 26vmax;
-    height:  26vmax;
+    height: 26vmax;
     animation-duration: 23s;
 }
+
 .orbit7 {
-  
-    width:  30vmax;
+    width: 30vmax;
     height: 30vmax;
     animation-duration: 28s;
 }
+
 .orbit8 {
-   
-    width:  34vmax;
+    width: 34vmax;
     height: 34vmax;
     animation-duration: 32s;
 }
+
 .orbit9 {
-    
     width: 38vmax;
     height: 38vmax;
     animation-duration: 39s;
+}
+
+.modal-planets {
+    background-color: black;
+    margin: 0 auto;
 }

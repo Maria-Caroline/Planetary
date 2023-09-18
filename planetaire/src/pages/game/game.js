@@ -7,14 +7,20 @@ import { Link } from "react-router-dom";
 // import lilymedium from '../../assets/lily-medium.webp'
 import { useTranslation } from 'react-i18next';
 import { Trans } from 'react-i18next';
+import Card from "../../components/card/card"
 import Header from '../../components/header/header';
+import cardData from '../../components/card/card-data.json';
 
 function Game() {
     const { t } = useTranslation();
+    
 
     return (
-        <><Header /></>
-
+        <><Header />
+            {cardData.planets.map(planet => (
+                 <Card key={planet.id} cardData={planet} />
+            ))}
+        </>
     );
 };
 
