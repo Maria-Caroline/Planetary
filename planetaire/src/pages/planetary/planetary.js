@@ -17,6 +17,11 @@ function Planetary() {
     const [isEarthOpen, setEarthOpen] = useState(false);
     const [isMoonOpen, setMoonOpen] = useState(false);
     const [isSunOpen, setSunOpen] = useState(false);
+    const [isPlutoOpen, setPlutoOpen] = useState(false);
+    const [isNeptuneOpen, setNeptuneOpen] = useState(false);
+    const [isUranusOpen, setUranusOpen] = useState(false);
+    const [isSaturnOpen, setSaturnOpen] = useState(false);
+    const [isJupiterOpen, setJupiterOpen] = useState(false);
 
     const openLampModal = () => {
         setLampModalOpen(true);
@@ -34,22 +39,53 @@ function Planetary() {
         setEarthOpen(false);
     };
 
-    //modal não funciona
+    const openSun = () => {
+        setSunOpen(true);
+    };
+
+    const closeSun = () => {
+        setSunOpen(false);
+    };
+
+    const openMoon = () => {
+        setMoonOpen(true);
+    };
+
+    const closeMoon = () => {
+        setMoonOpen(false);
+    };
+
+    const openPluto = () => {
+        setPlutoOpen(true);
+    };
+
+    const closePluto = () => {
+        setPlutoOpen(false);
+    };
+
+    const openNeptune = () => {
+        setNeptuneOpen(true);
+    };
+
+    const closeNeptune = () => {
+        setNeptuneOpen(false);
+    };
+
     return (
         <><Header />
             <div className="container-planetary">
                 <div className="circle orbit9">
-                    <img onClick={openLampModal} src={sun} alt={t("Pluto")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi lorena</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={openPluto} src={sun} alt={t("Pluto")} className="planet" />
+                    <Modal className="somethingModal" isOpen={isPlutoOpen} onRequestClose={closePluto} >
+                        <p>pluto</p>
+                        <button onClick={closePluto}></button>
                     </Modal>
                 </div>
                 <div className="circle orbit8">
-                    <img onClick={openLampModal} src={sun} alt={t("Neptune")} className="planet" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi lorena</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={openNeptune} src={sun} alt={t("Neptune")} className="planet" />
+                    <Modal className="somethingModal" isOpen={isNeptuneOpen} onRequestClose={closeNeptune} >
+                        <p>neptune</p>
+                        <button onClick={closeNeptune}></button>
                     </Modal>
                 </div>
 
@@ -92,10 +128,10 @@ function Planetary() {
                         <button onClick={closeEarth}></button>
                     </Modal>
 
-                    <img onClick={openLampModal} src={moon} alt={t("Moon")} className="moon" />
-                    <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                        <p>hi lorena</p>
-                        <button onClick={closeLampModal}></button>
+                    <img onClick={openMoon} src={moon} alt={t("Moon")} className="moon" />
+                    <Modal className="somethingModal" isOpen={isMoonOpen} onRequestClose={closeMoon} >
+                        <p>moon</p>
+                        <button onClick={closeMoon}></button>
                     </Modal>
 
                 </div>
@@ -116,10 +152,10 @@ function Planetary() {
                     </Modal>
                 </div>
 
-                <img className="sun" alt={t("Sun")} onClick={openLampModal} src={sun} />
-                <Modal className="somethingModal" isOpen={isLampModalOpen} onRequestClose={closeLampModal} >
-                    <p>hi lorena</p>
-                    <button onClick={closeLampModal}></button>
+                <img className="sun" alt={t("Sun")} onClick={openSun} src={sun} />
+                <Modal className="somethingModal" isOpen={isSunOpen} onRequestClose={closeSun} >
+                    <p>sun</p>
+                    <button onClick={closeSun}></button>
                 </Modal>
             </div>
         </>
