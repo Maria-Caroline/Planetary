@@ -13,13 +13,18 @@ import cardData from '../../components/card/card-data.json';
 
 function Game() {
     const { t } = useTranslation();
-    
+
 
     return (
         <><Header />
-            {cardData.planets.map(planet => (
-                 <Card key={planet.id} cardData={planet} />
-            ))}
+
+            <div className='container-game'>
+                
+                {/* {cardData.planets.map(planet => (
+                    <Card key={planet.id} cardData={planet} />
+                ))} */}
+            </div>
+
         </>
     );
 };

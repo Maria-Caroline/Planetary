@@ -28,20 +28,22 @@ function Card({ cardData }) {
     }
     return (
         <div className='card-container'>
-            <h2 className='card-name' >{cardData.name}</h2>
-            <div className='card-content-container'>
-                <div className='card-content'>
-                    <p className='card-temp' >{t("Temperature")} : {cardData.medTemp}</p>
-                    <p className='card-mass'>{t("Mass")} : {cardData.mass}</p>
+            <div className='card-info-container'>
+                <h5 className='card-name'>{cardData.name}</h5>
+                <div className='card-content-container '>
+                    <div className='card-content'>
+                        <p className='card-temp'>{t("Tmp")}: {cardData.medTemp}</p>
+                        <p className='card-mass'>{t("Mss")}: {cardData.mass}</p>
+                    </div>
+                    <div className='card-content'>
+                        <p className='card-press'>{t("Prs")}: {cardData.pression}</p>
+                        <p className='card-grav'>{t("Grv")}: {cardData.gravity}</p>
+                    </div>
                 </div>
-                <div className='card-content'>
-                    <p className='card-press'>{t("Pressure")} : {cardData.pression}</p>
-                    <p className='card-grav'>{t("Gravity")} : {cardData.gravity}</p>
-                </div>
-                <p className='card-type'>{t("TemperatureType")}:{cardData.tempType}</p>
             </div>
             <img className='card-image' src={imagePath} alt={cardData.name} />
         </div>
+
     );
 };
 
