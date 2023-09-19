@@ -1,0 +1,17 @@
+.card-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+}
+
+.card-image {
+    width: 30%;
+}
