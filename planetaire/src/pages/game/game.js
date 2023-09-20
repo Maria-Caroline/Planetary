@@ -15,59 +15,61 @@ import cardData from '../../components/card/card-data.json';
 function Game() {
     const [deck, setDeck] = useState([]);
     const [cardsDistributed, setCardsDistributed] = useState(false);
-  
+
     const distributeCards = () => {
-      if (!cardsDistributed) {
-        const randomCardIds = generateRandomCardIds(); // Função para gerar IDs aleatórios
-        setDeck(randomCardIds);
-        setCardsDistributed(true);
-      }
-    };
-  
-    const generateRandomCardIds = () => {
-      const randomIds = [];
-      while (randomIds.length < 5) {
-        const randomId = Math.floor(Math.random() * cardData.planets.length) + 1;
-        if (!randomIds.includes(randomId)) {
-          randomIds.push(randomId);
+        if (!cardsDistributed) {
+            const randomCardIds = generateRandomCardIds(); // Função para gerar IDs aleatórios
+            setDeck(randomCardIds);
+            setCardsDistributed(true);
         }
-      }
-      return randomIds;
     };
-  
+
+    const generateRandomCardIds = () => {
+        const randomIds = [];
+        while (randomIds.length < 5) {
+            const randomId = Math.floor(Math.random() * cardData.planets.length) + 1;
+            if (!randomIds.includes(randomId)) {
+                randomIds.push(randomId);
+            }
+        }
+        return randomIds;
+    };
+
     const [revealedCardId, setRevealedCardId] = useState(null);
-  
+
     const handleCardClick = (index) => {
-      // Quando uma carta virada para baixo é clicada, revelamos a carta correspondente
-      setRevealedCardId(deck[index]);
+        // Quando uma carta virada para baixo é clicada, revelamos a carta correspondente
+        setRevealedCardId(deck[index]);
     };
-  
+
     return (
-      <div>
-        <div className="game-area">
-          <button onClick={distributeCards} disabled={cardsDistributed}>
-            Distribuir Cartas
-          </button>
-          {cardsDistributed ? (
-            deck.map((cardId, index) => (
-              <div key={index} className="card" onClick={() => handleCardClick(index)}>
-                {revealedCardId === cardId ? (
-                  <Card cardData={cardData.planets[cardId - 1]} />
+        <div>
+            <div className="game-area">
+                <button onClick={distributeCards} disabled={cardsDistributed}>
+                    Distribuir Cartas
+                </button>
+                {cardsDistributed ? (
+                    deck.map((cardId, index) => (
+                        <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                            {revealedCardId === cardId ? (
+                                <Card cardData={cardData.planets[cardId - 1]} />
+                            ) : (
+                                <img src={backcard} alt="Card Back" />
+                            )}
+                        </div>
+                    ))
                 ) : (
-                  <img src={backcard} alt="Card Back" />
+                    <div  className="container-card-deck">
+                        {Array.from({ length: 5 }, (_, index) => (
+                            <div key={index} className="card-deck">
+                                <img className="card-backwards" src={backcard} alt="Card Back" />
+                            </div>
+                        ))}
+                    </div>
                 )}
-              </div>
-            ))
-          ) : (
-            Array.from({ length: 5 }, (_, index) => (
-              <div key={index} className="card">
-                <img src={backcard} alt="Card Back" />
-              </div>
-            ))
-          )}
+            </div>
         </div>
-      </div>
     );
-  }
-  
-  export default Game;
+}
+
+export default Game;
