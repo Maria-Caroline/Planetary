@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import sunImage from "../../assets/cards/sun.png";
 import moonImage from "../../assets/cards/moon.png";
 import earthImage from "../../assets/cards/earth.png";
+import venusImage from "../../assets/cards/venus.png";
 import { useTranslation } from 'react-i18next';
 import { Trans } from 'react-i18next';
 import cardData from './card-data.json';
@@ -22,6 +23,9 @@ function Card({ cardData }) {
             break;
         case "Earth":
             imagePath = earthImage;
+            break;
+        case "Venus":
+            imagePath = venusImage;
             break;
         default:
             imagePath = "";

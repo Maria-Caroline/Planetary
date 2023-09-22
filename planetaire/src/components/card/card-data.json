@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Sun",
-            "img" : "./assets/cards/sun.png",
+            "img" : "../assets/cards/sun.png",
             "medTemp": "+15.000.000°C",
             "mass": "1,989x10^30",
             "pression": "2,4x10^16",
@@ -13,7 +13,7 @@
         {
             "id": 2,
             "name": "Moon",
-            "img" : "../card/cards/moon.png",
+            "img" : "../assets/cards/moon.png",
             "medTemp": "-53,1°C",
             "mass": "7,342 x 10^22",
             "pression": "0,3",
@@ -23,7 +23,7 @@
         {
             "id": 3,
             "name": "Earth",
-            "img" : "earth.png",
+            "img" : "../assets/cards/earth.png",
             "medTemp": "15°C",
             "mass": "5,972 x 10^24",
             "pression": "101.3",
@@ -33,6 +33,7 @@
         {
             "id": 4,
             "name": "Venus",
+            "img" : "../assets/cards/venus.png",
             "medTemp": "461 ºC",
             "mass": "4,8675 x 10^24 kg",
             "pression": "9.2 x 10^4 nPa",
