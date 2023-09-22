@@ -44,22 +44,29 @@ function Game() {
 
     return (
         <div>
+            <Header />
             <div className="game-area">
                 <button onClick={distributeCards} disabled={cardsDistributed}>
                     Distribuir Cartas
                 </button>
                 {cardsDistributed ? (
-                    deck.map((cardId, index) => (
-                        <div key={index} className="card" onClick={() => handleCardClick(index)}>
-                            {revealedCardId === cardId ? (
-                                <Card cardData={cardData.planets[cardId - 1]} />
-                            ) : (
-                                <img src={backcard} alt="Card Back" />
-                            )}
-                        </div>
-                    ))
+                    <div className="container-card-deck">
+                        {deck.map((cardId, index) => (
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                {revealedCardId === cardId ? (
+                                    <div className="container-card">
+                                        <div className="revealed-cards-container">
+                                            <Card cardData={cardData.planets[cardId - 1]} />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <img className="card-backwards" src={backcard} alt="Card Back" />
+                                )}
+                            </div>
+                        ))}
+                    </div>
                 ) : (
-                    <div  className="container-card-deck">
+                    <div className="container-card-deck">
                         {Array.from({ length: 5 }, (_, index) => (
                             <div key={index} className="card-deck">
                                 <img className="card-backwards" src={backcard} alt="Card Back" />

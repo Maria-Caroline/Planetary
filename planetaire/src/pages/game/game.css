@@ -1,9 +1,36 @@
 .container-game {
     margin: 0 auto;
     display: flex;
-    height: 88vh;
+    height: 100%;
 }
 .card-deck{
     display: flex;
     flex-direction: row;
+    position: relative;
+}
+.card-backwards{
+    width: 12vmax;
+    margin-right: -10px;
+    margin-bottom: -100px;
+    box-shadow: 2px -3px 5px rgba(0, 0, 0.5, 0.5); 
+    position: relative;
+    z-index: 1; 
+}
+
+.container-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinhe as cartas reveladas à esquerda */
+    margin-left: 20px; /* Espaço à esquerda do deck para as cartas reveladas */
+}
+
+/* Adicione estilos para o container das cartas reveladas */
+.revealed-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinhe as cartas reveladas ao centro verticalmente */
+    position: absolute; /* Posicionamento absoluto em relação ao container-card */
+    top: 7vmax; /* Posicione no topo do container-card */
+    left: 18vmax; /* Posicione à direita do container-card */
+  
 }
