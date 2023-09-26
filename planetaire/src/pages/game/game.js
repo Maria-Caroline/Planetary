@@ -15,6 +15,8 @@ import cardData from '../../components/card/card-data.json';
 function Game() {
     const [deck, setDeck] = useState([]);
     const [cardsDistributed, setCardsDistributed] = useState(false);
+    const [selectedCardIndex, setSelectedCardIndex] = useState(null);
+
 
     const distributeCards = () => {
         if (!cardsDistributed) {
@@ -26,7 +28,7 @@ function Game() {
 
     const generateRandomCardIds = () => {
         const randomIds = [];
-        while (randomIds.length < 5) {
+        while (randomIds.length <= 5) {
             const randomId = Math.floor(Math.random() * cardData.planets.length) + 1;
             if (!randomIds.includes(randomId)) {
                 randomIds.push(randomId);
@@ -40,7 +42,11 @@ function Game() {
     const handleCardClick = (index) => {
         // Quando uma carta virada para baixo é clicada, revelamos a carta correspondente
         setRevealedCardId(deck[index]);
+    
+        // Defina a carta selecionada
+        setSelectedCardIndex(index);
     };
+    
 
     return (
         <div>
@@ -52,7 +58,7 @@ function Game() {
                 {cardsDistributed ? (
                     <div className="container-card-deck">
                         {deck.map((cardId, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                            <div key={index} className={`card ${selectedCardIndex === index ? 'selected-card' : ''}`} onClick={() => handleCardClick(index)}>
                                 {revealedCardId === cardId ? (
                                     <div className="container-card">
                                         <div className="revealed-cards-container">
