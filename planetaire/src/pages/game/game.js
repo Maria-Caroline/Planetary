@@ -20,7 +20,7 @@ function Game() {
 
     const distributeCards = () => {
         if (!cardsDistributed) {
-            const randomCardIds = generateRandomCardIds(); // Função para gerar IDs aleatórios
+            const randomCardIds = generateRandomCardIds();
             setDeck(randomCardIds);
             setCardsDistributed(true);
         }

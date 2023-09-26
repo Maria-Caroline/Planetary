@@ -39,6 +39,6 @@
 }
 
 .selected-card {
-    border: 2px solid blue; /* Você pode ajustar a cor e o estilo da borda conforme necessário */
+    border: 1rem solid transparent; 
 }
 
