@@ -35,8 +35,8 @@
             "name": "Venus",
             "img" : "../assets/cards/venus.png",
             "medTemp": "461 ºC",
-            "mass": "4,8675 x 10^24 kg",
-            "pression": "9.2 x 10^4 nPa",
+            "mass": "4,8675x10^24",
+            "pression": "9.2 x 10^4",
             "gravity": "8,87 m/s²",
             "tempType": "Hot"
         },

@@ -12,7 +12,8 @@
     position: relative;
 }
 .card-backwards{
-    width: 12vmax;
+    width: 24vmax;
+    left: -10rem;
     margin-right: -10px;
     margin-bottom: -100px;
     box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5); 
@@ -24,7 +25,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Alinhe as cartas reveladas à esquerda */
-    margin-left: 20px; /* Espaço à esquerda do deck para as cartas reveladas */
 }
 
 /* Adicione estilos para o container das cartas reveladas */
