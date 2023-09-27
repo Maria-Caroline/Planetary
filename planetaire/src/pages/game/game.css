@@ -14,7 +14,6 @@
 .card-backwards{
     width: 24vmax;
     left: -13vmax;
-    /* margin-bottom: -100px; */
     margin-bottom: -7vmax;
     box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5); 
     position: relative;
@@ -24,17 +23,16 @@
 .container-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinhe as cartas reveladas à esquerda */
+    align-items: flex-start;
 }
 
-/* Adicione estilos para o container das cartas reveladas */
 .revealed-cards-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Alinhe as cartas reveladas ao centro verticalmente */
-    position: absolute; /* Posicionamento absoluto em relação ao container-card */
-    top: 7vmax; /* Posicione no topo do container-card */
-    left: 18vmax; /* Posicione à direita do container-card */
+    align-items: center;
+    position: absolute;
+    top: 7vmax;
+    left: 18vmax;
   
 }
 
@@ -42,4 +40,27 @@
     border-left: 1rem solid transparent; 
     border-bottom: 1rem solid transparent; 
 }
+
+.container-rules{
+
+}
+
+.box-options{
+    
+}
+
+@keyframes flip {
+    0% {
+      transform: rotateY(90deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+  
+  .card-flip {
+    animation: flip 0.5s ease-in-out; 
+    transform-style: preserve-3d;
+  }
+  
 

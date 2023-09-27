@@ -1,7 +1,18 @@
 {
     "translation": {
+        "weapon":"Weapon",
+        "based-animal":"Based animal",
+        
         "Sun": "Sun",
+        "sun-description" : "This is the Sovereign of the Solar System.\nEverything and everyone revolves around him, therefore, his orders are supreme and unquestionable. He is a fair and thoughtful leader, but justice is not always kindness.\nFew were able to dare to challenge him, but to date, only one of them has gone unpunished.",
+        "sun-weapon" : "Spear",
+        "sun-animals" : "Lion",
+        
         "Moon": "Moon",
+        "moon-description" : "Earth's primary guardian. He doesn't get along  with other planets due to his cold and sarcastic nature.\nConstantly appears tired, physically and mentally.\nCurrently, he was the only one in the entire Solar System who was not punished for his crimes, for unknown reasons.",
+        "moon-weapon" : "Sword",
+        "moon-animals" : "Bat, moth",
+        
         "Earth": "Earth",
         "Mars": "Mars",
         "Venus": "Venus",
@@ -15,6 +26,9 @@
         "Cold": "Cold",
         "Planetary": "Planetary",
         "Tales": "Tales",
-        "Game": "Game"
+        "Game": "Game",
+        "want-to-play": "Select to play",
+        "rules": "Rules",
+        "back": "Back"
     }
 }

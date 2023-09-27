@@ -1,22 +1,20 @@
 import React, { useState, useEffect, useTransition } from 'react';
 import './game.css';
-import { useRef } from 'react';
-import { Link } from "react-router-dom";
 // import lilysmall from '../../assets/lily.webp'
 import backcard from '../../assets/cards/bkcard.png'
-import placeholder from '../../assets/cards/temporary-placeholder.png'
 import { useTranslation } from 'react-i18next';
-import { Trans } from 'react-i18next';
 import Card from "../../components/card/card"
 import Header from '../../components/header/header';
 import cardData from '../../components/card/card-data.json';
 
-
 function Game() {
+    const { t } = useTranslation();
     const [deck, setDeck] = useState([]);
     const [cardsDistributed, setCardsDistributed] = useState(false);
     const [selectedCardIndex, setSelectedCardIndex] = useState(null);
     const [revealedCardId, setRevealedCardId] = useState(null);
+    const [showButton, setShowButton] = useState(true); // Novo estado para controlar a exibição do botão
+    const [showRules, setShowRules] = useState(false);
 
     const distributeCards = () => {
         //variavel que controla se as cartas foram distribuidas
@@ -27,6 +25,7 @@ function Game() {
             setDeck(randomCardIds);
             //seta as cartas como distribuidas, logo, desabilita o botão
             setCardsDistributed(true);
+            setShowButton(false);
         }
     };
 
@@ -44,7 +43,6 @@ function Game() {
         return randomIds;
     };
 
-
     const handleCardClick = (index) => {
         // Quando uma carta virada para baixo é clicada, revelamos a carta correspondente
         setRevealedCardId(deck[index]);
@@ -53,45 +51,59 @@ function Game() {
 
     };
 
+    const Deck = () => (
+        <div className="container-card-deck">
+            {deck.map((cardId, index) => (
+                <div key={index} className={`card ${selectedCardIndex === index ? 'selected-card' : ''}`}
+                    onClick={() => handleCardClick(index)}>
+                    <div className="container-card">
+                        <div className="revealed-cards-container">
+                            {revealedCardId === cardId && (
+                                <div className="card-flip"> {/* Aplica a classe para a animação de virada */}
+                                    <Card cardData={cardData.planets[cardId - 1]} />
+                                </div>
+                            )}
+                        </div>
+                        <img
+                            className={`card-backwards ${revealedCardId === cardId ? 'hidden' : ''}`}
+                            src={backcard} alt="Card Back" />
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+
+    const Rules = () => (
+        <div className="container-rules">
+            <button onClick={() => setShowRules(false)} className="back-option">{t("Back")}</button>
+        </div>
+
+    );
 
     return (
-        <div>
+        <>
             <Header />
             <div className="game-area">
-                <button onClick={distributeCards} disabled={cardsDistributed}>
-                    Distribuir Cartas
-                </button>
-                {/* verifica se essa variavel é true */}
-                {cardsDistributed ? (
-                    
-                    <div className="container-card-deck">
-                        {/* renderiza as cartas do deck */}
-                        {deck.map((cardId, index) => (
-                            <div key={index} className={`card ${selectedCardIndex === index ? 'selected-card' : ''}`} onClick={() => handleCardClick(index)}>
-                                
-                                <div className="container-card">
-                                    <div className="revealed-cards-container">
-                                        {revealedCardId === cardId && (
-                                            <Card cardData={cardData.planets[cardId - 1]} />
-                                        )}
-                                    </div>
-                                    <img className={`card-backwards ${revealedCardId === cardId ? 'hidden' : ''}`} src={backcard} alt="Card Back" />
-                                </div>
-                            </div>
-                        ))}
-
-                    </div>
+                {showRules ? (
+                    <Rules /> // Renderize a tela de regras quando showRules for true
                 ) : (
-                    <div className="container-card-deck">
-                        {Array.from({ length: 5 }, (_, index) => (
-                            <div key={index} className="card-deck">
-                                <img className="card-backwards" src={backcard} alt="Card Back" />
+                    showButton && !cardsDistributed ? (
+                        <>
+                            <div className='box-options'>
+                                <button onClick={distributeCards} disabled={cardsDistributed}>
+                                    {t("want-to-play")}
+                                </button>
+                                <button onClick={() => setShowRules(true)} disabled={cardsDistributed}>
+                                    {t("rules")}
+                                </button>
                             </div>
-                        ))}
-                    </div>
+                        </>
+                    ) : (
+                        <Deck /> // Exibe a "nova tela" quando showButton for false ou cardsDistributed for true
+                    )
                 )}
             </div>
-        </div>
+        </>
     );
 }
 

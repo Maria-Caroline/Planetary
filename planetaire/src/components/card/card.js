@@ -33,19 +33,19 @@ function Card({ cardData }) {
     return (
         <div className='card-container'>
             <div className='card-info-container'>
-                <h5 className='card-name'>{cardData.name}</h5>
+                <h5 className='card-name'>{t(cardData.name)}</h5>
                 <div className='card-content-container '>
                     <div className='card-content'>
-                        <p className='card-temp'>{t("Tmp")}: {cardData.medTemp}</p>
-                        <p className='card-mass'>{t("Mss")}: {cardData.mass}</p>
+                        <p className='card-temp'><strong>{t("Tmp")}</strong>: {cardData.medTemp}</p>
+                        <p className='card-mass'><strong>{t("Mss")}</strong>: {cardData.mass}</p>
                     </div>
                     <div className='card-content'>
-                        <p className='card-press'>{t("Prs")}: {cardData.pression}</p>
-                        <p className='card-grav'>{t("Grv")}: {cardData.gravity}</p>
+                        <p className='card-press'><strong>{t("Prs")}</strong>: {cardData.pression}</p>
+                        <p className='card-grav'><strong>{t("Grv")}</strong>: {cardData.gravity}</p>
                     </div>
                 </div>
             </div>
-            <img className='card-image' src={imagePath} alt={cardData.name} />
+            <img className='card-image' src={imagePath} alt={t(cardData.name)} />
         </div>
 
     );

@@ -1,14 +1,16 @@
+@font-face {
+  font-family: 'Aleo';
+  src: local('Aleo'),  url('./fonts/Aleo/static/Aleo-Regular.ttf') format('truetype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Aleo';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--sky-blue);
   background-image: url("./assets/star.png");
   background-repeat: repeat;
-
   background-blend-mode: soft-light;
   animation: moveBackground 50s infinite;
 }

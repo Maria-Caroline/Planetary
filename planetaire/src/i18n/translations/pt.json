@@ -1,7 +1,18 @@
 {
     "translation": {
+        "weapon":"Arma",
+        "based-animal":"Animal baseado",
+        
         "Sun": "Sol",
+        "sun-description" : "Esse é o Soberano do Sistema Solar.\nTudo e todos giram em torno dele, sendo assim, suas ordens são supremas e inquestionáveis. É um líder justo e ponderado, mas justiça nem sempre é bondade.\nPoucos foram capazes de ousar em o desafiar, mas até hoje, só um deles saiu impune.",
+        "sun-weapon" : "Lança",
+        "sun-animals" : "Leão",
+        
         "Moon": "Lua",
+        "moon-description" : "Guardião primário do Terra. Não se dá muito bem com os outros planetas devido a sua natureza fria e sarcástica.\nConstantemente aparenta estar cansado, fisicamente e mentalmente.\nAté hoje ele foi o único em todo o Sistema Solar que não foi punido por seus crimes, por motivos desconhecidos",
+        "moon-weapon" : "Espada",
+        "moon-animals" : "Morcego, mariposa",
+        
         "Earth": "Terra",
         "Mars": "Marte",
         "Venus": "Vênus",
@@ -15,6 +26,9 @@
         "Cold": "Frio",
         "Planetary": "Planetário",
         "Tales": "Contos",
-        "Play": "Jogar"
+        "Play": "Jogar",
+        "want-to-play": "Selecione para jogar",
+        "rules": "Regras",
+        "back": "Voltar"
     }
 }
