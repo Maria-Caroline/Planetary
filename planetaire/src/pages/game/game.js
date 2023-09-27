@@ -63,6 +63,7 @@ function Game() {
                 </button>
                 {/* verifica se essa variavel é true */}
                 {cardsDistributed ? (
+                    
                     <div className="container-card-deck">
                         {/* renderiza as cartas do deck */}
                         {deck.map((cardId, index) => (

@@ -13,9 +13,9 @@
 }
 .card-backwards{
     width: 24vmax;
-    left: -10rem;
-    margin-right: -10px;
-    margin-bottom: -100px;
+    left: -13vmax;
+    /* margin-bottom: -100px; */
+    margin-bottom: -7vmax;
     box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5); 
     position: relative;
     z-index: 1; 
@@ -39,6 +39,7 @@
 }
 
 .selected-card {
-    border: 1rem solid transparent; 
+    border-left: 1rem solid transparent; 
+    border-bottom: 1rem solid transparent; 
 }
 
