@@ -124,12 +124,12 @@ function Planetary() {
                             <div className='close-modal-button'>
                                 <button onClick={() => closeModal('Earth')}>Fechar</button>
                             </div>
-
                         </div>
+                        
                     </Modal>
+
                     <img onClick={() => openModal('Moon')} src={moon} alt={t("Moon")} className="moon" />
                     <Modal className="modal-planets" isOpen={planetModals['Moon'] || false} onRequestClose={() => closeModal('Moon')}>
-
                         <div className="container-character-illustration-small">
                             <img src={moon_illustatrion} alt={t("Moon")} className="character-illustration-small" />
                         </div>
@@ -147,7 +147,6 @@ function Planetary() {
                                 <button onClick={() => closeModal('Moon')}>Fechar</button>
                             </div>
                         </div>
-
                     </Modal>
                 </div>
 
