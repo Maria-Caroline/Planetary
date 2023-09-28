@@ -1,5 +1,6 @@
 // SplashPage.js
 import React from 'react';
+import './splash-page.css';
 
 const SplashPage = () => {
   return (
