@@ -18,6 +18,7 @@
   .container-disclaimer{
    width: 40%;
     text-align: center;
+    color: var(--white);
 
   }
   @keyframes fadeOut {

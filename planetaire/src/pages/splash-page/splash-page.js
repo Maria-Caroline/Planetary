@@ -22,7 +22,6 @@ const SplashPage = () => {
 
   return (
     <div className="container-splash">
-      <img src="caminho-para-sua-logo.png" alt="Logo" />
       <div className='container-disclaimer'>
         <h3>{t("disclaimer-title")}</h3>
         <p>{t("disclaimer")}</p>
