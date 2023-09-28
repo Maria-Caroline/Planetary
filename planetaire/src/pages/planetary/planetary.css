@@ -179,7 +179,7 @@
 
 .character-illustration-small {
     height: 40vmax;
-    border: 4px solid blue;
+    /* border: 4px solid blue; */
 }
 
 .character-illustration-smaller {
@@ -206,11 +206,11 @@
     text-align: center;
     z-index: 2;
     overflow: auto;
-    border: 4px solid rgb(255, 0, 13);
+    /* border: 4px solid rgb(255, 0, 13); */
 }
 
 .container-character-illustration-small {
-    border: 10px solid rgb(255, 0, 140);
+    /* border: 10px solid rgb(255, 0, 140); */
     width: 29vmax;
     display: flex;
     justify-content: center; /* Centralizar verticalmente */
@@ -223,14 +223,13 @@
 
 .container-character-infos {
     display: flex;
-    border: 4px solid blue;
+    /* border: 4px solid blue; */
     flex-direction: column;
     position: relative;
     justify-content: center;
-    /* Centralizar verticalmente */
     align-items: center;
 }
 
 .close-modal-button {
-    border: 4px solid blue;
+    /* border: 4px solid blue; */
 }
