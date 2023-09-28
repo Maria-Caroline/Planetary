@@ -96,6 +96,7 @@ function Game() {
                                 <button onClick={() => setShowRules(true)} disabled={cardsDistributed}>
                                     {t("rules")}
                                 </button>
+                                
                             </div>
                         </>
                     ) : (

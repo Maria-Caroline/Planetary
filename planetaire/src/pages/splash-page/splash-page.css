@@ -6,7 +6,7 @@
     justify-content: center;
     height: 100vh;
     background-color: #fff; /* Cor de fundo da splash page */
-    animation: fadeOut 6s forwards; /* Defina a duração da splash page e a animação de saída */
+    animation: fadeOut 3s forwards; /* Defina a duração da splash page e a animação de saída */
   }
   
   /* Estilos adicionais para a imagem e o resumo */

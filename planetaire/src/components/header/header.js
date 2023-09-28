@@ -16,7 +16,7 @@ function Header() {
             <div className="container-header">
                 <LanguageSwitch />
                 <div className="menu">
-                    <Link to="/" className="menu-option">{t("Planetary")}</Link>
+                    <Link to="/planetary" className="menu-option">{t("Planetary")}</Link>
                     <Link to="/tales" className="menu-option">{t("Tales")}</Link>
                     <Link to="/play" className="menu-option">{t("Play")} </Link>
                 </div>
