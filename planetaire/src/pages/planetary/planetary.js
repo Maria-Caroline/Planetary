@@ -114,7 +114,7 @@ function Planetary() {
                         <div className='container-character-infos'>
                             <div className='box-character-infos'>
                                 <div className='character-infos'>
-                                    <p>{t('Earth')}</p>
+                                    <h3>{t('Earth')}</h3>
                                     <p>{t('earth-description')}</p>
                                     <p>{t('weapon')}: {t('none')}</p>
                                     <p>{t('based-animal')}: {t('earth-animals')}</p>
@@ -136,7 +136,7 @@ function Planetary() {
                         <div className='container-character-infos'>
                             <div className='box-character-infos'>
                                 <div className='character-infos'>
-                                    <p>{t('Moon')}</p>
+                                    <h3>{t('Moon')}</h3>
                                     <p>{t('moon-description')}</p>
                                     <p>{t('weapon')}: {t('moon-weapon')}</p>
                                     <p>{t('based-animal')}: {t('moon-animals')}</p>
@@ -160,7 +160,7 @@ function Planetary() {
                         <div className="container-character-infos">
                             <div className='box-character-infos'>
                                 <div className='character-infos'>
-                                    <p>{t('Venus')}</p>
+                                    <h3>{t('Venus')}</h3>
                                     <p>{t('venus-description')}</p>
                                     <p>{t('weapon')}: {t('none')}</p>
                                     <p>{t('based-animal')}: {t('venus-animals')}</p>
