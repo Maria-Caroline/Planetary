@@ -1,7 +1,9 @@
 {
     "translation": {
+        "disclaimer":"Décharge de Responsabilité\nL'intégralité de ce site est de nature fictive, proposant des concepts inspirés d'éléments du monde réel, mais ses récits et faits sont le fruit d'une pure fiction. Ce site ne doit en aucun cas être utilisé comme source de référence pour des recherches ou des travaux académiques.\n",
         "weapon":"Weapon",
         "based-animal":"Animal basé",
+        "none":"Aucune",
 
         "Sun": "Soleil",
         "sun-description" : "C'est le souverain du système solaire.\nTout et tout le monde tourne autour de lui, ses ordres sont donc suprêmes et incontestables. C'est un leader juste et réfléchi, mais la justice n'est pas toujours synonyme de gentillesse.\nRares sont ceux qui ont osé le défier, mais à ce jour, un seul d'entre eux est resté impuni.",
@@ -9,13 +11,20 @@
         "sun-animals" : "Lion",
         
         "Moon": "Lune",
-        "moon-description" : "Le principal gardien de Terre. Il ne s'entend pas très bien avec les autres planètes en raison de sa nature froide et sarcastique.\nApparaît constamment fatigué, physiquement et mentalement.\nÀ ce jour, il était le seul dans tout le système solaire à ne pas être puni pour ses crimes, pour des raisons inconnues.",
+        "moon-description" : "Le principal gardien de Terre. Il ne s'entend pas très bien avec les autres corps célestes en raison de sa nature froide et sarcastique.\nApparaît constamment fatigué, physiquement et mentalement.\nÀ ce jour, il était le seul dans tout le système solaire à ne pas être puni pour ses crimes, pour des raisons inconnues.",
         "moon-weapon" : "Épée",
         "moon-animals" : "Chauve-souris, papillon de nuit",
         
         "Earth": "Terre",
+        "earth-description" : "En plus d'être le plus jeune, il est aussi le plus curieux du système solaire.\nSon énergie et votre bonne humeur sont toujours élevées et, par conséquent, vous pouvez finir par devenir un casse-tête de temps en temps pour les autres corps célestes.\nTout le monde est sûr d'une chose : quand il arrive, l'esprit y monte, et certes, on ne s'ennuie pas en sa présence.",
+        "earth-animals" : "Chiot",
+
         "Mars": "Mars",
+
         "Venus": "Vénus",
+        "venus-description" : "Sa nature amicale et aimante donne envie à tout le monde d'être avec elle, ne serait-ce que pour l'écouter.\nMais ne vous laissez pas berner par la convivialité et la gentillesse, comme toute autre planète, elle a ses phases.\nLes planètes, les lunes, les astéroïdes et les comètes ont tous vu leur cœur cosmique brisé à un moment donné de leur vie.",
+        "venus-animals" : "Cygne",
+
         "Mercury": "Mercure",
         "Jupiter": "Jupiter",
         "Neptune": "Neptune",

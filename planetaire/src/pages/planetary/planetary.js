@@ -3,7 +3,7 @@ import './planetary.css';
 import { useRef } from 'react';
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
-
+import venus from '../../assets/planets/venus_planet.png'
 import sun from '../../assets/planets/sun_planet.png'
 import earth from '../../assets/planets/earth_planet.png'
 import moon from '../../assets/planets/moon_planet.png'
@@ -81,6 +81,9 @@ function Planetary() {
                     <img onClick={() => openModal('Earth')} src={earth} alt={t("Earth")} className="earth" />
                     <Modal className="modal-planets" isOpen={planetModals['Earth'] || false} onRequestClose={() => closeModal('Earth')}>
                         <p>{t('Earth')}</p>
+                        <p>{t('earth-description')}</p>
+                        <p>{t('weapon')}: {t('none')}</p>
+                        <p>{t('based-animal')}: {t('earth-animals')}</p>
                         <button onClick={() => closeModal('Earth')}>Fechar</button>
                     </Modal>
                     <img onClick={() => openModal('Moon')} src={moon} alt={t("Moon")} className="moon" />
@@ -94,9 +97,12 @@ function Planetary() {
                 </div>
 
                 <div className="circle orbit2">
-                    <img onClick={() => openModal('Venus')} src={sun} alt={t("Venus")} className="planet" />
+                    <img onClick={() => openModal('Venus')} src={venus} alt={t("Venus")} className="venus" />
                     <Modal className="modal-planets" isOpen={planetModals['Venus'] || false} onRequestClose={() => closeModal('Venus')}>
                         <p>{t('Venus')}</p>
+                        <p>{t('venus-description')}</p>
+                        <p>{t('weapon')}: {t('none')}</p>
+                        <p>{t('based-animal')}: {t('venus-animals')}</p>
                         <button onClick={() => closeModal('Venus')}>Fechar</button>
                     </Modal>
                 </div>

@@ -1,7 +1,9 @@
 {
     "translation": {
+        "disclaimer":"Disclaimer\nThis website is entirely fictional in nature, featuring concepts inspired by elements from the real world, but its narratives and facts are products of pure fiction. This site should not be used as a reference source for research or academic projects.\n",
         "weapon":"Weapon",
         "based-animal":"Based animal",
+        "none":"None",
         
         "Sun": "Sun",
         "sun-description" : "This is the Sovereign of the Solar System.\nEverything and everyone revolves around him, therefore, his orders are supreme and unquestionable. He is a fair and thoughtful leader, but justice is not always kindness.\nFew were able to dare to challenge him, but to date, only one of them has gone unpunished.",
@@ -9,13 +11,20 @@
         "sun-animals" : "Lion",
         
         "Moon": "Moon",
-        "moon-description" : "Earth's primary guardian. He doesn't get along  with other planets due to his cold and sarcastic nature.\nConstantly appears tired, physically and mentally.\nCurrently, he was the only one in the entire Solar System who was not punished for his crimes, for unknown reasons.",
+        "moon-description" : "Earth's primary guardian. He doesn't get along  with other celestial bodies due to his cold and sarcastic nature.\nConstantly appears tired, physically and mentally.\nCurrently, he was the only one in the entire Solar System who was not punished for his crimes, for unknown reasons.",
         "moon-weapon" : "Sword",
         "moon-animals" : "Bat, moth",
         
         "Earth": "Earth",
+        "earth-description" : "In addition to being youngest, it is also the most curious in the solar system.\nHis energy and good mood are always high, and as a result, he also can end up becoming a headache from time to time for other celestial bodies.\nEveryone is certain of one thing: when he arrives, the spirit goes up, and certainly, there is no boredom in his presence",
+        "earth-animals" : "Puppy",
+
         "Mars": "Mars",
+
         "Venus": "Venus",
+        "venus-description" : "Her friendly and loving nature makes everyone want to be around her, even if it is just to listen to her.\nBut don't be fooled by the friendliness and kindness, just like any other planet, she has her phases.\n Planets, moons, asteroids and comets, all had their cosmic hearts broken by her at some point in their lives.",
+        "venus-animals" : "Swan",
+
         "Mercury": "Mercury",
         "Jupiter": "Jupiter",
         "Neptune": "Neptune",

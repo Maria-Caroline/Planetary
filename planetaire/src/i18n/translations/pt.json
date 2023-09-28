@@ -1,7 +1,9 @@
 {
     "translation": {
+        "disclaimer":"Aviso de Isenção de Responsabilidade.\nEste site tem natureza inteiramente fictícia, apresentando conceitos inspirados em elementos do mundo real, porém suas narrativas e fatos são produtos de pura ficção. Este espaço não deve ser utilizado como fonte de consulta para pesquisas ou trabalhos acadêmicos.\n",
         "weapon":"Arma",
         "based-animal":"Animal baseado",
+        "none":"Nenhuma",
         
         "Sun": "Sol",
         "sun-description" : "Esse é o Soberano do Sistema Solar.\nTudo e todos giram em torno dele, sendo assim, suas ordens são supremas e inquestionáveis. É um líder justo e ponderado, mas justiça nem sempre é bondade.\nPoucos foram capazes de ousar em o desafiar, mas até hoje, só um deles saiu impune.",
@@ -9,13 +11,20 @@
         "sun-animals" : "Leão",
         
         "Moon": "Lua",
-        "moon-description" : "Guardião primário do Terra. Não se dá muito bem com os outros planetas devido a sua natureza fria e sarcástica.\nConstantemente aparenta estar cansado, fisicamente e mentalmente.\nAté hoje ele foi o único em todo o Sistema Solar que não foi punido por seus crimes, por motivos desconhecidos",
+        "moon-description" : "Guardião primário do Terra. Não se dá muito bem com os outros corpos celestes devido a sua natureza fria e sarcástica.\nConstantemente aparenta estar cansado, fisicamente e mentalmente.\nAté hoje ele foi o único em todo o Sistema Solar que não foi punido por seus crimes, por motivos desconhecidos",
         "moon-weapon" : "Espada",
         "moon-animals" : "Morcego, mariposa",
         
         "Earth": "Terra",
+        "earth-description" : "Além de mais novo, também é o mais curioso do sistema solar.\nSua energia e bom humor estão sempre às alturas, e com isso, pode acabar por se tornar uma dor de cabeça de vez em quando para os outros corpos celestes.\nDe uma coisa todos estão certos: é ele chegar, que o astral vai lá em cima, e certamente, não existe tédio em sua presença",
+        "earth-animals" : "Filhote de cachorro",
+
         "Mars": "Marte",
+
         "Venus": "Vênus",
+        "venus-description" : "Sua natureza amigável e amorosa faz com que todos queiram estar perto dela, mesmo que só para ouvi-la. \nMas não se engane pela simpatia e gentileza, assim como qualquer outro planeta, ela tem suas fases. \nPlanetas, luas, asteroides e cometas, todos já tiveram em algum momento de sua vida, seus corações cósmicos quebrados por ela.",
+        "venus-animals" : "Cisne",
+
         "Mercury": "Mercúrio",
         "Jupiter": "Júpiter",
         "Neptune": "Neturno",
