@@ -1,6 +1,7 @@
 {
     "translation": {
-        "disclaimer":"Aviso de Isenção de Responsabilidade.\nEste site tem natureza inteiramente fictícia, apresentando conceitos inspirados em elementos do mundo real, porém suas narrativas e fatos são produtos de pura ficção. Este espaço não deve ser utilizado como fonte de consulta para pesquisas ou trabalhos acadêmicos.\n",
+        "disclaimer-title":"Aviso de Isenção de Responsabilidade",
+        "disclaimer":"Este site tem natureza inteiramente fictícia, apresentando conceitos inspirados em elementos do mundo real, porém suas narrativas e fatos são produtos de pura ficção. Este espaço não deve ser utilizado como fonte de consulta para pesquisas ou trabalhos acadêmicos.\n",
         "weapon":"Arma",
         "based-animal":"Animal baseado",
         "none":"Nenhuma",

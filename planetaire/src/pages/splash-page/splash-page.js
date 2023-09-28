@@ -15,18 +15,18 @@ const SplashPage = () => {
     const splashTimer = setTimeout(() => {
       setShowSplash(false);
       navigate("/planetary");
-    }, 3000);
+    }, 9500);
 
     return () => clearTimeout(splashTimer);
   }, []);
 
   return (
-    <div className="splash">
+    <div className="container-splash">
       <img src="caminho-para-sua-logo.png" alt="Logo" />
-      <p>Seu breve resumo aqui.</p>
-      <p>Seu breve resumo aqui.</p>
-      <p>Seu breve resumo aqui.</p>
-      <p>Seu breve resumo aqui.</p>
+      <div className='container-disclaimer'>
+        <h3>{t("disclaimer-title")}</h3>
+        <p>{t("disclaimer")}</p>
+      </div>
     </div>
   );
 }

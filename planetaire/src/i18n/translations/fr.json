@@ -1,6 +1,7 @@
 {
     "translation": {
-        "disclaimer":"Décharge de Responsabilité\nL'intégralité de ce site est de nature fictive, proposant des concepts inspirés d'éléments du monde réel, mais ses récits et faits sont le fruit d'une pure fiction. Ce site ne doit en aucun cas être utilisé comme source de référence pour des recherches ou des travaux académiques.\n",
+        "disclaimer-title":"Décharge de Responsabilité",
+        "disclaimer":"L'intégralité de ce site est de nature fictive, proposant des concepts inspirés d'éléments du monde réel, mais ses récits et faits sont le fruit d'une pure fiction. Ce site ne doit en aucun cas être utilisé comme source de référence pour des recherches ou des travaux académiques.\n",
         "weapon":"Weapon",
         "based-animal":"Animal basé",
         "none":"Aucune",

@@ -26,6 +26,7 @@ function Game() {
             //seta as cartas como distribuidas, logo, desabilita o botão
             setCardsDistributed(true);
             setShowButton(false);
+
         }
     };
 

@@ -1,27 +1,30 @@
 /* styles.css */
-.splash {
+.container-splash {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #fff; /* Cor de fundo da splash page */
-    animation: fadeOut 3s forwards; /* Defina a duração da splash page e a animação de saída */
+    background-image: url("../../assets/support_material/star.png");
+    background-color: var(--darker-sky-blue); /* Cor de fundo da splash page */
+    background-blend-mode:soft-light;
+    animation: fadeOut 10s forwards; /* Defina a duração da splash page e a animação de saída */
   }
   
   /* Estilos adicionais para a imagem e o resumo */
   .splash img {
     width: 100px; /* Ajuste o tamanho da logo conforme necessário */
   }
-  
-  .splash p {
-    font-size: 24px; /* Ajuste o tamanho da fonte do resumo conforme necessário */
+  .container-disclaimer{
+   width: 40%;
+    text-align: center;
+
   }
-  
   @keyframes fadeOut {
     to {
       opacity: 0;
       visibility: hidden;
     }
   }
+
   

@@ -1,6 +1,7 @@
 {
     "translation": {
-        "disclaimer":"Disclaimer\nThis website is entirely fictional in nature, featuring concepts inspired by elements from the real world, but its narratives and facts are products of pure fiction. This site should not be used as a reference source for research or academic projects.\n",
+        "disclaimer-title":"Disclaimer",
+        "disclaimer":"This website is entirely fictional in nature, featuring concepts inspired by elements from the real world, but its narratives and facts are products of pure fiction. This site should not be used as a reference source for research or academic projects.\n",
         "weapon":"Weapon",
         "based-animal":"Based animal",
         "none":"None",

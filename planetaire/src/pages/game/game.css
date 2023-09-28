@@ -1,66 +1,69 @@
 .container-game {
-    margin: 0 auto;
-    display: flex;
-    height: 100%;
-    width: fit-content;
-    block-size: fit-content;
-    
+  margin: 0 auto;
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  block-size: fit-content;
 }
-.card-deck{
-    display: flex;
-    flex-direction: row;
-    position: relative;
+.game-area {
+  animation: fadeIn 2s forwards;
 }
-.card-backwards{
-    width: 24vmax;
-    left: -13vmax;
-    margin-bottom: -7vmax;
-    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5); 
-    position: relative;
-    z-index: 1; 
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.card-backwards {
+  width: 24vmax;
+  left: -13vmax;
+  margin-bottom: -7vmax;
+  box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
 }
 
 .container-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .revealed-cards-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 7vmax;
-    left: 18vmax;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 7vmax;
+  left: 18vmax;
+
 }
 
 .selected-card {
-    border-left: 1rem solid transparent; 
-    border-bottom: 1rem solid transparent; 
+  border-left: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
 }
 
-.container-rules{
+.container-rules {}
 
-}
-
-.box-options{
-    
-}
+.box-options {}
 
 @keyframes flip {
-    0% {
-      transform: rotateY(90deg);
-    }
-    100% {
-      transform: rotateY(0deg);
-    }
+  0% {
+    transform: rotateY(90deg);
   }
-  
-  .card-flip {
-    animation: flip 0.5s ease-in-out; 
-    transform-style: preserve-3d;
-  }
-  
 
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.card-flip {
+  animation: flip 0.5s ease-in-out;
+  transform-style: preserve-3d;
+}

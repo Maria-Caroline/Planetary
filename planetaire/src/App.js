@@ -9,6 +9,7 @@ import LoadingScreen from './components/loading-screen/loading-screen';
 import SplashPage from './pages/splash-page/splash-page';
 
 function App() {
+
   return (
     <>
         <Router>
