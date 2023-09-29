@@ -114,15 +114,14 @@ function Planetary() {
                         <div className='container-character-infos'>
                             <div className='box-character-infos'>
                                 <div className='character-infos'>
-                                    <h3>{t('Earth')}</h3>
-                                    <p>{t('earth-description')}</p>
-                                    <p>{t('weapon')}: {t('none')}</p>
-                                    <p>{t('based-animal')}: {t('earth-animals')}</p>
+                                    <p className='character-atribute'>{t('Earth')}</p>
+                                    <p className='character-atribute'>{t('earth-description')}</p>
+                                    <p className='character-atribute'>{t('weapon')}: {t('none')}</p>
                                 </div>
                                 <img src={info_holder} alt={t("")} className="info-holder" />
                             </div>
-                            <div className='close-modal-button'>
-                                <button onClick={() => closeModal('Earth')}>Fechar</button>
+                            <div >
+                                <button className='close-modal-button' onClick={() => closeModal('Earth')}>Fechar</button>
                             </div>
                         </div>
                         
@@ -136,15 +135,14 @@ function Planetary() {
                         <div className='container-character-infos'>
                             <div className='box-character-infos'>
                                 <div className='character-infos'>
-                                    <h3>{t('Moon')}</h3>
-                                    <p>{t('moon-description')}</p>
-                                    <p>{t('weapon')}: {t('moon-weapon')}</p>
-                                    <p>{t('based-animal')}: {t('moon-animals')}</p>
+                                    <p className='character-atribute'><strong>{t('Moon')}</strong></p>
+                                    <p className='character-atribute'>{t('moon-description')}</p>
+                                    <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('moon-weapon')}</p>
                                 </div>
                                 <img src={info_holder} alt={t("")} className="info-holder" />
                             </div>
-                            <div className='close-modal-button'>
-                                <button onClick={() => closeModal('Moon')}>Fechar</button>
+                            <div >
+                                <button className='close-modal-button' onClick={() => closeModal('Moon')}>Fechar</button>
                             </div>
                         </div>
                     </Modal>
@@ -159,15 +157,14 @@ function Planetary() {
                         <div className="container-character-infos">
                             <div className='box-character-infos'>
                                 <div className='character-infos'>
-                                    <h3>{t('Venus')}</h3>
-                                    <p>{t('venus-description')}</p>
-                                    <p>{t('weapon')}: {t('none')}</p>
-                                    <p>{t('based-animal')}: {t('venus-animals')}</p>
+                                    <p className='character-atribute' >{t('Venus')}</p>
+                                    <p className='character-atribute'>{t('venus-description')}</p>
+                                    <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('none')}</p>
                                 </div>
                                 <img src={info_holder} alt={t("")} className="info-holder" />
                             </div>
-                            <div className='close-modal-button'>
-                                <button onClick={() => closeModal('Venus')}>Fechar</button>
+                            <div >
+                                <button className='close-modal-button' onClick={() => closeModal('Venus')}>Fechar</button>
                             </div>
                         </div>
                     </Modal>
@@ -181,7 +178,6 @@ function Planetary() {
                     </Modal>
                 </div>
 
-
                 <img onClick={() => openModal('Sun')} src={sun} alt={t("Sun")} className="sun" />
                 <Modal className="modal-planets" isOpen={planetModals['Sun'] || false} onRequestClose={() => closeModal('Sun')}>
                     <div className="container-character-illustration">
@@ -190,15 +186,14 @@ function Planetary() {
                     <div className="container-character-infos">
                         <div className='box-character-infos'>
                             <div className='character-infos'>
-                                <h3>{t('Sun')}</h3>
-                                <p>{t('sun-description')}</p>
-                                <p>{t('weapon')}: {t('sun-weapon')}</p>
-                                <p>{t('based-animal')}: {t('sun-animals')}</p>
+                                <p className='character-atribute'><strong>{t('Sun')}</strong></p>
+                                <p className='character-atribute'>{t('sun-description')}</p>
+                                <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('sun-weapon')}</p>
                             </div>
                             <img src={info_holder} alt={t("")} className="info-holder" />
                         </div>
-                        <div className='close-modal-button'>
-                            <button onClick={() => closeModal('Sun')}>Fechar</button>
+                        <div>
+                            <button className='close-modal-button' onClick={() => closeModal('Sun')}>{t('close')}</button>
                         </div>
                     </div>
                 </Modal>

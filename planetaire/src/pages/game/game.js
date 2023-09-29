@@ -13,17 +13,17 @@ function Game() {
     const [cardsDistributed, setCardsDistributed] = useState(false);
     const [selectedCardIndex, setSelectedCardIndex] = useState(null);
     const [revealedCardId, setRevealedCardId] = useState(null);
-    const [showButton, setShowButton] = useState(true); // Novo estado para controlar a exibição do botão
+    const [showButton, setShowButton] = useState(true);
     const [showRules, setShowRules] = useState(false);
+    const [selectedAttribute, setSelectedAttribute] = useState(null);
+    const [enemyCardId, setEnemyCardId] = useState(null);
+    const [enemyCard, setEnemyCard] = useState(null);
+    const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
 
     const distributeCards = () => {
-        //variavel que controla se as cartas foram distribuidas
         if (!cardsDistributed) {
-            //chama a função de gerar ids
             const randomCardIds = generateRandomCardIds();
-            //armazena os ids em um deck
             setDeck(randomCardIds);
-            //seta as cartas como distribuidas, logo, desabilita o botão
             setCardsDistributed(true);
             setShowButton(false);
 
@@ -31,10 +31,7 @@ function Game() {
     };
 
     const generateRandomCardIds = () => {
-        //array de ids de cartas
         const randomIds = [];
-        //realiza a função enquanto os ids forem menor que 5 (o zero é contabilizado tbm)
-        //0 < 5 = 4
         while (randomIds.length < 5) {
             const randomId = Math.floor(Math.random() * cardData.planets.length) + 1;
             if (!randomIds.includes(randomId)) {
@@ -45,12 +42,45 @@ function Game() {
     };
 
     const handleCardClick = (index) => {
-        // Quando uma carta virada para baixo é clicada, revelamos a carta correspondente
-        setRevealedCardId(deck[index]);
-        // Defina a carta selecionada
-        setSelectedCardIndex(index);
-
+        if (!isCardSelectionLocked) {
+            setRevealedCardId(deck[index]);
+            setSelectedCardIndex(index);
+        }
     };
+
+    const handleSelectCard = () => {
+        const randomEnemyCardId = generateRandomEnemyCardId(selectedCardIndex);
+        setEnemyCard(cardData.planets[randomEnemyCardId - 1]);
+        setIsCardSelectionLocked(true);
+    };
+
+    const handleAttributeSelect = (attribute) => {
+        setSelectedAttribute(attribute);
+
+        // Realize a comparação de atributos aqui
+        // cardData.planets[selectedCardIndex] é a carta do usuário
+        // cardData.planets[enemyCardId - 1] é a carta "inimiga"
+        const userCard = cardData.planets[selectedCardIndex];
+        const enemyCard = cardData.planets[enemyCardId - 1];
+
+        // Faça a comparação dos atributos aqui e determine o vencedor
+        // Você pode atualizar o estado do jogo com o resultado.
+
+        // Por exemplo, se o atributo do usuário for maior que o atributo "inimigo", o usuário venceu.
+
+        // Reinicie os estados necessários para a próxima rodada.
+
+        // Dica: Você pode usar um setTimeout para simular a escolha do "inimigo" após um pequeno atraso.
+    };
+
+    const generateRandomEnemyCardId = (userCardIndex) => {
+        let randomEnemyCardId;
+        do {
+            randomEnemyCardId = Math.floor(Math.random() * cardData.planets.length) + 1;
+        } while (randomEnemyCardId === userCardIndex + 1); // Certifique-se de que o ID seja diferente do selecionado pelo usuário
+        return randomEnemyCardId;
+    };
+
 
     const Deck = () => (
         <div className="container-card-deck">
@@ -62,6 +92,10 @@ function Game() {
                             {revealedCardId === cardId && (
                                 <div className="card-flip"> {/* Aplica a classe para a animação de virada */}
                                     <Card cardData={cardData.planets[cardId - 1]} />
+                                    <button onClick={handleSelectCard} className={`${isCardSelectionLocked ? 'selected-button' : ''}`}>
+                                        Selecionar Carta
+                                    </button>
+
                                 </div>
                             )}
                         </div>
@@ -71,6 +105,32 @@ function Game() {
                     </div>
                 </div>
             ))}
+            {selectedCardIndex !== null && selectedAttribute === null && enemyCard !== null && (
+                <div className="attribute-options">
+                    {Object.keys(cardData.planets[selectedCardIndex]).map((attribute) => (
+                        <button
+                            key={attribute}
+                            className="teste"
+                            onClick={() => handleAttributeSelect(attribute)}
+                        >
+                            {attribute}
+                        </button>
+                    ))}
+                </div>
+            )}
+            {selectedCardIndex !== null && selectedAttribute === null && enemyCard !== null && (
+                <div className="attribute-options">
+                    {Object.keys(cardData.planets[selectedCardIndex]).map((attribute) => (
+                        <button
+                            key={attribute}
+                            className="teste"
+                            onClick={() => handleAttributeSelect(attribute)}
+                        >
+                            {attribute}
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
     );
 
@@ -97,11 +157,10 @@ function Game() {
                                 <button onClick={() => setShowRules(true)} disabled={cardsDistributed}>
                                     {t("rules")}
                                 </button>
-                                
                             </div>
                         </>
                     ) : (
-                        <Deck /> // Exibe a "nova tela" quando showButton for false ou cardsDistributed for true
+                        <Deck />
                     )
                 )}
             </div>

@@ -43,7 +43,13 @@
   left: 18vmax;
 
 }
-
+.teste{
+  position: absolute;
+  right: 0;
+}
+.selected-button{
+  opacity: 0;
+}
 .selected-card {
   border-left: 1rem solid transparent;
   border-bottom: 1rem solid transparent;
@@ -66,4 +72,16 @@
 .card-flip {
   animation: flip 0.5s ease-in-out;
   transform-style: preserve-3d;
+}
+
+.box-options{
+  width: 50vmax;
+  height: 30vmax;
+  background-color: var(--darker-sky-blue);
+  margin: 5vmax auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--star-blue);
 }
