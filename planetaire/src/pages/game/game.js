@@ -2,6 +2,7 @@ import React, { useState, useEffect, useTransition } from 'react';
 import './game.css';
 // import lilysmall from '../../assets/lily.webp'
 import backcard from '../../assets/cards/bkcard.png'
+import backcardopoonent from '../../assets/cards/temporary-back-card.png'
 import { useTranslation } from 'react-i18next';
 import Card from "../../components/card/card"
 import Header from '../../components/header/header';
@@ -9,7 +10,8 @@ import cardData from '../../components/card/card-data.json';
 
 function Game() {
     const { t } = useTranslation();
-    const [deck, setDeck] = useState([]);
+    const [playerDeck, setPlayerDeck] = useState([]);
+    const [opponentDeck, setOpponentDeck] = useState([]);
     const [cardsDistributed, setCardsDistributed] = useState(false);
     const [selectedCardIndex, setSelectedCardIndex] = useState(null);
     const [revealedCardId, setRevealedCardId] = useState(null);
@@ -19,118 +21,115 @@ function Game() {
     const [enemyCardId, setEnemyCardId] = useState(null);
     const [enemyCard, setEnemyCard] = useState(null);
     const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
+    const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
 
     const distributeCards = () => {
         if (!cardsDistributed) {
-            const randomCardIds = generateRandomCardIds();
-            setDeck(randomCardIds);
+            const { playerDeck, opponentDeck } = generateRandomCardIds();
+            setPlayerDeck(playerDeck);
+            setOpponentDeck(opponentDeck);
             setCardsDistributed(true);
             setShowButton(false);
-
-        }
+          }
     };
 
     const generateRandomCardIds = () => {
-        const randomIds = [];
-        while (randomIds.length < 5) {
-            const randomId = Math.floor(Math.random() * cardData.planets.length) + 1;
-            if (!randomIds.includes(randomId)) {
-                randomIds.push(randomId);
-            }
-        }
-        return randomIds;
+        const allCardIds = Array.from({ length: cardData.planets.length }, (_, index) => index + 1);
+        const shuffledCardIds = shuffleArray(allCardIds); // Implemente a função shuffleArray se necessário
+
+        const playerDeck = shuffledCardIds.slice(0, 5); // Deck do jogador
+        const opponentDeck = shuffledCardIds.slice(5, 10); // Deck do oponente
+
+        return { playerDeck, opponentDeck };
     };
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos de posição
+        }
+        return array;
+      };
 
     const handleCardClick = (index) => {
         if (!isCardSelectionLocked) {
-            setRevealedCardId(deck[index]);
+            setRevealedCardId(playerDeck[index]);
             setSelectedCardIndex(index);
         }
     };
 
     const handleSelectCard = () => {
-        const randomEnemyCardId = generateRandomEnemyCardId(selectedCardIndex);
-        setEnemyCard(cardData.planets[randomEnemyCardId - 1]);
         setIsCardSelectionLocked(true);
-    };
+        const randomEnemyCardId = chooseRandomOpponentCard();
+        setEnemyCardId(randomEnemyCardId); // Armazena o ID da carta do oponente no estado
+      };
+      
+      const chooseRandomOpponentCard = () => {
+        const randomIndex = Math.floor(Math.random() * opponentDeck.length);
+        const randomCardId = opponentDeck[randomIndex];
+        setEnemyCard(cardData.planets[randomCardId - 1]); // Armazena a carta do oponente no estado
+        return randomCardId; // Retorna o ID da carta do oponente
+      };
 
     const handleAttributeSelect = (attribute) => {
         setSelectedAttribute(attribute);
-
-        // Realize a comparação de atributos aqui
-        // cardData.planets[selectedCardIndex] é a carta do usuário
-        // cardData.planets[enemyCardId - 1] é a carta "inimiga"
-        const userCard = cardData.planets[selectedCardIndex];
-        const enemyCard = cardData.planets[enemyCardId - 1];
-
-        // Faça a comparação dos atributos aqui e determine o vencedor
-        // Você pode atualizar o estado do jogo com o resultado.
-
-        // Por exemplo, se o atributo do usuário for maior que o atributo "inimigo", o usuário venceu.
-
-        // Reinicie os estados necessários para a próxima rodada.
-
-        // Dica: Você pode usar um setTimeout para simular a escolha do "inimigo" após um pequeno atraso.
+        setIsOpponentCardRevealed(true);
+        console.log(playerDeck, opponentDeck)
     };
-
-    const generateRandomEnemyCardId = (userCardIndex) => {
-        let randomEnemyCardId;
-        do {
-            randomEnemyCardId = Math.floor(Math.random() * cardData.planets.length) + 1;
-        } while (randomEnemyCardId === userCardIndex + 1); // Certifique-se de que o ID seja diferente do selecionado pelo usuário
-        return randomEnemyCardId;
-    };
-
 
     const Deck = () => (
-        <div className="container-card-deck">
-            {deck.map((cardId, index) => (
-                <div key={index} className={`card ${selectedCardIndex === index ? 'selected-card' : ''}`}
-                    onClick={() => handleCardClick(index)}>
-                    <div className="container-card">
-                        <div className="revealed-cards-container">
-                            {revealedCardId === cardId && (
-                                <div className="card-flip"> {/* Aplica a classe para a animação de virada */}
-                                    <Card cardData={cardData.planets[cardId - 1]} />
-                                    <button onClick={handleSelectCard} className={`${isCardSelectionLocked ? 'selected-button' : ''}`}>
-                                        Selecionar Carta
-                                    </button>
+        <div className='decks-container'>
+            <div className="container-card-deck">
+                {playerDeck.map((cardId, index) => (
+                    <div key={index} className={`card ${selectedCardIndex === index ? 'selected-card' : ''}`}
+                        onClick={() => handleCardClick(index)}>
+                        <div className="container-card">
+                            <div className="revealed-cards-container">
+                                {revealedCardId === cardId && (
+                                    <div className="card-flip"> {/* Aplica a classe para a animação de virada */}
+                                        <Card cardData={cardData.planets[cardId - 1]} />
+                                        <button onClick={handleSelectCard} className={`${isCardSelectionLocked ? 'selected-button' : ''}`}>
+                                            Selecionar Carta
+                                        </button>
 
-                                </div>
-                            )}
+                                    </div>
+                                )}
+                            </div>
+                            <img
+                                className={`card-backwards ${revealedCardId === cardId ? 'hidden' : ''}`}
+                                src={backcard} alt="Card Back" />
                         </div>
-                        <img
-                            className={`card-backwards ${revealedCardId === cardId ? 'hidden' : ''}`}
-                            src={backcard} alt="Card Back" />
                     </div>
-                </div>
-            ))}
-            {selectedCardIndex !== null && selectedAttribute === null && enemyCard !== null && (
-                <div className="attribute-options">
-                    {Object.keys(cardData.planets[selectedCardIndex]).map((attribute) => (
-                        <button
-                            key={attribute}
-                            className="teste"
-                            onClick={() => handleAttributeSelect(attribute)}
-                        >
-                            {attribute}
-                        </button>
-                    ))}
-                </div>
-            )}
-            {selectedCardIndex !== null && selectedAttribute === null && enemyCard !== null && (
-                <div className="attribute-options">
-                    {Object.keys(cardData.planets[selectedCardIndex]).map((attribute) => (
-                        <button
-                            key={attribute}
-                            className="teste"
-                            onClick={() => handleAttributeSelect(attribute)}
-                        >
-                            {attribute}
-                        </button>
-                    ))}
-                </div>
-            )}
+                ))}
+                {selectedCardIndex !== null && selectedAttribute === null && enemyCard !== null && (
+                    <div className="attribute-options">
+                        {Object.keys(cardData.planets[selectedCardIndex]).map((attribute) => (
+                            <button
+                                key={attribute}
+                                className="teste"
+                                onClick={() => handleAttributeSelect(attribute)}>
+                                {attribute}
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div><div className="container-card-deck">
+                {opponentDeck.map((cardId, index) => (
+                    <div key={index} className='card'>
+                        <div className="container-card-opponent">
+                            <div className="revealed-cards-opponent-container">
+                                {isOpponentCardRevealed && enemyCardId === cardId && (
+                                    <div className="card-flip">
+                                        <Card cardData={cardData.planets[cardId - 1]} />
+                                    </div>
+                                )}
+                            </div>
+                            <img
+                                className={`card-backwards-opponent ${revealedCardId === cardId ? 'hidden' : ''}`}
+                                src={backcard} alt="Card Back" />
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 

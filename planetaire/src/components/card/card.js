@@ -27,6 +27,27 @@ function Card({ cardData }) {
         case "Venus":
             imagePath = venusImage;
             break;
+        case "Uranus":
+            imagePath = sunImage;
+            break;
+        case "Saturn":
+            imagePath = moonImage;
+            break;
+        case "Pluto":
+            imagePath = earthImage;
+            break;
+        case "Mars":
+            imagePath = venusImage;
+            break;
+        case "Neptune":
+            imagePath = moonImage;
+            break;
+        case "Jupiter":
+            imagePath = earthImage;
+            break;
+        case "Mercury":
+            imagePath = venusImage;
+            break;
         default:
             imagePath = "";
     }
