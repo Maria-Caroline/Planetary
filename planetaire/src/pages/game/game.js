@@ -22,7 +22,7 @@ function Game() {
     const [enemyCard, setEnemyCard] = useState(null);
     const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
-    
+
     useEffect(() => {
         if (selectedAttribute !== null) {
             compararAtributo(selectedAttribute);
@@ -79,37 +79,50 @@ function Game() {
     const handleAttributeSelect = (attribute) => {
         setSelectedAttribute(attribute); // Defina o atributo selecionado
         setIsOpponentCardRevealed(true);
-        console.log(selectedCardIndex);
+        const vencedor = compararAtributo(attribute);
+
+        if (vencedor === "jogador") {
+            console.log(t("winner.player"));
+        } else if (vencedor === "oponente") {
+            console.log(t("winner.opponent"));
+        } else {
+            console.log(t("winner.draw"));
+        }
     };
-    
 
     const compararAtributo = (attribute) => {
-        console.log(selectedAttribute);
-        console.log(2);
+        if (selectedCardIndex === null || selectedCardIndex < 0 || selectedCardIndex >= playerDeck.length) {
+            console.log("Invalid selected card index.");
+            return;
+        }
     
-        if (selectedAttribute === attribute && enemyCard && playerDeck[selectedCardIndex]) {
-            const valorCartaJogador = playerDeck[selectedCardIndex][attribute];
-            const valorCartaOponente = enemyCard[attribute];
+        const playerCard = cardData.planets[playerDeck[selectedCardIndex] - 1];
     
-            if (typeof valorCartaJogador !== 'undefined' && typeof valorCartaOponente !== 'undefined') {
-                console.log(`Valor do atributo escolhido (${attribute}):`, valorCartaJogador, valorCartaOponente);
+        if (!playerCard.hasOwnProperty(attribute)) {
+            console.log(`Attribute "${attribute}" not found in player card.`);
+            return;
+        }
     
-                if (valorCartaJogador > valorCartaOponente) {
-                    console.log(`A carta do jogador tem o atributo "${attribute}" maior.`);
-                } else if (valorCartaJogador < valorCartaOponente) {
-                    console.log(`A carta do oponente tem o atributo "${attribute}" maior.`);
-                } else {
-                    console.log(`As cartas têm o mesmo valor no atributo "${attribute}".`);
-                }
-            } else {
-                console.log(`Os valores dos atributos estão indefinidos ou não existem.`);
-            }
+        const valorCartaJogador = playerCard[attribute];
+        const valorCartaOponente = enemyCard[attribute];
+    
+        console.log(`Valor Carta Jogador: ${valorCartaJogador}`);
+        console.log(`Valor Carta Oponente: ${valorCartaOponente}`);
+    
+        if (valorCartaJogador === valorCartaOponente) {
+            return "empate";
         } else {
-            console.log("Algo deu errado ao comparar os atributos.");
+            if (valorCartaJogador > valorCartaOponente) {
+                return "jogador";
+            } else {
+                return "oponente";
+            }
         }
     };
     
     
+      
+
     const Deck = () => (
         <div className='decks-container'>
             <div className="container-card-deck">
