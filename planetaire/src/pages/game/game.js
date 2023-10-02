@@ -22,6 +22,12 @@ function Game() {
     const [enemyCard, setEnemyCard] = useState(null);
     const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
+    
+    useEffect(() => {
+        if (selectedAttribute !== null) {
+            compararAtributo(selectedAttribute);
+        }
+    }, [selectedAttribute]);
 
     const distributeCards = () => {
         if (!cardsDistributed) {
@@ -30,7 +36,7 @@ function Game() {
             setOpponentDeck(opponentDeck);
             setCardsDistributed(true);
             setShowButton(false);
-          }
+        }
     };
 
     const generateRandomCardIds = () => {
@@ -44,11 +50,11 @@ function Game() {
     };
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos de posição
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos de posição
         }
         return array;
-      };
+    };
 
     const handleCardClick = (index) => {
         if (!isCardSelectionLocked) {
@@ -61,21 +67,49 @@ function Game() {
         setIsCardSelectionLocked(true);
         const randomEnemyCardId = chooseRandomOpponentCard();
         setEnemyCardId(randomEnemyCardId); // Armazena o ID da carta do oponente no estado
-      };
-      
-      const chooseRandomOpponentCard = () => {
+    };
+
+    const chooseRandomOpponentCard = () => {
         const randomIndex = Math.floor(Math.random() * opponentDeck.length);
         const randomCardId = opponentDeck[randomIndex];
         setEnemyCard(cardData.planets[randomCardId - 1]); // Armazena a carta do oponente no estado
         return randomCardId; // Retorna o ID da carta do oponente
-      };
-
-    const handleAttributeSelect = (attribute) => {
-        setSelectedAttribute(attribute);
-        setIsOpponentCardRevealed(true);
-        console.log(playerDeck, opponentDeck)
     };
 
+    const handleAttributeSelect = (attribute) => {
+        setSelectedAttribute(attribute); // Defina o atributo selecionado
+        setIsOpponentCardRevealed(true);
+        console.log(selectedCardIndex);
+    };
+    
+
+    const compararAtributo = (attribute) => {
+        console.log(selectedAttribute);
+        console.log(2);
+    
+        if (selectedAttribute === attribute && enemyCard && playerDeck[selectedCardIndex]) {
+            const valorCartaJogador = playerDeck[selectedCardIndex][attribute];
+            const valorCartaOponente = enemyCard[attribute];
+    
+            if (typeof valorCartaJogador !== 'undefined' && typeof valorCartaOponente !== 'undefined') {
+                console.log(`Valor do atributo escolhido (${attribute}):`, valorCartaJogador, valorCartaOponente);
+    
+                if (valorCartaJogador > valorCartaOponente) {
+                    console.log(`A carta do jogador tem o atributo "${attribute}" maior.`);
+                } else if (valorCartaJogador < valorCartaOponente) {
+                    console.log(`A carta do oponente tem o atributo "${attribute}" maior.`);
+                } else {
+                    console.log(`As cartas têm o mesmo valor no atributo "${attribute}".`);
+                }
+            } else {
+                console.log(`Os valores dos atributos estão indefinidos ou não existem.`);
+            }
+        } else {
+            console.log("Algo deu errado ao comparar os atributos.");
+        }
+    };
+    
+    
     const Deck = () => (
         <div className='decks-container'>
             <div className="container-card-deck">
@@ -102,14 +136,16 @@ function Game() {
                 ))}
                 {selectedCardIndex !== null && selectedAttribute === null && enemyCard !== null && (
                     <div className="attribute-options">
-                        {Object.keys(cardData.planets[selectedCardIndex]).map((attribute) => (
-                            <button
-                                key={attribute}
-                                className="teste"
-                                onClick={() => handleAttributeSelect(attribute)}>
-                                {attribute}
-                            </button>
-                        ))}
+                        {Object.keys(cardData.planets[selectedCardIndex])
+                            .filter(attribute => attribute !== 'id' && attribute !== 'name')
+                            .map((attribute) => (
+                                <button
+                                    key={attribute}
+                                    className="teste"
+                                    onClick={() => handleAttributeSelect(attribute)}>
+                                    {attribute}
+                                </button>
+                            ))}
                     </div>
                 )}
             </div><div className="container-card-deck">

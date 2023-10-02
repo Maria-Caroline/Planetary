@@ -21,7 +21,7 @@ function Header() {
                     <Link to="/play" className="menu-option">{t("Play")} </Link>
                 </div>
             </div>
-            <div className="container-divider"><hr class="rounded"></hr></div>
+            <div className="container-divider"><hr className="rounded"></hr></div>
         </>
     );
 };

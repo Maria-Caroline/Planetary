@@ -57,12 +57,12 @@ function Card({ cardData }) {
                 <h5 className='card-name'>{t(cardData.name)}</h5>
                 <div className='card-content-container '>
                     <div className='card-content'>
-                        <p className='card-temp'><strong>{t("Tmp")}</strong>: {cardData.medTemp}</p>
-                        <p className='card-mass'><strong>{t("Mss")}</strong>: {cardData.mass}</p>
+                        <p className='card-temp'><strong>{t("Tmp")}</strong>: {cardData.medTemp}°C</p>
+                        <p className='card-mass'><strong>{t("Mss")}</strong>: {cardData.mass}x10^20</p>
                     </div>
                     <div className='card-content'>
-                        <p className='card-press'><strong>{t("Prs")}</strong>: {cardData.pression}</p>
-                        <p className='card-grav'><strong>{t("Grv")}</strong>: {cardData.gravity}</p>
+                        <p className='card-press'><strong>{t("Prs")}</strong>: {cardData.pression}x10^10</p>
+                        <p className='card-grav'><strong>{t("Grv")}</strong>: {cardData.gravity}m/s²</p>
                     </div>
                 </div>
             </div>
