@@ -79,15 +79,7 @@ function Game() {
     const handleAttributeSelect = (attribute) => {
         setSelectedAttribute(attribute); // Defina o atributo selecionado
         setIsOpponentCardRevealed(true);
-        const vencedor = compararAtributo(attribute);
-
-        if (vencedor === "jogador") {
-            console.log(t("winner.player"));
-        } else if (vencedor === "oponente") {
-            console.log(t("winner.opponent"));
-        } else {
-            console.log(t("winner.draw"));
-        }
+       
     };
 
     const compararAtributo = (attribute) => {
@@ -96,10 +88,33 @@ function Game() {
             return;
         }
     
-        const playerCard = cardData.planets[playerDeck[selectedCardIndex] - 1];
+        const playerCardId = playerDeck[selectedCardIndex];
+        const playerCard = cardData.planets.find(card => card.id === playerCardId);
+    
+        if (!playerCard) {
+            console.log(`Player card with ID ${playerCardId} not found.`);
+            return;
+        }
     
         if (!playerCard.hasOwnProperty(attribute)) {
             console.log(`Attribute "${attribute}" not found in player card.`);
+            return;
+        }
+    
+        if (enemyCardId === null) {
+            console.log("Enemy card ID is null. Make sure it's properly initialized.");
+            return;
+        }
+    
+        const enemyCard = cardData.planets.find(card => card.id === enemyCardId);
+    
+        if (!enemyCard) {
+            console.log(`Enemy card with ID ${enemyCardId} not found.`);
+            return;
+        }
+    
+        if (!enemyCard.hasOwnProperty(attribute)) {
+            console.log(`Attribute "${attribute}" not found in enemy card.`);
             return;
         }
     
@@ -110,15 +125,15 @@ function Game() {
         console.log(`Valor Carta Oponente: ${valorCartaOponente}`);
     
         if (valorCartaJogador === valorCartaOponente) {
-            return "empate";
+            return console.log("empate");
+        } else if (valorCartaJogador > valorCartaOponente) {
+            return console.log("jogador");
         } else {
-            if (valorCartaJogador > valorCartaOponente) {
-                return "jogador";
-            } else {
-                return "oponente";
-            }
+            return console.log("oponente")
         }
     };
+    
+    
     
     
       
