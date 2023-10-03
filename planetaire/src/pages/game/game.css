@@ -6,12 +6,14 @@
   width: fit-content;
   block-size: fit-content;
 }
+
 .decks-container {
   display: flex;
-  justify-content: space-between; /* Alinha os decks à esquerda e à direita */
+  justify-content: space-between;
   overflow: hidden;
   min-height: 40vmax;
 }
+
 .game-area {
   animation: fadeIn 2s forwards;
 }
@@ -34,6 +36,7 @@
   position: relative;
   z-index: 1;
 }
+
 .card-backwards-opponent {
   width: 24vmax;
   right: -13vmax;
@@ -49,6 +52,7 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
 .container-card-opponent {
   display: flex;
   flex-direction: column;
@@ -64,6 +68,7 @@
   left: 18vmax;
 
 }
+
 .revealed-cards-opponent-container {
   display: flex;
   flex-direction: column;
@@ -72,14 +77,22 @@
   top: 7vmax;
   right: 18vmax;
 }
-.teste{
-  position: relative;
 
-  right: 0;
+.box-attribute-list {
+  position: relative;
+  display: flex;
+
 }
-.selected-button{
+.selected-button-hidden{
   opacity: 0;
 }
+.selected-button {
+  align-self: center;
+  width: 70%;
+  height: 2rem;
+  margin: 0.5rem;
+}
+
 .selected-card {
   border-left: 1rem solid transparent;
   border-bottom: 1rem solid transparent;
@@ -102,9 +115,16 @@
 .card-flip {
   animation: flip 0.5s ease-in-out;
   transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
 }
 
-.box-options{
+.selected-card-attributes-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.box-options {
   width: 50vmax;
   height: 30vmax;
   background-color: var(--darker-sky-blue);

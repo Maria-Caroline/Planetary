@@ -2,95 +2,95 @@
     "planets": [
         {
             "id": 1,
-            "name": "Sun",
+            "Name": "Sun",
             "img": "../assets/cards/sun.png",
-            "medTemp": 15000000,
-            "mass": 1.989,
-            "pression": 2.4,
-            "gravity": 274
+            "Temperature": 15000000,
+            "Mass": 1.989,
+            "Pression": 2.4,
+            "Gravity": 274
         },
         {
             "id": 2,
-            "name": "Moon",
+            "Name": "Moon",
             "img": "../assets/cards/moon.png",
-            "medTemp": -53.1,
-            "mass": 7.342,
-            "pression": 0.3,
-            "gravity": 1.62
+            "Temperature": -53.1,
+            "Mass": 7.342,
+            "Pression": 0.3,
+            "Gravity": 1.62
         },
         {
             "id": 3,
-            "name": "Earth",
+            "Name": "Earth",
             "img": "../assets/cards/earth.png",
-            "medTemp": 15,
-            "mass": 5.972,
-            "pression": 101.3,
-            "gravity": 9.81
+            "Temperature": 15,
+            "Mass": 5.972,
+            "Pression": 101.3,
+            "Gravity": 9.81
         },
         {
             "id": 4,
-            "name": "Venus",
+            "Name": "Venus",
             "img": "../assets/cards/venus.png",
-            "medTemp": 461,
-            "mass": 4.8675,
-            "pression": 9.2,
-            "gravity": 8.87
+            "Temperature": 461,
+            "Mass": 4.8675,
+            "Pression": 9.2,
+            "Gravity": 8.87
         },
         {
             "id": 5,
-            "name": "Mercury",
-            "medTemp": 175,
-            "mass": 3.3011,
-            "pression": 0,
-            "gravity": 3.7
+            "Name": "Mercury",
+            "Temperature": 175,
+            "Mass": 3.3011,
+            "Pression": 0,
+            "Gravity": 3.7
         },
         {
             "id": 6,
-            "name": "Jupiter",
-            "medTemp": -145,
-            "mass": 1.8982,
-            "pression": 1,
-            "gravity": 24.79
+            "Name": "Jupiter",
+            "Temperature": -145,
+            "Mass": 1.8982,
+            "Pression": 1,
+            "Gravity": 24.79
         },
         {
             "id": 7,
-            "name": "Neptune",
-            "medTemp": -214,
-            "mass": 1.02413,
-            "pression": 1,
-            "gravity": 11.15
+            "Name": "Neptune",
+            "Temperature": -214,
+            "Mass": 1.02413,
+            "Pression": 1,
+            "Gravity": 11.15
         },
         {
             "id": 8,
-            "name": "Uranus",
-            "medTemp": -224,
-            "mass": 8.6810,
-            "pression": 1.2,
-            "gravity": 8.69
+            "Name": "Uranus",
+            "Temperature": -224,
+            "Mass": 8.6810,
+            "Pression": 1.2,
+            "Gravity": 8.69
         },
         {
             "id": 9,
-            "name": "Pluto",
-            "medTemp": -225,
-            "mass": 1.303,
-            "pression": 1,
-            "gravity": 0.58
+            "Name": "Pluto",
+            "Temperature": -225,
+            "Mass": 1.303,
+            "Pression": 1,
+            "Gravity": 0.58
         },
         {
             "id": 10,
-            "name": "Saturn",
-            "medTemp": -178,
-            "mass": 5.683,
-            "pression": 1.4,
-            "gravity": 10.44
+            "Name": "Saturn",
+            "Temperature": -178,
+            "Mass": 5.683,
+            "Pression": 1.4,
+            "Gravity": 10.44
         },
         {
             "id": 11,
-            "name": "Mars",
-            "medTemp": -46,
-            "mass": 6.4171,
-            "pression": 6,
-            "gravity": 3.71
+            "Name": "Mars",
+            "Temperature": -46,
+            "Mass": 6.4171,
+            "Pression": 6,
+            "Gravity": 3.71
         }
     ]
 }

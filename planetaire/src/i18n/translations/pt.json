@@ -5,6 +5,10 @@
         "weapon":"Arma",
         "none":"Nenhuma",
         "close":"Fechar",
+        "Temperature":"Temperatura",
+        "Mass":"Massa",
+        "Pression":"Pressão",
+        "Gravity":"Gravidade",
         
         "Sun": "Sol",
         "sun-description" : "Esse é o Soberano do Sistema Solar.\nTudo e todos giram em torno dele, sendo assim, suas ordens são supremas e inquestionáveis. É um líder justo e ponderado, mas justiça nem sempre é bondade.\nPoucos foram capazes de ousar em o desafiar, mas até hoje, só um deles saiu impune.",

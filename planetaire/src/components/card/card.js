@@ -14,7 +14,7 @@ function Card({ cardData }) {
     const { t } = useTranslation();
     let imagePath;
 
-    switch (cardData.name) {
+    switch (cardData.Name) {
         case "Sun":
             imagePath = sunImage;
             break;
@@ -54,19 +54,19 @@ function Card({ cardData }) {
     return (
         <div className='card-container'>
             <div className='card-info-container'>
-                <h5 className='card-name'>{t(cardData.name)}</h5>
+                <h5 className='card-name'>{t(cardData.Name)}</h5>
                 <div className='card-content-container '>
                     <div className='card-content'>
-                        <p className='card-temp'><strong>{t("Tmp")}</strong>: {cardData.medTemp}°C</p>
-                        <p className='card-mass'><strong>{t("Mss")}</strong>: {cardData.mass}x10^20</p>
+                        <p className='card-temp'><strong>{t("Tmp")}</strong>: {cardData.Temperature}°C</p>
+                        <p className='card-mass'><strong>{t("Mss")}</strong>: {cardData.Mass}x10^20</p>
                     </div>
                     <div className='card-content'>
-                        <p className='card-press'><strong>{t("Prs")}</strong>: {cardData.pression}x10^10</p>
-                        <p className='card-grav'><strong>{t("Grv")}</strong>: {cardData.gravity}m/s²</p>
+                        <p className='card-press'><strong>{t("Prs")}</strong>: {cardData.Pression}x10^10</p>
+                        <p className='card-grav'><strong>{t("Grv")}</strong>: {cardData.Gravity}m/s²</p>
                     </div>
                 </div>
             </div>
-            <img className='card-image' src={imagePath} alt={t(cardData.name)} />
+            <img className='card-image' src={imagePath} alt={t(cardData.Name)} />
         </div>
 
     );

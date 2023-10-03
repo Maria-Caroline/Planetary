@@ -5,6 +5,10 @@
         "weapon":"Weapon",
         "none":"None",
         "close":"Close",
+        "Temperature":"Temperature",
+        "Mass":"Mass",
+        "Pression":"Pression",
+        "Gravity":"Gravity",
         
         "Sun": "Sun",
         "sun-description" : "This is the Sovereign of the Solar System.\nEverything and everyone revolves around him, therefore, his orders are supreme and unquestionable. He is a fair and thoughtful leader, but justice is not always kindness.\nFew were able to dare to challenge him, but to date, only one of them has gone unpunished.",
