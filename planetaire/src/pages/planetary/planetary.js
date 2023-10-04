@@ -27,7 +27,6 @@ function Planetary() {
         setPlanetModals({ ...planetModals, [planetName]: true });
     };
 
-
     const closeModal = (planetName) => {
         setPlanetModals({ ...planetModals, [planetName]: false });
     };
