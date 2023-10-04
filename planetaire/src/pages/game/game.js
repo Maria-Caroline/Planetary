@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './game.css';
 import backcard from '../../assets/cards/bkcard.png'
 import { useTranslation } from 'react-i18next';
@@ -23,7 +23,7 @@ function Game() {
 
     useEffect(() => {
         if (selectedAttribute !== null) {
-            compareAttribute(selectedAttribute);
+            const vencedor = compareAttribute(selectedAttribute);
         }
     }, [selectedAttribute]);
 
@@ -118,19 +118,12 @@ function Game() {
 
         const valorCartaJogador = playerCard[attribute];
         const valorCartaOponente = enemyCard[attribute];
-
         if (valorCartaJogador === valorCartaOponente) {
-            return alert("Empate!" +
-            ` Valor Carta Jogador: ${valorCartaJogador}` +
-            ` Valor Carta Oponente: ${valorCartaOponente}`);
+            return "Empate"
         } else if (valorCartaJogador > valorCartaOponente) {
-            return alert("Jogador Venceu!" +
-            ` Valor Carta Jogador: ${valorCartaJogador}` +
-            ` Valor Carta Oponente: ${valorCartaOponente}`);
+            return "Jogador"
         } else {
-            return alert("Oponente Venceu!" +
-            ` Valor Carta Jogador: ${valorCartaJogador}` +
-            ` Valor Carta Oponente: ${valorCartaOponente}`);
+            return "Oponente"
         }
     };
 
