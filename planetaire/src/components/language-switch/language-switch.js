@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useTransition } from 'react';
+import React from 'react';
 import './language-switch.css';
-import { useTranslation } from 'react-i18next';
-
 import i18n from '../../i18n/index'; // Importe o objeto i18n do seu arquivo de inicialização
 
 function LanguageSwitch() {
-  const { t } = useTranslation();
 
   const LanguageOptions = [
     {

@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Planetary from './pages/planetary/planetary';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Tales from './pages/tales/tales';
 import Game from './pages/game/game';
 // import Contact from './pages/contact/Contact';
 import './App.css';
-import LoadingScreen from './components/loading-screen/loading-screen';
 import SplashPage from './pages/splash-page/splash-page';
 
 function App() {

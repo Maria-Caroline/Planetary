@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useTransition } from 'react';
+import React, { useState, useEffect} from 'react';
 import './game.css';
-// import lilysmall from '../../assets/lily.webp'
 import backcard from '../../assets/cards/bkcard.png'
-import backcardopoonent from '../../assets/cards/temporary-back-card.png'
 import { useTranslation } from 'react-i18next';
 import Card from "../../components/card/card"
 import Header from '../../components/header/header';

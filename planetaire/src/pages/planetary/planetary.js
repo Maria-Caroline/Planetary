@@ -2,7 +2,7 @@ import './planetary.css';
 
 import Modal from "react-modal";
 import { useTranslation } from 'react-i18next';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import sun from '../../assets/planets/sun_planet.png'
 import sun_illustatrion from '../../assets/illustrations/sun_illustration.png'
@@ -20,28 +20,8 @@ import earth_illustatrion from '../../assets/illustrations/earth_illustration.pn
 import Header from '../../components/header/header';
 import info_holder from '../../assets/support_material/temporary_info_holder.png'
 function Planetary() {
-    const [showSplash, setShowSplash] = useState(true);
     const { t } = useTranslation();
     const [planetModals, setPlanetModals] = useState({});
-    console.log(localStorage.getItem('splashShown'));
-
-    useEffect(() => {
-        // Defina um temporizador para esconder a splash page após 5-6 segundos
-
-        // const hasSplashShownBefore = localStorage.getItem('splashShown');
-        // if (hasSplashShownBefore === null) {
-        const splashTimer = setTimeout(() => {
-            setShowSplash(false);
-            localStorage.setItem('splashShown', 'false');
-            console.log(localStorage.getItem('splashShown'));
-
-        }, 3000);
-
-        return () => clearTimeout(splashTimer);
-        // }
-    }, []);
-
-
 
     const openModal = (planetName) => {
         setPlanetModals({ ...planetModals, [planetName]: true });
