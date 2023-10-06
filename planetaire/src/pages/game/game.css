@@ -124,14 +124,29 @@
   flex-direction: row;
 }
 
-.box-options {
-  width: 50vmax;
-  height: 30vmax;
-  background-color: var(--darker-sky-blue);
-  margin: 5vmax auto;
+.container-options {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 3px solid var(--star-blue);
+  height: 100%;
+  margin: 3rem auto;
+}
+
+.box-options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+}
+.dialog-options{
+  width: 50vmax;
+}
+
+.button-options{
+  width: 10vmax;
+  margin: 0.5rem;
+  height: 2.5vmax;
+  border: none;
+  border-radius: 5px;
 }

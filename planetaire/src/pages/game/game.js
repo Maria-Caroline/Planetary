@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './game.css';
 import backcard from '../../assets/cards/bkcard.png'
+import dialog from '../../assets/support_material/dialog.png'
+import icon from '../../assets/support_material/temporary-icon.png'
 import { useTranslation } from 'react-i18next';
 import Card from "../../components/card/card"
 import Header from '../../components/header/header';
@@ -205,13 +207,17 @@ function Game() {
                 ) : (
                     showButton && !cardsDistributed ? (
                         <>
-                            <div className='box-options'>
-                                <button onClick={distributeCards} disabled={cardsDistributed}>
-                                    {t("want-to-play")}
-                                </button>
-                                <button onClick={() => setShowRules(true)} disabled={cardsDistributed}>
-                                    {t("rules")}
-                                </button>
+                            <div  className='container-options'>
+                                <div className='box-options'>
+                                <img className="" src={icon} alt="Card Back" />
+                                    <button className="button-options" onClick={distributeCards} disabled={cardsDistributed}>
+                                        {t("want-to-play")}
+                                    </button>
+                                    <button className="button-options" onClick={() => setShowRules(true)} disabled={cardsDistributed}>
+                                        {t("rules")}
+                                    </button>
+                                </div>
+                                <img className="dialog-options" src={dialog} alt="Card Back" />
                             </div>
                         </>
                     ) : (
