@@ -192,9 +192,32 @@ function Game() {
     );
 
     const Rules = () => (
-        <div className="container-rules">
-            <button onClick={() => setShowRules(false)} className="back-option">{t("Back")}</button>
+        <div className='container-options'>
+            <div className='box-rules'>
+                <h3>Super Trunfo</h3>
+                <p>O Super Trunfo é um jogo de cartas onde dois jogadores recebem um baralho de 5 cartas. Cada carta possui seus atributos, atributos esses que são escolhidos por um dos jogadores para compará-lo com a carta de seu oponente, o vencedor é aquele que tem o atributo mais alto. 
+                    O perdedor é aquele que não ter mais nenhuma carta no baralho.
+                    <br/>
+                    Passo a Passo
+                    <br/>
+                    <strong>1-</strong> Escolha uma carta
+                    <br/>
+                    <strong>2-</strong> O oponente escolhe uma carta
+                    <br/>
+                    <strong>3-</strong> Escolha um atributo
+                    <br/>
+                    <strong>4-</strong> Você e o oponente revelam suas cartas
+                    <br/>
+                    <strong>5-</strong> Vence quem tiver o maior número do atributo escolhido
+                </p>
+                <div className='box-back'>
+                    <button onClick={() => setShowRules(false)} className="back-option">{t("Back")}</button>
+                </div>
+            </div>
+
+            <img className="dialog-options" src={dialog} alt="Card Back" />
         </div>
+
 
     );
 
@@ -207,9 +230,9 @@ function Game() {
                 ) : (
                     showButton && !cardsDistributed ? (
                         <>
-                            <div  className='container-options'>
+                            <div className='container-options'>
                                 <div className='box-options'>
-                                <img className="" src={icon} alt="Card Back" />
+                                    <img className="" src={icon} alt="Card Back" />
                                     <button className="button-options" onClick={distributeCards} disabled={cardsDistributed}>
                                         {t("want-to-play")}
                                     </button>
