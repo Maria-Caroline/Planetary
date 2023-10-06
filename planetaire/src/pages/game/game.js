@@ -214,7 +214,6 @@ function Game() {
                     <button onClick={() => setShowRules(false)} className="back-option">{t("Back")}</button>
                 </div>
             </div>
-
             <img className="dialog-options" src={dialog} alt="Card Back" />
         </div>
 

@@ -157,3 +157,7 @@
   position: absolute;
   color: var(--white);
 }
+.box-back{
+  display: flex;
+  align-self: self-start;
+}
