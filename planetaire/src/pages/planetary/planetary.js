@@ -7,6 +7,8 @@ import React, { useState } from 'react';
 import sun from '../../assets/planets/sun_planet.png'
 import sun_illustatrion from '../../assets/illustrations/sun_illustration.png'
 
+import mercury_illustatrion from '../../assets/illustrations/mercury_illustration.png'
+
 import moon from '../../assets/planets/moon_planet.png'
 import moon_illustatrion from '../../assets/illustrations/moon_illustration.png'
 
@@ -103,7 +105,7 @@ function Planetary() {
                                 <button className='close-modal-button' onClick={() => closeModal('Earth')}>Fechar</button>
                             </div>
                         </div>
-                        
+
                     </Modal>
 
                     <img onClick={() => openModal('Moon')} src={moon} alt={t("Moon")} className="moon" />
@@ -152,8 +154,23 @@ function Planetary() {
                 <div className="circle orbit1">
                     <img onClick={() => openModal('Mercury')} src={sun} alt={t("Mercury")} className="planet" />
                     <Modal className="modal-planets" isOpen={planetModals['Mercury'] || false} onRequestClose={() => closeModal('Mercury')}>
-                        <p>{t('Mercury')}</p>
-                        <button onClick={() => closeModal('Mercury')}>Fechar</button>
+                        <div className="container-character-illustration-small">
+                            <img src={mercury_illustatrion} alt={t("Sun")} className="character-illustration-small" />
+                        </div>
+                        <div className="container-character-infos">
+                            <div className='box-character-infos'>
+                                <div className='character-infos'>
+                                    <p className='character-atribute'><strong>{t('Sun')}</strong></p>
+                                    <p className='character-atribute'>{t('sun-description')}</p>
+                                    <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('sun-weapon')}</p>
+                                </div>
+                                <img src={info_holder} alt={t("")} className="info-holder" />
+                            </div>
+                            <div>
+                                <button className='close-modal-button' onClick={() => closeModal('Mercury')}>{t('close')}</button>
+                            </div>
+                        </div>
+
                     </Modal>
                 </div>
 
