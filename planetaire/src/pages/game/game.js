@@ -177,10 +177,11 @@ function Game() {
                         </div>
                     </div>
                 ))}
-                {winner !== null && (
-                    <p>O vencedor da partida é: {winner}</p>
-                )}
-            </div><div className="container-card-deck">
+            </div> 
+            {winner !== null && (
+                <p className="winner-announcement" >O vencedor da partida é: {winner}</p>
+            )}
+            <div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (
                     <div key={index} className='card'>
                         <div className="container-card-opponent">
