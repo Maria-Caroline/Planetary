@@ -45,6 +45,8 @@ function Game() {
             setShowButton(false);
         }
     };
+
+    
     //Gera ids aleatorios
     const generateRandomCardIds = () => {
         const allCardIds = Array.from({ length: cardData.planets.length }, (_, index) => index + 1);
