@@ -22,12 +22,18 @@ function Game() {
     const [enemyCard, setEnemyCard] = useState(null);
     const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
+    const [winner, setWinner] = useState(null);
 
     useEffect(() => {
         if (selectedAttribute !== null) {
             const vencedor = compareAttribute(selectedAttribute);
+            setTimeout(() => {
+                setWinner(vencedor);
+            }, 1700); // 1000 milissegundos = 1 segundo
+
         }
     }, [selectedAttribute]);
+
 
     //distribui as cartas
     const distributeCards = () => {
@@ -78,7 +84,9 @@ function Game() {
     //envia qual é o atributo
     const handleAttributeSelect = (attribute) => {
         setSelectedAttribute(attribute);
-        setIsOpponentCardRevealed(true);
+        setTimeout(() => {
+            setIsOpponentCardRevealed(true);
+        }, 1000);
 
     };
     //compara os atributos
@@ -169,7 +177,9 @@ function Game() {
                         </div>
                     </div>
                 ))}
-
+                {winner !== null && (
+                    <p>O vencedor da partida é: {winner}</p>
+                )}
             </div><div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (
                     <div key={index} className='card'>
@@ -195,19 +205,19 @@ function Game() {
         <div className='container-options'>
             <div className='box-rules'>
                 <h3>Super Trunfo</h3>
-                <p>O Super Trunfo é um jogo de cartas onde dois jogadores recebem um baralho de 5 cartas. Cada carta possui seus atributos, atributos esses que são escolhidos por um dos jogadores para compará-lo com a carta de seu oponente, o vencedor é aquele que tem o atributo mais alto. 
+                <p>O Super Trunfo é um jogo de cartas onde dois jogadores recebem um baralho de 5 cartas. Cada carta possui seus atributos, atributos esses que são escolhidos por um dos jogadores para compará-lo com a carta de seu oponente, o vencedor é aquele que tem o atributo mais alto.
                     O perdedor é aquele que não ter mais nenhuma carta no baralho.
-                    <br/>
+                    <br />
                     Passo a Passo
-                    <br/>
+                    <br />
                     <strong>1-</strong> Escolha uma carta
-                    <br/>
+                    <br />
                     <strong>2-</strong> O oponente escolhe uma carta
-                    <br/>
+                    <br />
                     <strong>3-</strong> Escolha um atributo
-                    <br/>
+                    <br />
                     <strong>4-</strong> Você e o oponente revelam suas cartas
-                    <br/>
+                    <br />
                     <strong>5-</strong> Vence quem tiver o maior número do atributo escolhido
                 </p>
                 <div className='box-back'>
