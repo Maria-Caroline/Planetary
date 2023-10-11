@@ -23,17 +23,35 @@ function Game() {
     const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
     const [winner, setWinner] = useState(null);
+    const [gameOver, setGameOver] = useState(false);
 
     useEffect(() => {
         if (selectedAttribute !== null) {
             const vencedor = compareAttribute(selectedAttribute);
             setTimeout(() => {
                 setWinner(vencedor);
-            }, 1700); // 1000 milissegundos = 1 segundo
+                if (vencedor === "opponent") {
+                    removeCardFromPlayerDeck(selectedCardIndex);
+                } else {
+                    removeCardFromOpponentDeck(selectedCardIndex);
+                }
+                setIsCardSelectionLocked(false);
+            }, 1700); // 1000 milliseconds = 1 second
+
 
         }
     }, [selectedAttribute]);
 
+    const removeCardFromPlayerDeck = (index) => {
+        const updatedPlayerDeck = [...playerDeck];
+        updatedPlayerDeck.splice(index, 1);
+        setPlayerDeck(updatedPlayerDeck);
+    };
+    const removeCardFromOpponentDeck = (index) => {
+        const updatedOpponentDeck = [...opponentDeck];
+        updatedOpponentDeck.splice(index, 1);
+        setOpponentDeck(updatedOpponentDeck);
+    };
 
     //distribui as cartas
     const distributeCards = () => {
@@ -45,6 +63,7 @@ function Game() {
             setShowButton(false);
         }
     };
+
     //Gera ids aleatorios
     const generateRandomCardIds = () => {
         const allCardIds = Array.from({ length: cardData.planets.length }, (_, index) => index + 1);
@@ -73,14 +92,26 @@ function Game() {
         setIsCardSelectionLocked(true);
         const randomEnemyCardId = chooseRandomOpponentCard();
         setEnemyCardId(randomEnemyCardId); // Armazena o ID da carta do oponente no estado
+
+        // Reset relevant states for a new round
+        setSelectedAttribute(null);
+        setIsOpponentCardRevealed(false);
+        setWinner(null);
     };
 
+
     const chooseRandomOpponentCard = () => {
+        if (opponentDeck.length === 0) {
+            checkGameStatus(); // Check if the game is over when the opponent's deck is empty
+            return null; // Return null to indicate that the opponent's deck is empty
+        }
+
         const randomIndex = Math.floor(Math.random() * opponentDeck.length);
         const randomCardId = opponentDeck[randomIndex];
-        setEnemyCard(cardData.planets[randomCardId - 1]); // Armazena a carta do oponente no estado
-        return randomCardId; // Retorna o ID da carta do oponente
+        setEnemyCard(cardData.planets[randomCardId - 1]);
+        return randomCardId;
     };
+
     //envia qual é o atributo
     const handleAttributeSelect = (attribute) => {
         setSelectedAttribute(attribute);
@@ -134,6 +165,30 @@ function Game() {
             return "opponent"
         }
     };
+    const checkGameStatus = () => {
+        if (playerDeck.length === 0 || opponentDeck.length === 0) {
+            setGameOver(true);
+        }
+
+    };
+
+
+    useEffect(() => {
+        if (selectedAttribute !== null) {
+            const vencedor = compareAttribute(selectedAttribute);
+            setTimeout(() => {
+                setWinner(vencedor);
+                if (vencedor === "opponent") {
+                    removeCardFromPlayerDeck(selectedCardIndex);
+                } else {
+                    removeCardFromOpponentDeck(selectedCardIndex);
+                }
+                setIsCardSelectionLocked(false);
+
+                checkGameStatus(); // Check if the game is over
+            }, 1700); // 1000 milliseconds = 1 second
+        }
+    }, [selectedAttribute]);
 
     const Deck = () => (
         <div className='decks-container'>
@@ -176,7 +231,7 @@ function Game() {
                     </div>
                 ))}
             </div>
-            {winner !== null && (
+            {winner !== null && !gameOver && (
                 <>
                     <div className="winner-announcement">
                         <p>{t('winner')}</p>
@@ -186,6 +241,14 @@ function Game() {
                     </div>
                 </>
             )}
+            {gameOver && (
+                <>
+                    <div className="winner-announcement">
+                        <p>fim de jogo</p>
+                    </div>
+                </>
+            )}
+
             <div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (
                     <div key={index} className='card'>
