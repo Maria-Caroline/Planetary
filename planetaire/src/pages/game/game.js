@@ -23,18 +23,60 @@ function Game() {
     const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
     const [winner, setWinner] = useState(null);
+    const [gameOver, setGameOver] = useState(false);
+    useEffect(() => {
+        if (playerDeck.length === 0 || opponentDeck.length === 0) {
+            setGameOver(true);
+            setIsCardSelectionLocked(true);
+            console.log("game over");
+        }
+    }, [playerDeck, opponentDeck]);
+
 
     useEffect(() => {
+
         if (selectedAttribute !== null) {
             const vencedor = compareAttribute(selectedAttribute);
             setTimeout(() => {
                 setWinner(vencedor);
-            }, 1700); // 1000 milissegundos = 1 segundo
-
+                if (vencedor === "opponent") {
+                    removeCardFromPlayerDeck(selectedCardIndex);
+                } else {
+                    
+                    removeCardFromOpponentDeck(enemyCardId);
+                }
+                setIsCardSelectionLocked(false);
+                
+            }, 1700); // 1000 milliseconds = 1 second
         }
     }, [selectedAttribute]);
 
-
+    useEffect(() => {
+        console.log(opponentDeck);
+    }, [opponentDeck]);
+    
+    const removeCardFromPlayerDeck = (index) => {
+        const updatedPlayerDeck = [...playerDeck];
+        updatedPlayerDeck.splice(index, 1);
+        setPlayerDeck(updatedPlayerDeck);
+    };
+    const removeCardFromOpponentDeck = (cardId) => {
+        if (cardId === null) {
+            console.log("Card ID is null.");
+            return;
+        }
+    
+        // Check if the card exists in the opponentDeck
+        if (opponentDeck.includes(cardId)) {
+            console.log(`Removing card with ID: ${cardId}`);
+            const updatedOpponentDeck = opponentDeck.filter(card => card !== cardId);
+            setOpponentDeck(updatedOpponentDeck);
+        } else {
+            console.log(`Card with ID ${cardId} not found in opponent's deck.`);
+        }
+    };
+    
+    
     //distribui as cartas
     const distributeCards = () => {
         if (!cardsDistributed) {
@@ -55,7 +97,6 @@ function Game() {
         const opponentDeck = shuffledCardIds.slice(5, 10); // Deck do oponente
         return { playerDeck, opponentDeck };
     };
-
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -63,25 +104,30 @@ function Game() {
         }
         return array;
     };
-
     const handleCardClick = (index) => {
+
         if (!isCardSelectionLocked) {
             setRevealedCardId(playerDeck[index]);
             setSelectedCardIndex(index);
         }
     };
-
     const handleSelectCard = () => {
         setIsCardSelectionLocked(true);
         const randomEnemyCardId = chooseRandomOpponentCard();
         setEnemyCardId(randomEnemyCardId); // Armazena o ID da carta do oponente no estado
+        // Reset relevant states for a new round
+        setSelectedAttribute(null);
+        setIsOpponentCardRevealed(false);
+        setWinner(null);
     };
-
     const chooseRandomOpponentCard = () => {
+        if (opponentDeck.length === 0) {
+            return null; // Return null to indicate that the opponent's deck is empty
+        }
         const randomIndex = Math.floor(Math.random() * opponentDeck.length);
         const randomCardId = opponentDeck[randomIndex];
-        setEnemyCard(cardData.planets[randomCardId - 1]); // Armazena a carta do oponente no estado
-        return randomCardId; // Retorna o ID da carta do oponente
+        setEnemyCard(cardData.planets[randomCardId - 1]);
+        return randomCardId;
     };
     //envia qual é o atributo
     const handleAttributeSelect = (attribute) => {
@@ -89,7 +135,6 @@ function Game() {
         setTimeout(() => {
             setIsOpponentCardRevealed(true);
         }, 1000);
-
     };
     //compara os atributos
     const compareAttribute = (attribute) => {
@@ -97,48 +142,44 @@ function Game() {
             console.log("Invalid selected card index.");
             return;
         }
-
         const playerCardId = playerDeck[selectedCardIndex];
         const playerCard = cardData.planets.find(card => card.id === playerCardId);
-
         if (!playerCard) {
             console.log(`Player card with ID ${playerCardId} not found.`);
             return;
         }
-
         if (!playerCard.hasOwnProperty(attribute)) {
             console.log(`Attribute "${attribute}" not found in player card.`);
             return;
         }
-
         if (enemyCardId === null) {
             console.log("Enemy card ID is null. Make sure it's properly initialized.");
             return;
         }
-
         const enemyCard = cardData.planets.find(card => card.id === enemyCardId);
-
         if (!enemyCard) {
             console.log(`Enemy card with ID ${enemyCardId} not found.`);
             return;
         }
-
         if (!enemyCard.hasOwnProperty(attribute)) {
             console.log(`Attribute "${attribute}" not found in enemy card.`);
             return;
         }
-
+        
         const valorCartaJogador = playerCard[attribute];
         const valorCartaOponente = enemyCard[attribute];
-        if (valorCartaJogador === valorCartaOponente) {
-            return "Empate"
-        } else if (valorCartaJogador > valorCartaOponente) {
-            return "Jogador"
+        if (valorCartaJogador > valorCartaOponente) {
+            return "player"
         } else {
-            return "Oponente"
+            return "opponent"
         }
     };
 
+    // if (playerDeck.length === 0 || opponentDeck.length === 0) {
+    //     setGameOver(true);
+    // };
+
+    
     const Deck = () => (
         <div className='decks-container'>
             <div className="container-card-deck">
@@ -169,7 +210,6 @@ function Game() {
                                                     ))}
                                             </div>
                                         )}
-
                                     </div>
                                 )}
                             </div>
@@ -179,10 +219,25 @@ function Game() {
                         </div>
                     </div>
                 ))}
-                {winner !== null && (
-                    <p>O vencedor da partida é: {winner}</p>
-                )}
-            </div><div className="container-card-deck">
+            </div>
+            {winner !== null && !gameOver && (
+                <>
+                    <div className="winner-announcement">
+                        <p>{t('winner')}</p>
+                        <h3>{t(winner)}</h3>
+                        <p>{t('selected')}</p>
+                        <h3>{t(selectedAttribute)}</h3>
+                    </div>
+                </>
+            )}
+            {gameOver && (
+                <>
+                    <div className="winner-announcement">
+                        <p>fim de jogo</p>
+                    </div>
+                </>
+            )}
+            <div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (
                     <div key={index} className='card'>
                         <div className="container-card-opponent">
@@ -202,7 +257,6 @@ function Game() {
             </div>
         </div>
     );
-
     const Rules = () => (
         <div className='container-options'>
             <div className='box-rules'>
@@ -228,10 +282,7 @@ function Game() {
             </div>
             <img className="dialog-options" src={dialog} alt="Card Back" />
         </div>
-
-
     );
-
     return (
         <>
             <Header />
@@ -262,5 +313,4 @@ function Game() {
         </>
     );
 }
-
 export default Game;

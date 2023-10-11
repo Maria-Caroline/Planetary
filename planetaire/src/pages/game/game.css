@@ -161,3 +161,8 @@
   display: flex;
   align-self: self-start;
 }
+.winner-announcement{
+  margin: auto;
+  color: var(--white);
+  text-align: center;
+}
