@@ -45,8 +45,10 @@ function Game() {
         const updatedPlayerDeck = [...playerDeck];
         updatedPlayerDeck.splice(index, 1);
         setPlayerDeck(updatedPlayerDeck);
-        setSelectedCardIndex(null)
-        setEnemyCardId(null)
+        if(!gameOver){
+            setEnemyCardId(null)
+            setSelectedCardIndex(null)
+        }
 
     };
 
@@ -62,9 +64,11 @@ function Game() {
         } else {
             console.log(`Card with ID ${cardId} not found in opponent's deck.`);
         }
-        setEnemyCardId(null)
-        setSelectedCardIndex(null)
-        setWinner(false)
+        if(!gameOver){
+            setEnemyCardId(null)
+            setSelectedCardIndex(null)
+        }
+       
     };
 
     const distributeCards = () => {
@@ -99,6 +103,7 @@ function Game() {
             setRevealedCardId(playerDeck[index]);
             setSelectedCardIndex(index);
         }
+        
     };
 
     const handleSelectCard = () => {
