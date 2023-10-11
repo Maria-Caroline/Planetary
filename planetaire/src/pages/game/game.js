@@ -128,12 +128,10 @@ function Game() {
 
         const valorCartaJogador = playerCard[attribute];
         const valorCartaOponente = enemyCard[attribute];
-        if (valorCartaJogador === valorCartaOponente) {
-            return "Empate"
-        } else if (valorCartaJogador > valorCartaOponente) {
-            return "Jogador"
+        if (valorCartaJogador > valorCartaOponente) {
+            return "player"
         } else {
-            return "Oponente"
+            return "opponent"
         }
     };
 
@@ -177,9 +175,16 @@ function Game() {
                         </div>
                     </div>
                 ))}
-            </div> 
+            </div>
             {winner !== null && (
-                <p className="winner-announcement" >O vencedor da partida é: {winner}</p>
+                <>
+                    <div className="winner-announcement">
+                        <p>{t('winner')}</p>
+                        <h3>{t(winner)}</h3>
+                        <p>{t('selected')}</p>
+                        <h3>{t(selectedAttribute)}</h3>
+                    </div>
+                </>
             )}
             <div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (

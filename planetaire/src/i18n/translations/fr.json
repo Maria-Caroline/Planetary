@@ -9,6 +9,10 @@
         "Mass":"Masse",
         "Pression":"Pression",
         "Gravity":"Gravité",
+        "winner":"Le vainqueur du match est :",
+        "selected":"L'attribut sélectionné était :",
+        "player":"Joueur",
+        "opponent":"Adversaire",
 
         "Sun": "Soleil",
         "sun-description" : "C'est le souverain du système solaire.\nTout et tout le monde tourne autour de lui, ses ordres sont donc suprêmes et incontestables. C'est un leader juste et réfléchi, mais la justice n'est pas toujours synonyme de gentillesse.\nRares sont ceux qui ont osé le défier, mais à ce jour, un seul d'entre eux est resté impuni.",
