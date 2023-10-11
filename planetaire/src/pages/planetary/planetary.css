@@ -9,16 +9,6 @@
     animation: fadeIn 2s forwards;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
 .sun {
     cursor: pointer;
     position: relative;
@@ -82,38 +72,6 @@
     animation: moonOrbit 10s linear infinite;
 }
 
-@keyframes moonOrbit {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
-@keyframes sun {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-@keyframes orbit {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
-
-
 .modal-planets {
     display: flex;
     margin: 0 auto;
@@ -156,6 +114,7 @@
     z-index: 2;
     overflow: auto; 
 }
+
 .character-atribute{
     margin: 5px;
     color: var(--white);
@@ -187,7 +146,6 @@
     padding: 1rem;
     width: 10vmax;
     border-radius: 0.5rem;
-
 }
 
 /* --------------------------------------------- Orbits ----------------------------------------------- */
@@ -243,4 +201,45 @@
     width: 38vmax;
     height: 38vmax;
     animation-duration: 39s;
+}
+
+/* -------------------------------------------- Animations ---------------------------------------------- */
+@keyframes moonOrbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes sun {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
