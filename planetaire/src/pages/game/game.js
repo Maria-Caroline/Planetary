@@ -25,6 +25,15 @@ function Game() {
     const [winner, setWinner] = useState(null);
     const [gameOver, setGameOver] = useState(false);
     useEffect(() => {
+        if (playerDeck.length === 0 || opponentDeck.length === 0) {
+            setGameOver(true);
+            setIsCardSelectionLocked(true);
+            console.log("game over");
+        }
+    }, [playerDeck, opponentDeck]);
+
+
+    useEffect(() => {
 
         if (selectedAttribute !== null) {
             const vencedor = compareAttribute(selectedAttribute);
@@ -111,7 +120,6 @@ function Game() {
     };
     const chooseRandomOpponentCard = () => {
         if (opponentDeck.length === 0) {
-            checkGameStatus(); // Check if the game is over when the opponent's deck is empty
             return null; // Return null to indicate that the opponent's deck is empty
         }
         const randomIndex = Math.floor(Math.random() * opponentDeck.length);
@@ -155,6 +163,7 @@ function Game() {
             console.log(`Attribute "${attribute}" not found in enemy card.`);
             return;
         }
+        
         const valorCartaJogador = playerCard[attribute];
         const valorCartaOponente = enemyCard[attribute];
         if (valorCartaJogador > valorCartaOponente) {
@@ -163,29 +172,11 @@ function Game() {
             return "opponent"
         }
     };
- const checkGameStatus = () => {
-    if (playerDeck.length === 0 || opponentDeck.length === 0) {
-        setGameOver(true);
-        setIsCardSelectionLocked(true);
-        console.log("game over");
-    }
-};
 
-    useEffect(() => {
-        if (selectedAttribute !== null) {
-            const vencedor = compareAttribute(selectedAttribute);
-            setTimeout(() => {
-                setWinner(vencedor);
-                if (vencedor === "opponent") {
-                    removeCardFromPlayerDeck(selectedCardIndex);
-                } else {
-                    removeCardFromOpponentDeck(selectedCardIndex);
-                }
-                setIsCardSelectionLocked(false);
-                checkGameStatus(); // Check if the game is over
-            }, 1700); // 1000 milliseconds = 1 second
-        }
-    }, [selectedAttribute]);
+    // if (playerDeck.length === 0 || opponentDeck.length === 0) {
+    //     setGameOver(true);
+    // };
+
     
     const Deck = () => (
         <div className='decks-container'>
