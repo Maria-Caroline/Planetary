@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import sun from '../../assets/planets/sun_planet.png'
 import sun_illustatrion from '../../assets/illustrations/sun_illustration.png'
 
+import mercury from '../../assets/planets/mercury_planet.png'
 import mercury_illustatrion from '../../assets/illustrations/mercury_illustration.png'
 
 import moon from '../../assets/planets/moon_planet.png'
@@ -152,7 +153,7 @@ function Planetary() {
                 </div>
 
                 <div className="circle orbit1">
-                    <img onClick={() => openModal('Mercury')} src={sun} alt={t("Mercury")} className="planet" />
+                    <img onClick={() => openModal('Mercury')} src={mercury} alt={t("Mercury")} className="mercury" />
                     <Modal className="modal-planets" isOpen={planetModals['Mercury'] || false} onRequestClose={() => closeModal('Mercury')}>
                         <div className="container-character-illustration-small">
                             <img src={mercury_illustatrion} alt={t("Sun")} className="character-illustration-small" />

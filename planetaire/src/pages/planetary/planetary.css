@@ -50,6 +50,17 @@
     transform: translate(-50%, -50%);
 }
 
+.mercury {
+    cursor: pointer;
+    background-position: center center;
+    position: absolute;
+    top: 60%;
+    z-index: 3;
+    width: 1.5vmax;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
 .earth {
     cursor: pointer;
     background-position: center center;
