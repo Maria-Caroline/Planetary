@@ -45,7 +45,7 @@
     position: absolute;
     top: 60%;
     z-index: 3;
-    width: 1.7vmax;
+    width: 1.6vmax;
     left: 100%;
     transform: translate(-50%, -50%);
 }
@@ -56,7 +56,7 @@
     position: absolute;
     top: 60%;
     z-index: 3;
-    width: 1.5vmax;
+    width: 1.4vmax;
     left: 100%;
     transform: translate(-50%, -50%);
 }
