@@ -204,7 +204,7 @@
     background-color: var(--darker-sky-blue);
     border:none;
     color: var(--white);
-    padding: 1rem;
+    padding: 0.8rem;
     width: 10vmax;
     border-radius: 0.5rem;
 }
