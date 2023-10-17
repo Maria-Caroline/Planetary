@@ -87,6 +87,7 @@
     display: flex;
     margin: 0 auto;
     max-width: 70vmax;
+    border: 4px solid blue;
 }
 
 .character-illustration {
@@ -103,7 +104,54 @@
 }
 .box-character-infos {
     height: auto; 
+    border: 4px solid rgb(255, 0, 212);
 }
+@media screen and (max-width: 600px) {
+    .modal-planets {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        max-width: 60vmax;
+        border: 4px solid rgb(255, 0, 0);
+    }
+
+    .container-character-illustration-small {
+        width: 29vmax;
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        border: 4px solid rgb(30, 255, 0);
+        
+    }
+    .info-holder {
+        width: 42vmax !important;
+        height: 42vmax  !important;
+        margin: 4vmax auto;
+        border: 4px solid blue;
+    }
+
+    .character-infos {
+        position: absolute;
+        top: 5.5vmax;
+        width: 58% !important;
+        margin: 8vmax;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 2;
+        overflow: auto; 
+        border: 4px solid rgb(255, 0, 0);
+    }
+    .character-atribute{
+        margin: 5px;
+        font-size: small;
+        color: var(--white);
+        border: 4px solid blue;
+    }
+  }
 
 .info-holder {
     width: 35vmax;
@@ -129,6 +177,7 @@
 .character-atribute{
     margin: 5px;
     color: var(--white);
+    border: 4px solid blue;
 }
 
 .container-character-illustration-small {
@@ -136,6 +185,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .container-character-illustration {
