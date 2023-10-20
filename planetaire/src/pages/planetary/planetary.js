@@ -71,7 +71,7 @@ function Planetary() {
 
                 <div className="circle orbit5">
                     <img onClick={() => openModal('Jupiter')} src={sun} alt={t("Jupiter")} className="planet" />
-                    { planetModals["Jupiter"] === true && (
+                    {planetModals["Jupiter"] === true && (
                         <div className='modal-planets-background'>
 
                             <div className='modal-planets' isOpen={planetModals['Jupiter'] || false} onRequestClose={() => closeModal('Jupiter')}>
@@ -93,116 +93,134 @@ function Planetary() {
 
                 <div className="circle orbit3">
                     <img onClick={() => openModal('Earth')} src={earth} alt={t("Earth")} className="earth" />
-                    <Modal className="modal-planets" isOpen={planetModals['Earth'] || false} onRequestClose={() => closeModal('Earth')}>
-
-                        <div className="container-character-illustration-small">
-                            <img src={earth_illustatrion} alt={t("Earth")} className="character-illustration-smaller" />
-                        </div>
-
-                        <div className='container-character-infos'>
-                            <div className='box-character-infos'>
-                                <div className='character-infos'>
-                                    <p className='character-atribute'>{t('Earth')}</p>
-                                    <p className='character-atribute'>{t('earth-description')}</p>
-                                    <p className='character-atribute'>{t('weapon')}: {t('none')}</p>
-                                </div>
-                                <img src={info_holder} alt={t("")} className="info-holder" />
-                            </div>
-                            <div >
-                                <button className='close-modal-button' onClick={() => closeModal('Earth')}>Fechar</button>
-                            </div>
-                        </div>
-
-                    </Modal>
+                    
 
                     <img onClick={() => openModal('Moon')} src={moon} alt={t("Moon")} className="moon" />
-                    <Modal className="modal-planets" isOpen={planetModals['Moon'] || false} onRequestClose={() => closeModal('Moon')}>
-                        <div className="container-character-illustration-small">
-                            <img src={moon_illustatrion} alt={t("Moon")} className="character-illustration-small" />
-                        </div>
-                        <div className='container-character-infos'>
-                            <div className='box-character-infos'>
-                                <div className='character-infos'>
-                                    <p className='character-atribute'><strong>{t('Moon')}</strong></p>
-                                    <p className='character-atribute'>{t('moon-description')}</p>
-                                    <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('moon-weapon')}</p>
-                                </div>
-                                <img src={info_holder} alt={t("")} className="info-holder" />
-                            </div>
-                            <div >
-                                <button className='close-modal-button' onClick={() => closeModal('Moon')}>Fechar</button>
-                            </div>
-                        </div>
-                    </Modal>
                 </div>
+                {planetModals["Earth"] === true && (
+                        <div className='modal-planets-background'>
+                            <div className="modal-planets" isOpen={planetModals['Earth'] || false} onRequestClose={() => closeModal('Earth')}>
+
+                                <div className="container-character-illustration-small">
+                                    <img src={earth_illustatrion} alt={t("Earth")} className="character-illustration-smaller" />
+                                </div>
+
+                                <div className='container-character-infos'>
+                                    <div className='box-character-infos'>
+                                        <div className='character-infos'>
+                                            <p className='character-atribute'>{t('Earth')}</p>
+                                            <p className='character-atribute'>{t('earth-description')}</p>
+                                            <p className='character-atribute'>{t('weapon')}: {t('none')}</p>
+                                        </div>
+                                        <img src={info_holder} alt={t("")} className="info-holder" />
+                                    </div>
+                                    <div >
+                                        <button className='close-modal-button' onClick={() => closeModal('Earth')}>Fechar</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    )}
+                {planetModals["Moon"] === true && (
+                    <div className='modal-planets-background'>
+                        <div className="modal-planets" isOpen={planetModals['Moon'] || false} onRequestClose={() => closeModal('Moon')}>
+                            <div className="container-character-illustration-small">
+                                <img src={moon_illustatrion} alt={t("Moon")} className="character-illustration-small" />
+                            </div>
+                            <div className='container-character-infos'>
+                                <div className='box-character-infos'>
+                                    <div className='character-infos'>
+                                        <p className='character-atribute'><strong>{t('Moon')}</strong></p>
+                                        <p className='character-atribute'>{t('moon-description')}</p>
+                                        <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('moon-weapon')}</p>
+                                    </div>
+                                    <img src={info_holder} alt={t("")} className="info-holder" />
+                                </div>
+                                <div >
+                                    <button className='close-modal-button' onClick={() => closeModal('Moon')}>Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 <div className="circle orbit2">
                     <img onClick={() => openModal('Venus')} src={venus} alt={t("Venus")} className="venus" />
-                    <Modal className="modal-planets" isOpen={planetModals['Venus'] || false} onRequestClose={() => closeModal('Venus')}>
-                        <div className="container-character-illustration-small">
-                            <img src={venus_illustatrion} alt={t("Venus")} className="character-illustration-small" />
-                        </div>
-                        <div className="container-character-infos">
-                            <div className='box-character-infos'>
-                                <div className='character-infos'>
-                                    <p className='character-atribute' >{t('Venus')}</p>
-                                    <p className='character-atribute'>{t('venus-description')}</p>
-                                    <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('none')}</p>
-                                </div>
-                                <img src={info_holder} alt={t("")} className="info-holder" />
-                            </div>
-                            <div >
-                                <button className='close-modal-button' onClick={() => closeModal('Venus')}>Fechar</button>
-                            </div>
-                        </div>
-                    </Modal>
                 </div>
+                {planetModals["Venus"] === true && (
+                    <div className='modal-planets-background'>
+                        <div className="modal-planets" isOpen={planetModals['Venus'] || false} onRequestClose={() => closeModal('Venus')}>
+                            <div className="container-character-illustration-small">
+                                <img src={venus_illustatrion} alt={t("Venus")} className="character-illustration-small" />
+                            </div>
+                            <div className="container-character-infos">
+                                <div className='box-character-infos'>
+                                    <div className='character-infos'>
+                                        <p className='character-atribute' >{t('Venus')}</p>
+                                        <p className='character-atribute'>{t('venus-description')}</p>
+                                        <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('none')}</p>
+                                    </div>
+                                    <img src={info_holder} alt={t("")} className="info-holder" />
+                                </div>
+                                <div >
+                                    <button className='close-modal-button' onClick={() => closeModal('Venus')}>Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 <div className="circle orbit1">
                     <img onClick={() => openModal('Mercury')} src={mercury} alt={t("Mercury")} className="mercury" />
-                    <Modal className="modal-planets" isOpen={planetModals['Mercury'] || false} onRequestClose={() => closeModal('Mercury')}>
-                        <div className="container-character-illustration-small">
-                            <img src={mercury_illustatrion} alt={t("Sun")} className="character-illustration-small" />
-                        </div>
-                        <div className="container-character-infos">
-                            <div className='box-character-infos'>
-                                <div className='character-infos'>
-                                    <p className='character-atribute'><strong>{t('Sun')}</strong></p>
-                                    <p className='character-atribute'>{t('sun-description')}</p>
-                                    <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('sun-weapon')}</p>
-                                </div>
-                                <img src={info_holder} alt={t("")} className="info-holder" />
-                            </div>
-                            <div>
-                                <button className='close-modal-button' onClick={() => closeModal('Mercury')}>{t('close')}</button>
-                            </div>
-                        </div>
-
-                    </Modal>
                 </div>
+                {planetModals["Mercury"] === true && (
+                    <div className='modal-planets-background'>
+                        <div className="modal-planets" isOpen={planetModals['Mercury'] || false} onRequestClose={() => closeModal('Mercury')}>
+                            <div className="container-character-illustration-small">
+                                <img src={mercury_illustatrion} alt={t("Sun")} className="character-illustration-small" />
+                            </div>
+                            <div className="container-character-infos">
+                                <div className='box-character-infos'>
+                                    <div className='character-infos'>
+                                        <p className='character-atribute'><strong>{t('Sun')}</strong></p>
+                                        <p className='character-atribute'>{t('sun-description')}</p>
+                                        <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('sun-weapon')}</p>
+                                    </div>
+                                    <img src={info_holder} alt={t("")} className="info-holder" />
+                                </div>
+                                <div>
+                                    <button className='close-modal-button' onClick={() => closeModal('Mercury')}>{t('close')}</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                )}
+
 
                 <img onClick={() => openModal('Sun')} src={sun} alt={t("Sun")} className="sun" />
-                { planetModals["Sun"] === true && (
+                {planetModals["Sun"] === true && (
                     <div className='modal-planets-background'>
-                <div className="modal-planets" isOpen={planetModals['Sun'] || false} onRequestClose={() => closeModal('Sun')}>
-                    <div className="container-character-illustration">
-                        <img src={sun_illustatrion} alt={t("Sun")} className="character-illustration" />
-                    </div>
-                    <div className="container-character-infos">
-                        <div className='box-character-infos'>
-                            <div className='character-infos'>
-                                <p className='character-atribute'><strong>{t('Sun')}</strong></p>
-                                <p className='character-atribute'>{t('sun-description')}</p>
-                                <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('sun-weapon')}</p>
+                        <div className="modal-planets" isOpen={planetModals['Sun'] || false} onRequestClose={() => closeModal('Sun')}>
+                            <div className="container-character-illustration">
+                                <img src={sun_illustatrion} alt={t("Sun")} className="character-illustration" />
                             </div>
-                            <img src={info_holder} alt={t("")} className="info-holder" />
-                        </div>
-                        <div>
-                            <button className='close-modal-button' onClick={() => closeModal('Sun')}>{t('close')}</button>
+                            <div className="container-character-infos">
+                                <div className='box-character-infos'>
+                                    <div className='character-infos'>
+                                        <p className='character-atribute'><strong>{t('Sun')}</strong></p>
+                                        <p className='character-atribute'>{t('sun-description')}</p>
+                                        <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('sun-weapon')}</p>
+                                    </div>
+                                    <img src={info_holder} alt={t("")} className="info-holder" />
+                                </div>
+                                <div>
+                                    <button className='close-modal-button' onClick={() => closeModal('Sun')}>{t('close')}</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                </div>
                 )}
 
                 {/* <div className="circle orbit5">

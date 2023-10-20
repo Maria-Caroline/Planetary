@@ -46,7 +46,7 @@ function Game() {
         updatedPlayerDeck.splice(index, 1);
         setPlayerDeck(updatedPlayerDeck);
 
-    
+
     };
 
     const removeCardFromOpponentDeck = (cardId) => {
@@ -62,7 +62,7 @@ function Game() {
             console.log(`Card with ID ${cardId} not found in opponent's deck.`);
         }
 
-       
+
     };
 
     const distributeCards = () => {
@@ -78,15 +78,15 @@ function Game() {
     const generateRandomCardIds = () => {
         const allCardIds = Array.from({ length: cardData.planets.length }, (_, index) => index + 1);
         const shuffledCardIds = shuffleArray(allCardIds);
-        const playerDeck = shuffledCardIds.slice(0, 5); 
-        const opponentDeck = shuffledCardIds.slice(5, 10); 
+        const playerDeck = shuffledCardIds.slice(0, 5);
+        const opponentDeck = shuffledCardIds.slice(5, 10);
         return { playerDeck, opponentDeck };
     };
 
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]]; 
+            [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
     };
@@ -99,7 +99,7 @@ function Game() {
             setIsOpponentCardRevealed(false);
 
         }
-        
+
     };
 
     const handleSelectCard = () => {
@@ -145,12 +145,12 @@ function Game() {
     };
 
     if (!gameOver && cardsDistributed) {
-        if(playerDeck.length === 0 || opponentDeck.length === 0 ){
+        if (playerDeck.length === 0 || opponentDeck.length === 0) {
             setIsCardSelectionLocked(true)
             setGameOver(true);
         }
-      }
-      
+    }
+
 
     const Deck = () => (
         <div className='decks-container'>
