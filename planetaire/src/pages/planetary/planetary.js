@@ -71,10 +71,16 @@ function Planetary() {
 
                 <div className="circle orbit5">
                     <img onClick={() => openModal('Jupiter')} src={sun} alt={t("Jupiter")} className="planet" />
-                    <Modal className="modal-planets" isOpen={planetModals['Jupiter'] || false} onRequestClose={() => closeModal('Jupiter')}>
-                        <p>{t('Jupiter')}</p>
-                        <button onClick={() => closeModal('Jupiter')}>Fechar</button>
-                    </Modal>
+                    { planetModals["Jupiter"] === true && (
+                        <div className='modal-planets-background'>
+
+                            <div className='modal-planets' isOpen={planetModals['Jupiter'] || false} onRequestClose={() => closeModal('Jupiter')}>
+                                <p>{t('Jupiter')}</p>
+                                <button onClick={() => closeModal('Jupiter')}>Fechar</button>
+                            </div>
+                        </div>
+                    )}
+
                 </div>
 
                 <div className="circle orbit4">
@@ -176,7 +182,9 @@ function Planetary() {
                 </div>
 
                 <img onClick={() => openModal('Sun')} src={sun} alt={t("Sun")} className="sun" />
-                <Modal className="modal-planets" isOpen={planetModals['Sun'] || false} onRequestClose={() => closeModal('Sun')}>
+                { planetModals["Sun"] === true && (
+                    <div className='modal-planets-background'>
+                <div className="modal-planets" isOpen={planetModals['Sun'] || false} onRequestClose={() => closeModal('Sun')}>
                     <div className="container-character-illustration">
                         <img src={sun_illustatrion} alt={t("Sun")} className="character-illustration" />
                     </div>
@@ -193,7 +201,23 @@ function Planetary() {
                             <button className='close-modal-button' onClick={() => closeModal('Sun')}>{t('close')}</button>
                         </div>
                     </div>
-                </Modal>
+                </div>
+                </div>
+                )}
+
+                {/* <div className="circle orbit5">
+                    <img onClick={() => openModal('Jupiter')} src={sun} alt={t("Jupiter")} className="planet" />
+                    { planetModals["Jupiter"] === true && (
+                        <div className='modal-planets-background'>
+
+                            <div className='modal-planets' isOpen={planetModals['Jupiter'] || false} onRequestClose={() => closeModal('Jupiter')}>
+                                <p>{t('Jupiter')}</p>
+                                <button onClick={() => closeModal('Jupiter')}>Fechar</button>
+                            </div>
+                        </div>
+                    )}
+
+                </div> */}
 
             </div></>
         </>
