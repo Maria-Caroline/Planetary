@@ -21,7 +21,7 @@ import earth_illustatrion from '../../assets/illustrations/earth_illustration.pn
 
 
 import Header from '../../components/header/header';
-import info_holder from '../../assets/support_material/temporary_info_holder.png'
+import info_holder from '../../assets/support_material/info_holder.png'
 function Planetary() {
     const { t } = useTranslation();
     const [planetModals, setPlanetModals] = useState({});

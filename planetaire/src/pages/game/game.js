@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './game.css';
-import backcard from '../../assets/cards/bkcard.png'
+import backcard from '../../assets/cards/back-card.png'
 import dialog from '../../assets/support_material/dialog.png'
 import icon from '../../assets/support_material/temporary-icon.png'
 import { useTranslation } from 'react-i18next';

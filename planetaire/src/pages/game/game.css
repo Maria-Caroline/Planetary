@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-  min-height: 40vmax;
+  min-height: 41.4vmax;
 }
 
 .game-area {
@@ -25,6 +25,7 @@
   box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1;
+  border-radius: 1rem;
 }
 
 .card-backwards-opponent {
@@ -35,6 +36,7 @@
   position: relative;
   z-index: 1;
   transform: rotateY(180deg);
+  border-radius: 1rem;
 }
 
 .container-card {
@@ -90,10 +92,12 @@
   width: 70%;
   height: 2rem;
   margin: 0.5rem;
-  background-color: var(--blue);
-  border: none;
+  background-color: var(--gold);
+  border: solid 4px var(--dark-gold);
   font-family: 'Aleo';
   border-radius: 0.5rem;
+  color: var(--darker-gold);
+  font-weight: bold;
 }
 
 .selected-card {
