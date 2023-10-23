@@ -31,5 +31,6 @@
 
 .card-image {
     width: 20vmax;
+    border-radius: 10px;
 }
 

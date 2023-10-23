@@ -11,6 +11,7 @@ body {
   background-color: var(--sky-blue);
   background-image: url("./assets/support_material/star.png");
   background-repeat: repeat;
+  background-size: cover;
   background-blend-mode: soft-light;
   animation: moveBackground 50s infinite;
 }
