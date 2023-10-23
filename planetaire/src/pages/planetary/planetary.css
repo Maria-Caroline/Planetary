@@ -9,16 +9,6 @@
     animation: fadeIn 2s forwards;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
 .sun {
     cursor: pointer;
     position: relative;
@@ -55,7 +45,18 @@
     position: absolute;
     top: 60%;
     z-index: 3;
-    width: 1.7vmax;
+    width: 1.6vmax;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.mercury {
+    cursor: pointer;
+    background-position: center center;
+    position: absolute;
+    top: 60%;
+    z-index: 3;
+    width: 1.4vmax;
     left: 100%;
     transform: translate(-50%, -50%);
 }
@@ -81,47 +82,26 @@
     transform: translate(-50%, -50%);
     animation: moonOrbit 10s linear infinite;
 }
-
-@keyframes moonOrbit {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
+.modal-planets-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
 }
-
-@keyframes sun {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-@keyframes orbit {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
-
-
 .modal-planets {
+    position: relative;
     display: flex;
     margin: 0 auto;
     max-width: 70vmax;
+    /* border: 4px solid blue; */
 }
 
 .character-illustration {
     height: 45vmax;
+    /* border: 4px solid blue; */
 }
 
 .character-illustration-small {
@@ -131,10 +111,128 @@
 
 .character-illustration-smaller {
     height: 15vmax;
+    /* border: 4px solid blue; */
 }
 .box-character-infos {
     height: auto; 
+    /* border: 4px solid rgb(255, 0, 212); */
 }
+@media screen and (max-width: 600px) {
+    .container-planetary {
+        position: relative;
+        /* margin: 0 auto; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 88vh;
+        width: 40vmax;
+        overflow-x: hidden;
+        animation: fadeIn 2s forwards;
+        border: 4px solid rgb(255, 0, 0);
+    }
+    .modal-planets {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        max-width: 60vmax;
+        border: 4px solid rgb(255, 0, 0);
+    }
+
+    .container-character-illustration-small {
+        width: 29vmax;
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        border: 4px solid rgb(30, 255, 0);
+        
+    }
+    .info-holder {
+        width: 42vmax !important;
+        height: 42vmax  !important;
+        margin: 4vmax auto;
+        border: 4px solid blue;
+    }
+    .character-illustration {
+        height: 42vmax;
+    }
+
+    .character-infos {
+        position: absolute;
+        top: 5.5vmax;
+        width: 58% !important;
+        margin: 8vmax;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 2;
+        overflow: auto; 
+        border: 4px solid rgb(255, 0, 0);
+    }
+    .character-atribute{
+        margin: 5px;
+        font-size: small;
+        color: var(--white);
+        border: 4px solid blue;
+    }
+
+    .orbit1 {
+        width: 6vmax;
+        height: 6vmax;
+        animation-duration: 6s;
+    }
+    
+    .orbit2 {
+        width: 0rem;
+        height: 0rem;
+        animation-duration: 30s;
+    }
+    
+    .orbit3 {
+        width: 0rem;
+        height: 0rem;
+        animation-duration: 45s;
+    }
+    
+    .orbit4 {
+        width: 0rem;
+        height: 0rem;
+        animation-duration: 24s;
+    }
+    
+    .orbit5 {
+        width: 0rem;
+        height: 0rem;
+        animation-duration: 30s;
+    }
+    
+    .orbit6 {
+        width: 0rem;
+        height: 0rem;
+        animation-duration: 23s;
+    }
+    
+    .orbit7 {
+        width: 0rem;
+        height: 0rem;
+        animation-duration: 28s;
+    }
+    
+    .orbit8 {
+        width: 0rem;
+        height: 0rem;
+        animation-duration: 32s;
+    }
+    
+    .orbit9 {
+        width: 0rem;
+        height: 0rem;
+        animation-duration: 39s;
+    }
+    
+  }
 
 .info-holder {
     width: 35vmax;
@@ -156,9 +254,11 @@
     z-index: 2;
     overflow: auto; 
 }
+
 .character-atribute{
     margin: 5px;
     color: var(--white);
+    /* border: 4px solid blue; */
 }
 
 .container-character-illustration-small {
@@ -166,6 +266,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .container-character-illustration {
@@ -184,10 +285,10 @@
     background-color: var(--darker-sky-blue);
     border:none;
     color: var(--white);
-    padding: 1rem;
+    padding: 0.8rem;
     width: 10vmax;
     border-radius: 0.5rem;
-
+    cursor: pointer;
 }
 
 /* --------------------------------------------- Orbits ----------------------------------------------- */
@@ -243,4 +344,45 @@
     width: 38vmax;
     height: 38vmax;
     animation-duration: 39s;
+}
+
+/* -------------------------------------------- Animations ---------------------------------------------- */
+@keyframes moonOrbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes sun {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

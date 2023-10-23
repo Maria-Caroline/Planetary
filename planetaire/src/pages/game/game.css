@@ -11,21 +11,11 @@
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-  min-height: 40vmax;
+  min-height: 41.4vmax;
 }
 
 .game-area {
   animation: fadeIn 2s forwards;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 .card-backwards {
@@ -35,6 +25,7 @@
   box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1;
+  border-radius: 1rem;
 }
 
 .card-backwards-opponent {
@@ -45,6 +36,7 @@
   position: relative;
   z-index: 1;
   transform: rotateY(180deg);
+  border-radius: 1rem;
 }
 
 .container-card {
@@ -81,8 +73,17 @@
 .box-attribute-list {
   position: relative;
   display: flex;
-
+  border: none;
+  font-family: 'Aleo';
+  margin: 0.3rem;
+  height: 5rem;
+  width: 5rem;
+  background-color: transparent;
+  background-image: url('../../assets/support_material/tag.png');
+  background-size:5rem; /* ajuste ao seu gosto */
+  background-repeat: no-repeat; /* ajuste ao seu gosto */
 }
+
 .selected-button-hidden{
   opacity: 0;
 }
@@ -91,25 +92,17 @@
   width: 70%;
   height: 2rem;
   margin: 0.5rem;
+  background-color: var(--gold);
+  border: solid 4px var(--dark-gold);
+  font-family: 'Aleo';
+  border-radius: 0.5rem;
+  color: var(--darker-gold);
+  font-weight: bold;
 }
 
 .selected-card {
   border-left: 1rem solid transparent;
   border-bottom: 1rem solid transparent;
-}
-
-.container-rules {}
-
-.box-options {}
-
-@keyframes flip {
-  0% {
-    transform: rotateY(90deg);
-  }
-
-  100% {
-    transform: rotateY(0deg);
-  }
 }
 
 .card-flip {
@@ -139,9 +132,11 @@
   position: absolute;
   align-items: center;
 }
+
 .dialog-options{
   width: 50vmax;
 }
+
 .button-options{
   width: 10vmax;
   margin: 0.5rem;
@@ -149,6 +144,7 @@
   border: none;
   border-radius: 5px;
 }
+
 .box-rules {
   align-items: center;
   width: 40vmax;
@@ -157,12 +153,33 @@
   position: absolute;
   color: var(--white);
 }
+
 .box-back{
   display: flex;
   align-self: self-start;
 }
+
 .winner-announcement{
   margin: auto;
   color: var(--white);
   text-align: center;
+}
+/* -------------------------------------------- Animations ---------------------------------------------- */
+@keyframes flip {
+  0% {
+    transform: rotateY(90deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

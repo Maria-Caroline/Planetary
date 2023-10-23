@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './game.css';
-import backcard from '../../assets/cards/bkcard.png'
+import backcard from '../../assets/cards/back-card.png'
 import dialog from '../../assets/support_material/dialog.png'
 import icon from '../../assets/support_material/temporary-icon.png'
 import { useTranslation } from 'react-i18next';
@@ -24,17 +24,8 @@ function Game() {
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
     const [winner, setWinner] = useState(null);
     const [gameOver, setGameOver] = useState(false);
-    useEffect(() => {
-        if (playerDeck.length === 0 || opponentDeck.length === 0) {
-            setGameOver(true);
-            setIsCardSelectionLocked(true);
-            console.log("game over");
-        }
-    }, [playerDeck, opponentDeck]);
-
 
     useEffect(() => {
-
         if (selectedAttribute !== null) {
             const vencedor = compareAttribute(selectedAttribute);
             setTimeout(() => {
@@ -42,31 +33,27 @@ function Game() {
                 if (vencedor === "opponent") {
                     removeCardFromPlayerDeck(selectedCardIndex);
                 } else {
-                    
                     removeCardFromOpponentDeck(enemyCardId);
                 }
                 setIsCardSelectionLocked(false);
-                
-            }, 1700); // 1000 milliseconds = 1 second
+
+            }, 2800);
         }
     }, [selectedAttribute]);
 
-    useEffect(() => {
-        console.log(opponentDeck);
-    }, [opponentDeck]);
-    
     const removeCardFromPlayerDeck = (index) => {
         const updatedPlayerDeck = [...playerDeck];
         updatedPlayerDeck.splice(index, 1);
         setPlayerDeck(updatedPlayerDeck);
+
+
     };
+
     const removeCardFromOpponentDeck = (cardId) => {
         if (cardId === null) {
             console.log("Card ID is null.");
             return;
         }
-    
-        // Check if the card exists in the opponentDeck
         if (opponentDeck.includes(cardId)) {
             console.log(`Removing card with ID: ${cardId}`);
             const updatedOpponentDeck = opponentDeck.filter(card => card !== cardId);
@@ -74,10 +61,10 @@ function Game() {
         } else {
             console.log(`Card with ID ${cardId} not found in opponent's deck.`);
         }
+
+
     };
-    
-    
-    //distribui as cartas
+
     const distributeCards = () => {
         if (!cardsDistributed) {
             const { playerDeck, opponentDeck } = generateRandomCardIds();
@@ -88,55 +75,59 @@ function Game() {
         }
     };
 
-    
-    //Gera ids aleatorios
     const generateRandomCardIds = () => {
         const allCardIds = Array.from({ length: cardData.planets.length }, (_, index) => index + 1);
-        const shuffledCardIds = shuffleArray(allCardIds); // Implemente a função shuffleArray se necessário
-        const playerDeck = shuffledCardIds.slice(0, 5); // Deck do jogador
-        const opponentDeck = shuffledCardIds.slice(5, 10); // Deck do oponente
+        const shuffledCardIds = shuffleArray(allCardIds);
+        const playerDeck = shuffledCardIds.slice(0, 5);
+        const opponentDeck = shuffledCardIds.slice(5, 10);
         return { playerDeck, opponentDeck };
     };
+
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos de posição
+            [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
     };
-    const handleCardClick = (index) => {
 
+    const handleCardClick = (index) => {
+        setWinner(null);
         if (!isCardSelectionLocked) {
             setRevealedCardId(playerDeck[index]);
             setSelectedCardIndex(index);
+            setIsOpponentCardRevealed(false);
+
         }
+
     };
+
     const handleSelectCard = () => {
         setIsCardSelectionLocked(true);
         const randomEnemyCardId = chooseRandomOpponentCard();
-        setEnemyCardId(randomEnemyCardId); // Armazena o ID da carta do oponente no estado
-        // Reset relevant states for a new round
+        setEnemyCardId(randomEnemyCardId);
         setSelectedAttribute(null);
         setIsOpponentCardRevealed(false);
         setWinner(null);
     };
+
     const chooseRandomOpponentCard = () => {
         if (opponentDeck.length === 0) {
-            return null; // Return null to indicate that the opponent's deck is empty
+            return null;
         }
         const randomIndex = Math.floor(Math.random() * opponentDeck.length);
         const randomCardId = opponentDeck[randomIndex];
         setEnemyCard(cardData.planets[randomCardId - 1]);
         return randomCardId;
     };
-    //envia qual é o atributo
+
     const handleAttributeSelect = (attribute) => {
         setSelectedAttribute(attribute);
         setTimeout(() => {
             setIsOpponentCardRevealed(true);
         }, 1000);
     };
-    //compara os atributos
+
     const compareAttribute = (attribute) => {
         if (selectedCardIndex === null || selectedCardIndex < 0 || selectedCardIndex >= playerDeck.length) {
             console.log("Invalid selected card index.");
@@ -144,42 +135,23 @@ function Game() {
         }
         const playerCardId = playerDeck[selectedCardIndex];
         const playerCard = cardData.planets.find(card => card.id === playerCardId);
-        if (!playerCard) {
-            console.log(`Player card with ID ${playerCardId} not found.`);
-            return;
-        }
-        if (!playerCard.hasOwnProperty(attribute)) {
-            console.log(`Attribute "${attribute}" not found in player card.`);
-            return;
-        }
-        if (enemyCardId === null) {
-            console.log("Enemy card ID is null. Make sure it's properly initialized.");
-            return;
-        }
-        const enemyCard = cardData.planets.find(card => card.id === enemyCardId);
-        if (!enemyCard) {
-            console.log(`Enemy card with ID ${enemyCardId} not found.`);
-            return;
-        }
-        if (!enemyCard.hasOwnProperty(attribute)) {
-            console.log(`Attribute "${attribute}" not found in enemy card.`);
-            return;
-        }
-        
-        const valorCartaJogador = playerCard[attribute];
-        const valorCartaOponente = enemyCard[attribute];
-        if (valorCartaJogador > valorCartaOponente) {
+        const valuePlayerCard = playerCard[attribute];
+        const valueOpponentCard = enemyCard[attribute];
+        if (valuePlayerCard > valueOpponentCard) {
             return "player"
         } else {
             return "opponent"
         }
     };
 
-    // if (playerDeck.length === 0 || opponentDeck.length === 0) {
-    //     setGameOver(true);
-    // };
+    if (!gameOver && cardsDistributed) {
+        if (playerDeck.length === 0 || opponentDeck.length === 0) {
+            setIsCardSelectionLocked(true)
+            setGameOver(true);
+        }
+    }
 
-    
+
     const Deck = () => (
         <div className='decks-container'>
             <div className="container-card-deck">
@@ -190,7 +162,7 @@ function Game() {
                             <div className="revealed-cards-container">
                                 {revealedCardId === cardId && (
                                     <div className="selected-card-attributes-container">
-                                        <div className="card-flip"> {/* Aplica a classe para a animação de virada */}
+                                        <div className="card-flip">
                                             <Card cardData={cardData.planets[cardId - 1]} />
                                             <button onClick={handleSelectCard} className={`${isCardSelectionLocked ? 'selected-button-hidden' : 'selected-button'}`}>
                                                 Selecionar Carta
@@ -205,7 +177,6 @@ function Game() {
                                                             key={attribute}
                                                             className="box-attribute-list"
                                                             onClick={() => handleAttributeSelect(attribute)}>{t(attribute)}
-
                                                         </button>
                                                     ))}
                                             </div>
@@ -221,21 +192,17 @@ function Game() {
                 ))}
             </div>
             {winner !== null && !gameOver && (
-                <>
-                    <div className="winner-announcement">
-                        <p>{t('winner')}</p>
-                        <h3>{t(winner)}</h3>
-                        <p>{t('selected')}</p>
-                        <h3>{t(selectedAttribute)}</h3>
-                    </div>
-                </>
+                <div className="winner-announcement">
+                    <p>{t('winner')}</p>
+                    <h3>{t(winner)}</h3>
+                    <p>{t('selected')}</p>
+                    <h3>{t(selectedAttribute)}</h3>
+                </div>
             )}
             {gameOver && (
-                <>
-                    <div className="winner-announcement">
-                        <p>fim de jogo</p>
-                    </div>
-                </>
+                <div className="winner-announcement">
+                    <p>fim de jogo</p>
+                </div>
             )}
             <div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (
@@ -257,6 +224,7 @@ function Game() {
             </div>
         </div>
     );
+
     const Rules = () => (
         <div className='container-options'>
             <div className='box-rules'>
@@ -283,6 +251,7 @@ function Game() {
             <img className="dialog-options" src={dialog} alt="Card Back" />
         </div>
     );
+
     return (
         <>
             <Header />
@@ -291,20 +260,18 @@ function Game() {
                     <Rules /> // Renderize a tela de regras quando showRules for true
                 ) : (
                     showButton && !cardsDistributed ? (
-                        <>
-                            <div className='container-options'>
-                                <div className='box-options'>
-                                    <img className="" src={icon} alt="Card Back" />
-                                    <button className="button-options" onClick={distributeCards} disabled={cardsDistributed}>
-                                        {t("want-to-play")}
-                                    </button>
-                                    <button className="button-options" onClick={() => setShowRules(true)} disabled={cardsDistributed}>
-                                        {t("rules")}
-                                    </button>
-                                </div>
-                                <img className="dialog-options" src={dialog} alt="Card Back" />
+                        <div className='container-options'>
+                            <div className='box-options'>
+                                <img className="" src={icon} alt="Card Back" />
+                                <button className="button-options" onClick={distributeCards} disabled={cardsDistributed}>
+                                    {t("want-to-play")}
+                                </button>
+                                <button className="button-options" onClick={() => setShowRules(true)} disabled={cardsDistributed}>
+                                    {t("rules")}
+                                </button>
                             </div>
-                        </>
+                            <img className="dialog-options" src={dialog} alt="Card Back" />
+                        </div>
                     ) : (
                         <Deck />
                     )
