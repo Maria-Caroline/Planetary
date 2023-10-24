@@ -37,8 +37,6 @@ hr.rounded {
         margin-right: 3%;
         display:flex;
         flex-direction: row;
-        width: fit-content;
         animation: fadeIn 1s forwards;
-        border: 4px solid rgb(255, 0, 0);
     }
   }
