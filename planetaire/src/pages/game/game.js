@@ -176,7 +176,7 @@ function Game() {
                                                         <button
                                                             key={attribute}
                                                             className="box-attribute-list"
-                                                            onClick={() => handleAttributeSelect(attribute)}>{t(attribute)}
+                                                            onClick={() => handleAttributeSelect(attribute)}><span className='space-attribute'></span>{t(attribute)}
                                                         </button>
                                                     ))}
                                             </div>

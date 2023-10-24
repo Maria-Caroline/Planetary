@@ -70,23 +70,47 @@
   right: 18vmax;
 }
 
+.container-attribute {
+  display: flex;
+}
+
+.space-attribute {
+  width: 2.5rem;
+}
+
+.attribute-options {
+  z-index: -1;
+  cursor: pointer;
+}
+
 .box-attribute-list {
   position: relative;
   display: flex;
   border: none;
   font-family: 'Aleo';
-  margin: 0.3rem;
-  height: 5rem;
-  width: 5rem;
+  margin-top: 0.5rem;
+  height: 2.5rem;
+  align-items: center;
+  width: 10rem;
+  color: var(--white);
   background-color: transparent;
   background-image: url('../../assets/support_material/tag.png');
-  background-size:5rem; /* ajuste ao seu gosto */
-  background-repeat: no-repeat; /* ajuste ao seu gosto */
+  background-size: 10rem;
+  cursor: pointer;
+  transform: translateX(-2rem);
+  background-repeat: no-repeat;
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateX(-0.1rem);
+  }
 }
 
-.selected-button-hidden{
+
+.selected-button-hidden {
   opacity: 0;
 }
+
 .selected-button {
   align-self: center;
   width: 70%;
@@ -115,6 +139,7 @@
 .selected-card-attributes-container {
   display: flex;
   flex-direction: row;
+  z-index: 2;
 }
 
 .container-options {
@@ -133,11 +158,11 @@
   align-items: center;
 }
 
-.dialog-options{
+.dialog-options {
   width: 50vmax;
 }
 
-.button-options{
+.button-options {
   width: 10vmax;
   margin: 0.5rem;
   height: 2.5vmax;
@@ -154,16 +179,17 @@
   color: var(--white);
 }
 
-.box-back{
+.box-back {
   display: flex;
   align-self: self-start;
 }
 
-.winner-announcement{
+.winner-announcement {
   margin: auto;
   color: var(--white);
   text-align: center;
 }
+
 /* -------------------------------------------- Animations ---------------------------------------------- */
 @keyframes flip {
   0% {
@@ -174,6 +200,7 @@
     transform: rotateY(0deg);
   }
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
