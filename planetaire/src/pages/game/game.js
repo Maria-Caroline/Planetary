@@ -206,8 +206,10 @@ function Game() {
                 </div>
                 <div className='score'>
                     {gameOver && (
-                        <div className="winner-announcement">
+                         <div className='modal-planets-background'>
+                        <div className="">
                             <p>fim de jogo</p>
+                        </div>
                         </div>
                     )}
                     <h3 className='score-text'>score <br />{scorePlayer} x {scoreOpponent} </h3>
