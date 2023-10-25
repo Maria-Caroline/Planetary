@@ -80,7 +80,7 @@
 }
 
 .space-attribute {
-  width: 2.5rem;
+  width: 3rem;
 }
 
 .attribute-options {
@@ -102,15 +102,18 @@
   background-image: url('../../assets/support_material/tag.png');
   background-size: 10rem;
   cursor: pointer;
-  transform: translateX(-2rem);
+  transform: translateX(-3rem);
   background-repeat: no-repeat;
   transition: 0.3s;
 
   &:hover {
-    transform: translateX(-0.1rem);
+    transform: translateX(-2rem);
   }
 }
 
+.dialog-gameover{
+  margin: 8vmax auto;
+}
 
 .selected-button-hidden {
   opacity: 0;
@@ -189,10 +192,18 @@
   flex-direction: column;
   /* border: 4px solid rgb(255, 0, 0); */
   margin-bottom: 1rem;
+  background-image: url('../../assets/support_material/score.png');
+  background-size: 100%;
+  height: 2.5rem;
+  
+  background-repeat: no-repeat;
 }
 
 .score-text {
-  margin: 0.1rem;
+  display: flex;
+
+  justify-content: space-around;
+  margin-top: 0.5rem;
 }
 
 .winner-matches-info {
@@ -214,6 +225,7 @@
   justify-content: flex-end;
   flex-direction: column;
   color: var(--white);
+  background-size: 10.7rem;
   text-align: center;
   /* border: 4px solid rgb(0, 0, 0); */
 }

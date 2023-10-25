@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './game.css';
 import backcard from '../../assets/cards/back-card.png'
 import dialog from '../../assets/support_material/dialog.png'
+import dialog_Game0ver from '../../assets/support_material/dialog_gameover.png'
 import icon from '../../assets/support_material/temporary-icon.png'
 import { useTranslation } from 'react-i18next';
 import Card from "../../components/card/card"
@@ -210,9 +211,10 @@ function Game() {
                         <div className="">
                             <p>fim de jogo</p>
                         </div>
+                        <img className="dialog-gameover" src={dialog_Game0ver} alt="dialog box with game over" />
                         </div>
                     )}
-                    <h3 className='score-text'>score <br />{scorePlayer} x {scoreOpponent} </h3>
+                    <h3 className='score-text'>{scorePlayer}<span className='space-score'></span> Score <span className='space-score'></span>{scoreOpponent}</h3>
                 </div>
             </div>
             <div className="container-card-deck">
