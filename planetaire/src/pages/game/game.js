@@ -24,6 +24,8 @@ function Game() {
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
     const [winner, setWinner] = useState(null);
     const [gameOver, setGameOver] = useState(false);
+    const [scorePlayer, setScorePlayer] = useState(0);
+    const [scoreOpponent, setScoreOpponent] = useState(0);
 
     useEffect(() => {
         if (selectedAttribute !== null) {
@@ -31,8 +33,10 @@ function Game() {
             setTimeout(() => {
                 setWinner(vencedor);
                 if (vencedor === "opponent") {
+                    setScoreOpponent(scoreOpponent + 1)
                     removeCardFromPlayerDeck(selectedCardIndex);
                 } else {
+                    setScorePlayer(scorePlayer + 1)
                     removeCardFromOpponentDeck(enemyCardId);
                 }
                 setIsCardSelectionLocked(false);
@@ -191,19 +195,24 @@ function Game() {
                     </div>
                 ))}
             </div>
-            {winner !== null && !gameOver && (
-                <div className="winner-announcement">
-                    <p>{t('winner')}</p>
-                    <h3>{t(winner)}</h3>
-                    <p>{t('selected')}</p>
-                    <h3>{t(selectedAttribute)}</h3>
+            <div className="winner-announcement">
+                <div className={`${winner !== null ? 'winner-matches-info' : 'winner-announcement-hidden'}`} >
+                    <div className=''>
+                        <p>{t('winner')}</p>
+                        <h3>{t(winner)}</h3>
+                        <p>{t('selected')}</p>
+                        <h3>{t(selectedAttribute)}</h3>
+                    </div>
                 </div>
-            )}
-            {gameOver && (
-                <div className="winner-announcement">
-                    <p>fim de jogo</p>
+                <div className='score'>
+                    {gameOver && (
+                        <div className="winner-announcement">
+                            <p>fim de jogo</p>
+                        </div>
+                    )}
+                    <h3 className='score-text'>score <br />{scorePlayer} x {scoreOpponent} </h3>
                 </div>
-            )}
+            </div>
             <div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (
                     <div key={index} className='card'>
