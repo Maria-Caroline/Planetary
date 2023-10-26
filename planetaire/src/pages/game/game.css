@@ -14,9 +14,20 @@
   min-height: 41.4vmax;
 }
 
+.back-option {
+  background-color: var(--gold);
+  border: solid 4px var(--dark-gold);
+  font-family: 'Aleo';
+  border-radius: 0.5rem;
+  font-weight: bold;
+  width: 10vmax;
+
+  height: 2.5vmax;
+  color: var(--darker-gold);
+}
+
 .winner-announcement-hidden {
   opacity: 0;
-
 }
 
 .game-area {
@@ -44,6 +55,23 @@
   border-radius: 1rem;
 }
 
+.game-over {
+  margin: 8vmax auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.game-over-message {
+  position: absolute;
+  margin-top: 2rem;
+}
+
+.container-card-deck {
+  width: 20vmax;
+}
+
 .container-card {
   display: flex;
   flex-direction: column;
@@ -63,7 +91,6 @@
   position: absolute;
   top: 7vmax;
   left: 18vmax;
-
 }
 
 .revealed-cards-opponent-container {
@@ -111,8 +138,9 @@
   }
 }
 
-.dialog-gameover{
-  margin: 8vmax auto;
+.dialog-gameover {
+  transition: 0.3s;
+  width: 65vmax;
 }
 
 .selected-button-hidden {
@@ -142,6 +170,10 @@
   transform-style: preserve-3d;
   display: flex;
   flex-direction: column;
+}
+
+.card-hidden {
+  opacity: 0;
 }
 
 .selected-card-attributes-container {
@@ -174,8 +206,12 @@
   width: 10vmax;
   margin: 0.5rem;
   height: 2.5vmax;
-  border: none;
-  border-radius: 5px;
+  background-color: var(--gold);
+  border: solid 4px var(--dark-gold);
+  font-family: 'Aleo';
+  border-radius: 0.5rem;
+  font-weight: bold;
+  color: var(--darker-gold);
 }
 
 .box-rules {
@@ -190,18 +226,15 @@
 .score {
   display: flex;
   flex-direction: column;
-  /* border: 4px solid rgb(255, 0, 0); */
   margin-bottom: 1rem;
   background-image: url('../../assets/support_material/score.png');
   background-size: 100%;
   height: 2.5rem;
-  
   background-repeat: no-repeat;
 }
 
 .score-text {
   display: flex;
-
   justify-content: space-around;
   margin-top: 0.5rem;
 }

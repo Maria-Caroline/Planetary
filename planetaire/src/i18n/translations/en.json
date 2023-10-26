@@ -13,7 +13,8 @@
         "selected":"The selected attribute was:",
         "player":"Player",
         "opponent":"Opponent",
-        
+        "game-over":"Game Over!",
+        "rules-explained" : "Super Trunfo is a card game where two players are dealt a deck of 5 cards. Each card has its attributes, these attributes are chosen by one of the players to compare it with their opponent's card, the winner is the one with the highest attribute. The loser is the one who has no more cards in the deck.",
         "Sun": "Sun",
         "sun-description" : "This is the Sovereign of the Solar System.\nEverything and everyone revolves around him, therefore, his orders are supreme and unquestionable. He is a fair and thoughtful leader, but justice is not always kindness.\nFew were able to dare to challenge him, but to date, only one of them has gone unpunished.",
         "sun-weapon" : "Spear",

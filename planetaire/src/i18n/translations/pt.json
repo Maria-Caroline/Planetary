@@ -14,6 +14,8 @@
         "selected":"O atributo escolhido foi:",
         "player":"Jogador",
         "opponent":"Oponente",
+        "game-over":"Fim de Jogo!",
+        "rules-explained" : "O Super Trunfo é um jogo de cartas onde dois jogadores recebem um baralho de 5 cartas. Cada carta possui seus atributos, atributos esses que são escolhidos por um dos jogadores para compará-lo com a carta de seu oponente, o vencedor é aquele que tem o atributo mais alto. O perdedor é aquele que não ter mais nenhuma carta no baralho.",
         
         "Sun": "Sol",
         "sun-description" : "Esse é o Soberano do Sistema Solar.\nTudo e todos giram em torno dele, sendo assim, suas ordens são supremas e inquestionáveis. É um líder justo e ponderado, mas justiça nem sempre é bondade.\nPoucos foram capazes de ousar em o desafiar, mas até hoje, só um deles saiu impune.",
@@ -42,7 +44,7 @@
         "Planetary": "Planetário",
         "Tales": "Contos",
         "Play": "Jogar",
-        "want-to-play": "Selecione para jogar",
+        "Game": "Jogo",
         "rules": "Regras",
         "back": "Voltar"
     }

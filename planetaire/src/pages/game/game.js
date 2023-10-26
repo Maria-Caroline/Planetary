@@ -149,12 +149,19 @@ function Game() {
         }
     };
 
-    if (!gameOver && cardsDistributed) {
-        if (playerDeck.length === 0 || opponentDeck.length === 0) {
-            setIsCardSelectionLocked(true)
-            setGameOver(true);
+    useEffect(() => {
+        if (!gameOver && cardsDistributed) {
+            if (playerDeck.length === 0 || opponentDeck.length === 0) {
+                setIsCardSelectionLocked(true);
+                setTimeout(() => {
+                    setRevealedCardId(false)
+                    setGameOver(true);
+                }, 2000);
+                
+            }
         }
-    }
+    }, [gameOver, cardsDistributed, playerDeck, opponentDeck]);
+    
 
 
     const Deck = () => (
@@ -197,7 +204,7 @@ function Game() {
                 ))}
             </div>
             <div className="winner-announcement">
-                <div className={`${winner !== null ? 'winner-matches-info' : 'winner-announcement-hidden'}`} >
+                <div className={`${winner !== null && !gameOver ? 'winner-matches-info' : 'winner-announcement-hidden'}`} >
                     <div className=''>
                         <p>{t('winner')}</p>
                         <h3>{t(winner)}</h3>
@@ -205,17 +212,22 @@ function Game() {
                         <h3>{t(selectedAttribute)}</h3>
                     </div>
                 </div>
-                <div className='score'>
-                    {gameOver && (
-                         <div className='modal-planets-background'>
-                        <div className="">
-                            <p>fim de jogo</p>
+
+                {gameOver ? (
+                    <div className='modal-planets-background'>
+                        <div  className="game-over">
+                            <div className="game-over-message">
+                                <h2>{t("game-over")}</h2>
+                            </div>
+                            <img className="dialog-gameover" src={dialog_Game0ver} alt="dialog box with game over" />
                         </div>
-                        <img className="dialog-gameover" src={dialog_Game0ver} alt="dialog box with game over" />
-                        </div>
-                    )}
-                    <h3 className='score-text'>{scorePlayer}<span className='space-score'></span> Score <span className='space-score'></span>{scoreOpponent}</h3>
-                </div>
+                    </div>
+                ) : (
+                    <div className='score'>
+                        <h3 className='score-text'>{scorePlayer}<span className='space-score'></span> Score <span className='space-score'></span>{scoreOpponent}</h3>
+                    </div>
+                )}
+
             </div>
             <div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (
@@ -242,8 +254,7 @@ function Game() {
         <div className='container-options'>
             <div className='box-rules'>
                 <h3>Super Trunfo</h3>
-                <p>O Super Trunfo é um jogo de cartas onde dois jogadores recebem um baralho de 5 cartas. Cada carta possui seus atributos, atributos esses que são escolhidos por um dos jogadores para compará-lo com a carta de seu oponente, o vencedor é aquele que tem o atributo mais alto.
-                    O perdedor é aquele que não ter mais nenhuma carta no baralho.
+                <p> {t("rules-explained")}
                     <br />
                     Passo a Passo
                     <br />
@@ -277,7 +288,7 @@ function Game() {
                             <div className='box-options'>
                                 <img className="" src={icon} alt="Card Back" />
                                 <button className="button-options" onClick={distributeCards} disabled={cardsDistributed}>
-                                    {t("want-to-play")}
+                                    {t("Play")}
                                 </button>
                                 <button className="button-options" onClick={() => setShowRules(true)} disabled={cardsDistributed}>
                                     {t("rules")}
