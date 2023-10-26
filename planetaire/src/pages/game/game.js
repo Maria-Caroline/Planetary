@@ -24,6 +24,7 @@ function Game() {
     const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
     const [winner, setWinner] = useState(null);
+    const [finalWinner, setFinalWinner] = useState(null);
     const [gameOver, setGameOver] = useState(false);
     const [scorePlayer, setScorePlayer] = useState(0);
     const [scoreOpponent, setScoreOpponent] = useState(0);
@@ -72,6 +73,10 @@ function Game() {
 
     const distributeCards = () => {
         if (!cardsDistributed) {
+            setGameOver(false)
+            setWinner(null);
+            setScorePlayer(0);
+            setScoreOpponent(0);
             const { playerDeck, opponentDeck } = generateRandomCardIds();
             setPlayerDeck(playerDeck);
             setOpponentDeck(opponentDeck);
@@ -154,14 +159,30 @@ function Game() {
             if (playerDeck.length === 0 || opponentDeck.length === 0) {
                 setIsCardSelectionLocked(true);
                 setTimeout(() => {
-                    setRevealedCardId(false)
+                    setRevealedCardId(null)
+                    setIsOpponentCardRevealed(false);
                     setGameOver(true);
+                    setCardsDistributed(false)
+                    setIsOpponentCardRevealed(false)
+                    setSelectedCardIndex(null);
+                    setPlayerDeck([]);
+                    setOpponentDeck([]);
+                    setIsCardSelectionLocked(false)
+                    console.clear();
                 }, 2000);
-                
+                if (scorePlayer > scoreOpponent) {
+                    setFinalWinner("player")
+                } else {
+                    setFinalWinner("opponent")
+                }
+
             }
         }
     }, [gameOver, cardsDistributed, playerDeck, opponentDeck]);
-    
+
+    const handleReload = () => {
+        window.location.reload(); // Recarrega a página
+      };
 
 
     const Deck = () => (
@@ -215,9 +236,17 @@ function Game() {
 
                 {gameOver ? (
                     <div className='modal-planets-background'>
-                        <div  className="game-over">
+                        <div className="game-over">
                             <div className="game-over-message">
                                 <h2>{t("game-over")}</h2>
+                                <p>{t("winner-announcement")}</p>
+                                <h3>{t(finalWinner)}</h3>
+                             
+                                <p>{t("play-again")}</p>
+                                <div className='buttons-retry'>
+                                <button onClick={distributeCards}  className='retry'>{t("retry")}</button>
+                                <button onClick={handleReload} className='exit'>{t("exit")}</button>
+                                </div>
                             </div>
                             <img className="dialog-gameover" src={dialog_Game0ver} alt="dialog box with game over" />
                         </div>

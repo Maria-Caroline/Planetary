@@ -48,6 +48,10 @@
         "Game": "Jeu",
         "want-to-play": "Sélectionner pour jouer",
         "rules": "Règles",
-        "back": "Retourner"
+        "back": "Retourner",
+        "winner-announcement": "Le gagnant du jeu était :",
+        "play-again": "J'aimerais jouer à nouveau ?",
+        "retry": "Recommencez",
+        "exit": "Quitter le jeu"
     }
 }

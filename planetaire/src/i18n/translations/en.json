@@ -44,6 +44,12 @@
         "Game": "Game",
         "want-to-play": "Select to play",
         "rules": "Rules",
-        "back": "Back"
+        "back": "Back",
+        "winner-announcement": "The winner of the game was:",
+        "play-again": "Would you like to play again?",
+        "retry": "Retry",
+        "exit": "Exit game"
+        
+        
     }
 }

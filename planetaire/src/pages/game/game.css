@@ -56,7 +56,7 @@
 }
 
 .game-over {
-  margin: 8vmax auto;
+  margin: 13vmax auto;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -66,6 +66,13 @@
 .game-over-message {
   position: absolute;
   margin-top: 2rem;
+}
+
+.buttons-retry{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
 }
 
 .container-card-deck {
@@ -114,7 +121,26 @@
   z-index: -1;
   cursor: pointer;
 }
+.retry{
+  background-color: var(--gold);
+  border: solid 4px var(--dark-gold);
+  font-family: 'Aleo';
+  border-radius: 0.5rem;
+  width: 10rem;
+  color: var(--darker-gold);
+  font-weight: bold;
+}
 
+.exit{
+  background-color: var(--darkest-sky-blue);
+  border: solid 4px var(--sky-blue);
+  font-family: 'Aleo';
+  border-radius: 0.5rem;
+  color: var(--blue);
+  width: 10rem;
+  height: 2.5rem;
+  font-weight: bold;
+}
 .box-attribute-list {
   position: relative;
   display: flex;
