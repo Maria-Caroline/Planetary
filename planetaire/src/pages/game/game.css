@@ -168,7 +168,14 @@
   transition: 0.3s;
   width: 65vmax;
 }
-
+.title-game{
+  margin: 0;
+  font-weight: normal;
+  color: var(--white);
+}
+.icon-game{
+  height: 15.5vmax;
+}
 .selected-button-hidden {
   opacity: 0;
 }

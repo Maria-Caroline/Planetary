@@ -315,7 +315,8 @@ function Game() {
                     showButton && !cardsDistributed ? (
                         <div className='container-options'>
                             <div className='box-options'>
-                                <img className="" src={icon} alt="Card Back" />
+                                <img className="icon-game" src={icon} alt="Card Back" />
+                                <h3 className="title-game">Super Trunfo</h3>
                                 <button className="button-options" onClick={distributeCards} disabled={cardsDistributed}>
                                     {t("Play")}
                                 </button>
