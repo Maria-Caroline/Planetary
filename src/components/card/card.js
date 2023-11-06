@@ -4,6 +4,7 @@ import sunImage from "../../assets/cards/sun.png";
 import moonImage from "../../assets/cards/moon.png";
 import earthImage from "../../assets/cards/earth.png";
 import venusImage from "../../assets/cards/venus.png";
+import mercuryImage from "../../assets/cards/mercury.png";
 import { useTranslation } from 'react-i18next';
 
 function Card({ cardData }) {
@@ -42,7 +43,7 @@ function Card({ cardData }) {
             imagePath = earthImage;
             break;
         case "Mercury":
-            imagePath = venusImage;
+            imagePath = mercuryImage;
             break;
         default:
             imagePath = "";

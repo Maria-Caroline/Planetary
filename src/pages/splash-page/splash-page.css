@@ -6,14 +6,14 @@
     justify-content: center;
     height: 100vh;
     background-image: url("../../assets/support_material/star.png");
-    background-color: var(--darker-sky-blue); /* Cor de fundo da splash page */
+    background-color: var(--darker-sky-blue);
+    background-size: cover;
     background-blend-mode:soft-light;
-    animation: fadeOut 10s forwards; /* Defina a duração da splash page e a animação de saída */
+    animation: fadeOut 10s forwards; 
   }
   
-  /* Estilos adicionais para a imagem e o resumo */
   .splash img {
-    width: 100px; /* Ajuste o tamanho da logo conforme necessário */
+    width: 100px;
   }
   .container-disclaimer{
    width: 40%;

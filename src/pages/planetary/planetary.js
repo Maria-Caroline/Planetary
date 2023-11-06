@@ -36,7 +36,8 @@ function Planetary() {
 
     return (
         <>
-            <><Header /><div className="container-planetary">
+            <><Header />
+            <div className="container-planetary">
                 <div className="circle orbit9">
                     <img onClick={() => openModal('Pluto')} src={sun} alt={t('Pluto')} className="planet" />
                     <Modal className="modal-planets" isOpen={planetModals['Pluto'] || false} onRequestClose={() => closeModal('Pluto')}>
@@ -222,21 +223,6 @@ function Planetary() {
                         </div>
                     </div>
                 )}
-
-                {/* <div className="circle orbit5">
-                    <img onClick={() => openModal('Jupiter')} src={sun} alt={t("Jupiter")} className="planet" />
-                    { planetModals["Jupiter"] === true && (
-                        <div className='modal-planets-background'>
-
-                            <div className='modal-planets' isOpen={planetModals['Jupiter'] || false} onRequestClose={() => closeModal('Jupiter')}>
-                                <p>{t('Jupiter')}</p>
-                                <button onClick={() => closeModal('Jupiter')}>Fechar</button>
-                            </div>
-                        </div>
-                    )}
-
-                </div> */}
-
             </div></>
         </>
     );

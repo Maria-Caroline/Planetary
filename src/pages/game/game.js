@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './game.css';
 import backcard from '../../assets/cards/back-card.png'
 import dialog from '../../assets/support_material/dialog.png'
+import dialog_Game0ver from '../../assets/support_material/dialog_gameover.png'
 import icon from '../../assets/support_material/temporary-icon.png'
 import { useTranslation } from 'react-i18next';
 import Card from "../../components/card/card"
@@ -23,7 +24,10 @@ function Game() {
     const [isCardSelectionLocked, setIsCardSelectionLocked] = useState(false);
     const [isOpponentCardRevealed, setIsOpponentCardRevealed] = useState(false);
     const [winner, setWinner] = useState(null);
+    const [finalWinner, setFinalWinner] = useState(null);
     const [gameOver, setGameOver] = useState(false);
+    const [scorePlayer, setScorePlayer] = useState(0);
+    const [scoreOpponent, setScoreOpponent] = useState(0);
 
     useEffect(() => {
         if (selectedAttribute !== null) {
@@ -31,8 +35,10 @@ function Game() {
             setTimeout(() => {
                 setWinner(vencedor);
                 if (vencedor === "opponent") {
+                    setScoreOpponent(scoreOpponent + 1)
                     removeCardFromPlayerDeck(selectedCardIndex);
                 } else {
+                    setScorePlayer(scorePlayer + 1)
                     removeCardFromOpponentDeck(enemyCardId);
                 }
                 setIsCardSelectionLocked(false);
@@ -67,6 +73,10 @@ function Game() {
 
     const distributeCards = () => {
         if (!cardsDistributed) {
+            setGameOver(false)
+            setWinner(null);
+            setScorePlayer(0);
+            setScoreOpponent(0);
             const { playerDeck, opponentDeck } = generateRandomCardIds();
             setPlayerDeck(playerDeck);
             setOpponentDeck(opponentDeck);
@@ -144,12 +154,35 @@ function Game() {
         }
     };
 
-    if (!gameOver && cardsDistributed) {
-        if (playerDeck.length === 0 || opponentDeck.length === 0) {
-            setIsCardSelectionLocked(true)
-            setGameOver(true);
+    useEffect(() => {
+        if (!gameOver && cardsDistributed) {
+            if (playerDeck.length === 0 || opponentDeck.length === 0) {
+                setIsCardSelectionLocked(true);
+                setTimeout(() => {
+                    setRevealedCardId(null)
+                    setIsOpponentCardRevealed(false);
+                    setGameOver(true);
+                    setCardsDistributed(false)
+                    setIsOpponentCardRevealed(false)
+                    setSelectedCardIndex(null);
+                    setPlayerDeck([]);
+                    setOpponentDeck([]);
+                    setIsCardSelectionLocked(false)
+                    console.clear();
+                }, 2000);
+                if (scorePlayer > scoreOpponent) {
+                    setFinalWinner("player")
+                } else {
+                    setFinalWinner("opponent")
+                }
+
+            }
         }
-    }
+    }, [gameOver, cardsDistributed, playerDeck, opponentDeck]);
+
+    const handleReload = () => {
+        window.location.reload(); // Recarrega a página
+      };
 
 
     const Deck = () => (
@@ -176,7 +209,7 @@ function Game() {
                                                         <button
                                                             key={attribute}
                                                             className="box-attribute-list"
-                                                            onClick={() => handleAttributeSelect(attribute)}>{t(attribute)}
+                                                            onClick={() => handleAttributeSelect(attribute)}><span className='space-attribute'></span>{t(attribute)}
                                                         </button>
                                                     ))}
                                             </div>
@@ -191,19 +224,40 @@ function Game() {
                     </div>
                 ))}
             </div>
-            {winner !== null && !gameOver && (
-                <div className="winner-announcement">
-                    <p>{t('winner')}</p>
-                    <h3>{t(winner)}</h3>
-                    <p>{t('selected')}</p>
-                    <h3>{t(selectedAttribute)}</h3>
+            <div className="winner-announcement">
+                <div className={`${winner !== null && !gameOver ? 'winner-matches-info' : 'winner-announcement-hidden'}`} >
+                    <div className=''>
+                        <p>{t('winner')}</p>
+                        <h3>{t(winner)}</h3>
+                        <p>{t('selected')}</p>
+                        <h3>{t(selectedAttribute)}</h3>
+                    </div>
                 </div>
-            )}
-            {gameOver && (
-                <div className="winner-announcement">
-                    <p>fim de jogo</p>
-                </div>
-            )}
+
+                {gameOver ? (
+                    <div className='modal-planets-background'>
+                        <div className="game-over">
+                            <div className="game-over-message">
+                                <h2>{t("game-over")}</h2>
+                                <p>{t("winner-announcement")}</p>
+                                <h3>{t(finalWinner)}</h3>
+                             
+                                <p>{t("play-again")}</p>
+                                <div className='buttons-retry'>
+                                <button onClick={distributeCards}  className='retry'>{t("retry")}</button>
+                                <button onClick={handleReload} className='exit'>{t("exit")}</button>
+                                </div>
+                            </div>
+                            <img className="dialog-gameover" src={dialog_Game0ver} alt="dialog box with game over" />
+                        </div>
+                    </div>
+                ) : (
+                    <div className='score'>
+                        <h3 className='score-text'>{scorePlayer}<span className='space-score'></span> Score <span className='space-score'></span>{scoreOpponent}</h3>
+                    </div>
+                )}
+
+            </div>
             <div className="container-card-deck">
                 {opponentDeck.map((cardId, index) => (
                     <div key={index} className='card'>
@@ -229,8 +283,7 @@ function Game() {
         <div className='container-options'>
             <div className='box-rules'>
                 <h3>Super Trunfo</h3>
-                <p>O Super Trunfo é um jogo de cartas onde dois jogadores recebem um baralho de 5 cartas. Cada carta possui seus atributos, atributos esses que são escolhidos por um dos jogadores para compará-lo com a carta de seu oponente, o vencedor é aquele que tem o atributo mais alto.
-                    O perdedor é aquele que não ter mais nenhuma carta no baralho.
+                <p> {t("rules-explained")}
                     <br />
                     Passo a Passo
                     <br />
@@ -262,9 +315,10 @@ function Game() {
                     showButton && !cardsDistributed ? (
                         <div className='container-options'>
                             <div className='box-options'>
-                                <img className="" src={icon} alt="Card Back" />
+                                <img className="icon-game" src={icon} alt="Card Back" />
+                                <h3 className="title-game">Super Trunfo</h3>
                                 <button className="button-options" onClick={distributeCards} disabled={cardsDistributed}>
-                                    {t("want-to-play")}
+                                    {t("Play")}
                                 </button>
                                 <button className="button-options" onClick={() => setShowRules(true)} disabled={cardsDistributed}>
                                     {t("rules")}

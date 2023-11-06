@@ -13,6 +13,8 @@
         "selected":"L'attribut sélectionné était :",
         "player":"Joueur",
         "opponent":"Adversaire",
+        "game-over":"Jeu Terminé!",
+        "rules-explained":"Super Trump est un jeu de cartes dans lequel deux joueurs reçoivent un jeu de 5 cartes. Chaque carte a ses attributs, ces attributs sont choisis par un des joueurs pour la comparer avec la carte de son adversaire, le gagnant est celui qui possède l'attribut le plus élevé. Le perdant est celui qui n’a plus de cartes dans le paquet.",
 
         "Sun": "Soleil",
         "sun-description" : "C'est le souverain du système solaire.\nTout et tout le monde tourne autour de lui, ses ordres sont donc suprêmes et incontestables. C'est un leader juste et réfléchi, mais la justice n'est pas toujours synonyme de gentillesse.\nRares sont ceux qui ont osé le défier, mais à ce jour, un seul d'entre eux est resté impuni.",
@@ -43,8 +45,13 @@
         "Planetary": "Planétaire",
         "Tales": "Contes",
         "Play": "Jouer",
+        "Game": "Jeu",
         "want-to-play": "Sélectionner pour jouer",
         "rules": "Règles",
-        "back": "Retourner"
+        "back": "Retourner",
+        "winner-announcement": "Le gagnant du jeu était :",
+        "play-again": "J'aimerais jouer à nouveau ?",
+        "retry": "Recommencez",
+        "exit": "Quitter le jeu"
     }
 }

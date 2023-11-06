@@ -15,7 +15,7 @@ function Header() {
                 <div className="menu">
                     <Link to="/planetary" className="menu-option">{t("Planetary")}</Link>
                     <Link to="/tales" className="menu-option">{t("Tales")}</Link>
-                    <Link to="/play" className="menu-option">{t("Play")} </Link>
+                    <Link to="/play" className="menu-option">{t("Game")} </Link>
                 </div>
             </div>
             <div className="container-divider"><hr className="rounded"></hr></div>

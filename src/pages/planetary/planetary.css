@@ -20,8 +20,6 @@
     position: absolute;
     border: 1px solid var(--white);
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
     top: 50%;
     left: 50%;
     transform-origin: center center;
@@ -88,7 +86,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 5;
 }
 .modal-planets {
@@ -96,7 +94,6 @@
     display: flex;
     margin: 0 auto;
     max-width: 70vmax;
-    /* border: 4px solid blue; */
 }
 
 .character-illustration {
@@ -119,15 +116,9 @@
 }
 @media screen and (max-width: 600px) {
     .container-planetary {
-        position: relative;
-        /* margin: 0 auto; */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 88vh;
-        width: 40vmax;
-        overflow-x: hidden;
-        animation: fadeIn 2s forwards;
+        margin: 0;
+        height: 70vh;
+        width: 98%;
         border: 4px solid rgb(255, 0, 0);
     }
     .modal-planets {
@@ -137,45 +128,95 @@
         max-width: 60vmax;
         border: 4px solid rgb(255, 0, 0);
     }
+    .planet {
+        background-position: center center;
+        position: absolute;
+        top: 60%;
+        cursor: pointer;
+        width: 4vmax;
+        left: 100%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+    .venus {
+        cursor: pointer;
+        background-position: center center;
+        position: absolute;
+        top: 60%;
+        z-index: 3;
+        width: 1.6vmax;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .mercury {
+        cursor: pointer;
+        background-position: center center;
+        position: absolute;
+        top: 60%;
+        z-index: 3;
+        width: 1.4vmax;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .earth {
+        cursor: pointer;
+        background-position: center center;
+        position: absolute;
+        top: 60%;
+        z-index: 3;
+        width: 2vmax;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .moon {
+        cursor: pointer;
+        background-position: center center;
+        position: absolute;
+        top: 60%;
+        width: 0.8vmax;
+        left: 110%;
+        transform: translate(-50%, -50%);
+        animation: moonOrbit 10s linear infinite;
+    }
+
+    .circle {
+        position: absolute;
+        border: 1px solid var(--white);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform-origin: center center;
+        animation: orbit 10s linear infinite;
+    }
+    .container-character-illustration {
+        align-items: center;
+        margin: 0 auto;
+        justify-content: center;
+    }
 
     .container-character-illustration-small {
         width: 29vmax;
-        display: flex;
         margin: 0 auto;
-        justify-content: center;
-        align-items: center;
-        border: 4px solid rgb(30, 255, 0);
-        
     }
     .info-holder {
         width: 42vmax !important;
         height: 42vmax  !important;
-        margin: 4vmax auto;
-        border: 4px solid blue;
     }
     .character-illustration {
         height: 42vmax;
     }
 
     .character-infos {
-        position: absolute;
-        top: 5.5vmax;
         width: 58% !important;
-        margin: 8vmax;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        z-index: 2;
-        overflow: auto; 
-        border: 4px solid rgb(255, 0, 0);
     }
     .character-atribute{
         margin: 5px;
         font-size: small;
         color: var(--white);
-        border: 4px solid blue;
+        border: 4px solid transparent;
     }
 
     .orbit1 {
@@ -185,51 +226,49 @@
     }
     
     .orbit2 {
-        width: 0rem;
-        height: 0rem;
+        width: 10vmax;
+        height: 10vmax;
         animation-duration: 30s;
     }
     
     .orbit3 {
-        width: 0rem;
-        height: 0rem;
+        width: 14vmax;
+        height: 14vmax;
         animation-duration: 45s;
     }
     
     .orbit4 {
-        width: 0rem;
-        height: 0rem;
+        width: 18vmax;
+        height: 18vmax;
         animation-duration: 24s;
     }
     
     .orbit5 {
-        width: 0rem;
-        height: 0rem;
+        width: 22vmax;
+        height: 22vmax;
         animation-duration: 30s;
     }
     
     .orbit6 {
-        width: 0rem;
-        height: 0rem;
+        width: 26vmax;
+        height: 26vmax;
         animation-duration: 23s;
     }
     
     .orbit7 {
-        width: 0rem;
-        height: 0rem;
+        width: 30vmax;
+        height: 30vmax;
         animation-duration: 28s;
     }
     
     .orbit8 {
-        width: 0rem;
-        height: 0rem;
-        animation-duration: 32s;
+        width: 38vmax;
+        height: 38vmax;
     }
     
     .orbit9 {
-        width: 0rem;
-        height: 0rem;
-        animation-duration: 39s;
+        width: 43vmax !important;
+        height: 43vmax  !important;
     }
     
   }
