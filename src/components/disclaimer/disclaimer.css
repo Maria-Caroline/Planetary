@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("../../assets/support_material/star.png");
+    background-image: url("../../assets/support_material/starry_sky.png");
     background-color: var(--darker-sky-blue);
     background-size: cover;
     background-blend-mode:soft-light;

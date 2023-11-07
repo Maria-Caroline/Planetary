@@ -1,0 +1,46 @@
+.orion{
+    height: 27vmax;
+}
+
+.glowing-effect {
+    position: absolute;
+    width: 0.5vmax;
+    height: 0.5vmax;
+    border-radius: 50%;
+    animation: glow 2.5s infinite; 
+}
+
+.star-orion-1{
+    left: 3vmax;
+    top: 7.6vmax;
+}
+
+.star-orion-2{
+    left: 12.3vmax;
+    top: 13.9vmax;
+}
+
+.star-orion-3{
+    left: 17.1vmax;
+    top:31.3vmax;
+}
+.star-orion-4{
+    left: 23vmax;
+    top:17vmax;
+}
+.star-orion-5{
+    left: 23.3vmax;
+    top:27.5vmax;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px var(--white); /* Initial shadow */
+    }
+    50% {
+        box-shadow:0 0 25px 5px var(--white); /* Glowing shadow */
+    }
+    100% {
+        box-shadow: 0 0 5px var(--white); /* Return to initial shadow */
+    }
+}

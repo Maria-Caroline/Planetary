@@ -1,9 +1,9 @@
-import './splash-page.css';
 import React, {useEffect } from 'react';
+import './disclaimer.css';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const SplashPage = () => {
+const Disclaimer = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -25,4 +25,4 @@ const SplashPage = () => {
   );
 }
 
-export default SplashPage;
+export default Disclaimer;

@@ -5,7 +5,7 @@ import Tales from './pages/tales/tales';
 import Game from './pages/game/game';
 // import Contact from './pages/contact/Contact';
 import './App.css';
-import SplashPage from './pages/splash-page/splash-page';
+import Disclaimer from './components/disclaimer/disclaimer';
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
     <>
         <Router>
           <Routes>
-            <Route path="/" element={<SplashPage />} />
+            <Route path="/" element={<Disclaimer />} />
             <Route path="/planetary" element={<Planetary />} />
             <Route path="/play" element={<Game />} />
             <Route path="/tales" element={<Tales />} />
