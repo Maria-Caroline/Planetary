@@ -37,7 +37,7 @@ function Planetary() {
     return (
         <>
             <><Header />
-            <div className="container-planetary">
+            <div className="planetary-container">
                 <div className="circle orbit9">
                     <img onClick={() => openModal('Pluto')} src={sun} alt={t('Pluto')} className="planet" />
                     <Modal className="modal-planets" isOpen={planetModals['Pluto'] || false} onRequestClose={() => closeModal('Pluto')}>

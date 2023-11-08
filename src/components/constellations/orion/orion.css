@@ -1,4 +1,28 @@
-.orion{
+.orion-constellation {
+    width: fit-content;
+    text-align: center;
+}
+
+.orion-constellation-name {
+    opacity: 0;
+    background-image: url('../../../assets/support_material/name-holder.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 2.5rem;
+    margin: auto;
+    transition: opacity 0.3s;
+}
+
+.constellation-name {
+    transform: translateY(0.7rem);
+}
+
+.orion-constellation:hover .orion-constellation-name {
+    opacity: 1;
+}
+
+.orion {
     height: 27vmax;
 }
 
@@ -7,40 +31,49 @@
     width: 0.5vmax;
     height: 0.5vmax;
     border-radius: 50%;
-    animation: glow 2.5s infinite; 
+    animation: glow 2.5s infinite;
 }
 
-.star-orion-1{
+.star-orion-1 {
     left: 3vmax;
     top: 7.6vmax;
 }
 
-.star-orion-2{
+.star-orion-2 {
     left: 12.3vmax;
     top: 13.9vmax;
 }
 
-.star-orion-3{
-    left: 17.1vmax;
-    top:31.3vmax;
+.star-orion-3 {
+    left: 15.3vmax;
+    top: 24.0vmax;
 }
-.star-orion-4{
+
+.star-orion-4 {
     left: 23vmax;
-    top:17vmax;
+    top: 17vmax;
 }
-.star-orion-5{
+
+.star-orion-5 {
     left: 23.3vmax;
-    top:27.5vmax;
+    top: 27.5vmax;
+}
+
+.star-orion-6 {
+    left: 22.3vmax;
+    top: 10.5vmax;
 }
 
 @keyframes glow {
     0% {
-        box-shadow: 0 0 5px var(--white); /* Initial shadow */
+        box-shadow: 0 0 5px var(--white);
     }
+
     50% {
-        box-shadow:0 0 25px 5px var(--white); /* Glowing shadow */
+        box-shadow: 0 0 25px 5px var(--white);
     }
+
     100% {
-        box-shadow: 0 0 5px var(--white); /* Return to initial shadow */
+        box-shadow: 0 0 5px var(--white);
     }
 }
