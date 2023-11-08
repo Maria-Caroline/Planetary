@@ -12,15 +12,17 @@ function Scorpio() {
 
     return (
         <>
-            <div className='constellation-container'>
+           <div className='constellation-container'>
                 <div className='constellation-info'>
-                    <div>
+                <div className='teste'>
                         {isModalOpen && (
                             <>
-                                <div className='scorpio-constellation-revealed-tale'>
+                                <div className='constellation-revealed-tale'>
                                     <div className='constellation-tale'>
+                                        <div className='constellation-tale-section-space'>
                                         <div className='constellation-tale-section one'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non pharetra nulla. Suspendisse sit amet accumsan lectus. Maecenas sit amet felis aliquam, sagittis risus eget, sollicitudin risus. Curabitur ac enim ac tortor lobortis tristique ac eu magna. Nulla justo neque, tristique a sapien at, interdum suscipit nisl. In eros libero, eleifend nec sapien lobortis, posuere ornare turpis. Phasellus cursus leo id purus congue, eget efficitur velit convallis. Nunc id porttitor lorem, nec placerat nisi. Suspendisse sed lectus et magna tincidunt pretium id et ipsum.</div>
                                         <div className='constellation-tale-section two'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non pharetra nulla. Suspendisse sit amet accumsan lectus. Maecenas sit amet felis aliquam, sagittis risus eget, sollicitudin risus. Curabitur ac enim ac tortor lobortis tristique ac eu magna. Nulla justo neque, tristique a sapien at, interdum suscipit nisl. In eros libero, eleifend nec sapien lobortis, posuere ornare turpis. Phasellus cursus leo id purus congue, eget efficitur velit convallis. Nunc id porttitor lorem, nec placerat nisi. Suspendisse sed lectus et magna tincidunt pretium id et ipsum.</div>
+                                        </div>
                                     </div>
                                     <div className='constellation-buttons'>
                                         <button onClick={() => setIsModalOpen(false)} className="back-option">{t("Back")}</button>
@@ -46,8 +48,11 @@ function Scorpio() {
                             <p className='constellation-name'>Sun & Moon Love Story</p>
                         </div>
                     </div>
+                    
+
                 </div>
             </div>
+
 
         </>
 

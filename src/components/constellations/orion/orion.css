@@ -3,7 +3,7 @@
     text-align: center;
 
 }
-.orion-constellation-stars{
+.constellation-stars{
     position: relative;
 
 }
@@ -40,7 +40,7 @@
     height: 27vmax;
 }
 
-.orion-constellation-revealed-tale {
+.constellation-revealed-tale {
     position: absolute;
     display: flex;
     flex-direction: column;

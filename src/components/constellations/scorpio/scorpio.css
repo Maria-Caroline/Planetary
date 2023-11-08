@@ -9,74 +9,39 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    top: 15%;
+    top: 100%;
     left: 13%;
     width: 45vmax;
     animation: fadeIn 2s forwards;
 }
-/*
-.teste{
-position: relative;
-}
-.constellation-tale {
-    position: relative;
+
+.star-scorpio-1 {
+    left: 12.7%;
+    bottom: 45%;
 }
 
-.constellation-tale-section {
-    text-align: justify;
-
-}
-.constellation-tale-section-space{
-   margin: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+.star-scorpio-2 {
+    left: 30%;
+    bottom: 14.8%;
 }
 
-.constellation-buttons {
-
-    display: flex;
-    justify-content: space-between;
+.star-scorpio-3 {
+    right: 44.9%;
+    top: 29.5%;
 }
 
-.constellation-holder-image {
-    height: 33vmax;
+.star-scorpio-4 {
+    right: 20%;
+    top: 33%;
 }
 
-.glowing-effect {
-    position: absolute;
-    width: 0.5vmax;
-    height: 0.5vmax;
-    border-radius: 50%;
-    animation: glow 2.5s infinite;
+.star-scorpio-5 {
+    right: 15%;
+    top: 17%;
 }
 
-.star-orion-1 {
-    left: 12%;
-    top: 5.5%;
+.star-scorpio-6 {
+    right: 17%;
+    top: 2%;
 }
 
-.star-orion-2 {
-    left: 36%;
-    top: 40%;
-}
-
-.star-orion-3 {
-    right: 37%;
-    bottom: 33%;
-}
-
-.star-orion-4 {
-    right: 35.6%;
-    top: 35%;
-}
-
-.star-orion-5 {
-    right: 5.6%;
-    bottom: 21%;
-}
-
-.star-orion-6 {
-    right: 10.3%;
-    top: 15.5%;
-} */

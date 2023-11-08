@@ -1,6 +1,8 @@
 .tales-container {
     display: flex;
     flex-direction: column;
+    gap: 4rem;
+    animation: fadeIn 2s forwards;
 }
 
 .earth-adventure {
@@ -10,5 +12,5 @@
 
 .moon-sun-love-story {
     align-self: flex-end;
-
+    margin: 3rem;
 }
