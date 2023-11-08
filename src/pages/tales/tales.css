@@ -1,3 +1,14 @@
-.earth-adventure{
+.tales-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.earth-adventure {
+    align-self: flex-start;
+    margin: 3rem;
+}
+
+.moon-sun-love-story {
+    align-self: flex-end;
 
 }
