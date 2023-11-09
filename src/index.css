@@ -69,3 +69,7 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #08232e;
 }
+
+button{
+  cursor: pointer;
+}

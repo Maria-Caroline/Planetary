@@ -1,12 +1,14 @@
 .constellation-container {
-   height: 65vh;
+    height: 65vh;
     text-align: center;
 
 }
-.constellation-stars{
-    position: relative;
 
+.constellation-stars {
+    position: relative;
+    cursor: pointer;
 }
+
 .constellation-info {
     display: flex;
     flex-direction: row;
@@ -51,9 +53,10 @@
     animation: fadeIn 2s forwards;
 }
 
-.teste{
-position: relative;
+.teste {
+    position: relative;
 }
+
 .constellation-tale {
     position: relative;
 }
@@ -62,8 +65,9 @@ position: relative;
     text-align: justify;
 
 }
-.constellation-tale-section-space{
-   margin: auto;
+
+.constellation-tale-section-space {
+    margin: auto;
     display: flex;
     flex-direction: row;
     gap: 2rem;
