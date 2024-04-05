@@ -19,6 +19,17 @@ import venus_illustatrion from '../../assets/illustrations/venus_illustration.pn
 import earth from '../../assets/planets/earth_planet.png'
 import earth_illustatrion from '../../assets/illustrations/earth_illustration.png'
 
+import pluto from '../../assets/planets/pluto_planet.png'
+
+import mars from '../../assets/planets/mars_planet.png'
+
+import jupiter from '../../assets/planets/jupiter_planet.png'
+
+import saturn from '../../assets/planets/saturn_planet.png'
+
+import uranus from '../../assets/planets/uranus_planet.png'
+
+import neptune from '../../assets/planets/neptune_planet.png'
 
 import Header from '../../components/header/header';
 import info_holder from '../../assets/support_material/info_holder.png'
@@ -39,7 +50,7 @@ function Planetary() {
             <><Header />
             <div className="planetary-container">
                 <div className="circle orbit9">
-                    <img onClick={() => openModal('Pluto')} src={sun} alt={t('Pluto')} className="planet" />
+                    <img onClick={() => openModal('Pluto')} src={pluto} alt={t('Pluto')} className="pluto" />
                     <Modal className="modal-planets" isOpen={planetModals['Pluto'] || false} onRequestClose={() => closeModal('Pluto')}>
                         <p>{t('Pluto')}</p>
                         <button onClick={() => closeModal('Pluto')}>Fechar</button>
@@ -47,7 +58,7 @@ function Planetary() {
                 </div>
 
                 <div className="circle orbit8">
-                    <img onClick={() => openModal('Neptune')} src={sun} alt={t('Neptune')} className="planet" />
+                    <img onClick={() => openModal('Neptune')} src={neptune} alt={t('Neptune')} className="uranus" />
                     <Modal className="modal-planets" isOpen={planetModals['Neptune'] || false} onRequestClose={() => closeModal('Neptune')}>
                         <p>{t('Neptune')}</p>
                         <button onClick={() => closeModal('Neptune')}>Fechar</button>
@@ -55,7 +66,7 @@ function Planetary() {
                 </div>
 
                 <div className="circle orbit7">
-                    <img onClick={() => openModal('Uranus')} src={sun} alt={t("Uranus")} className="planet" />
+                    <img onClick={() => openModal('Uranus')} src={uranus} alt={t("Uranus")} className="uranus" />
                     <Modal className="modal-planets" isOpen={planetModals['Uranus'] || false} onRequestClose={() => closeModal('Uranus')}>
                         <p>{t('Uranus')}</p>
                         <button onClick={() => closeModal('Uranus')}>Fechar</button>
@@ -63,7 +74,7 @@ function Planetary() {
                 </div>
 
                 <div className="circle orbit6">
-                    <img onClick={() => openModal('Saturn')} src={sun} alt={t("Saturn")} className="planet" />
+                    <img onClick={() => openModal('Saturn')} src={saturn} alt={t("Saturn")} className="saturn" />
                     <Modal className="modal-planets" isOpen={planetModals['Saturn'] || false} onRequestClose={() => closeModal('Saturn')}>
                         <p>{t('Saturn')}</p>
                         <button onClick={() => closeModal('Saturn')}>Fechar</button>
@@ -71,7 +82,7 @@ function Planetary() {
                 </div>
 
                 <div className="circle orbit5">
-                    <img onClick={() => openModal('Jupiter')} src={sun} alt={t("Jupiter")} className="planet" />
+                    <img onClick={() => openModal('Jupiter')} src={jupiter} alt={t("Jupiter")} className="planet" />
                     {planetModals["Jupiter"] === true && (
                         <div className='modal-planets-background'>
 
@@ -85,7 +96,7 @@ function Planetary() {
                 </div>
 
                 <div className="circle orbit4">
-                    <img onClick={() => openModal('Mars')} src={sun} alt={t("Mars")} className="planet" />
+                    <img onClick={() => openModal('Mars')} src={mars} alt={t("Mars")} className="earth" />
                     <Modal className="modal-planets" isOpen={planetModals['Mars'] || false} onRequestClose={() => closeModal('Mars')}>
                         <p>{t('Mars')}</p>
                         <button onClick={() => closeModal('Mars')}>Fechar</button>
@@ -184,9 +195,9 @@ function Planetary() {
                             <div className="container-character-infos">
                                 <div className='box-character-infos'>
                                     <div className='character-infos'>
-                                        <p className='character-atribute'><strong>{t('Sun')}</strong></p>
-                                        <p className='character-atribute'>{t('sun-description')}</p>
-                                        <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('sun-weapon')}</p>
+                                        <p className='character-atribute'><strong>{t('Mercury')}</strong></p>
+                                        <p className='character-atribute'>{t('mercury-description')}</p>
+                                        <p className='character-atribute'><strong>{t('weapon')}</strong>: {t('mercury-weapon')}</p>
                                     </div>
                                     <img src={info_holder} alt={t("")} className="info-holder" />
                                 </div>
