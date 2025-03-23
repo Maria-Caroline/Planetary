@@ -1,13 +1,24 @@
-# About the Project
-Welcome to my Card Game project, a labor of love where I wear both the developer and illustrator hats. Drawing inspiration from the beloved game "Super Trunfo," players engage in strategic battles by selecting attributes unique to each card.
+# 📍 Sobre o Projeto!
+### IMPORTANTE! Ele ainda não foi concluído!
+Este é o Planetário, um jogo de cartas feito 100% por mim (código e ilustrações). Inspirando no jogo "Super Trunfo", onde os jogadores se envolvem em batalhas estratégicas selecionando atributos exclusivos para cada carta.
 
-The project's website unfolds across three captivating pages:
+_Este projeto consiste em 3 páginas:_
 
-## Planetary
-Embark on a celestial journey as you explore the main characters of this fictional universe. Click on any celestial body in the solar system to unveil a concise yet vivid description accompanied by an illustrative masterpiece.
+## 🌗 Planetário
+Simulando o nosso sistema solar, a página do Planetário introduz os personagens que serão utilizados nas cartas do jogo. Clique em qualquer corpo celeste no sistema solar para revelar sua  descrição acompanhada de sua ilustração.
 
-## Tales
-Delve deeper into the lore of the characters you've encountered. A simple click on a constellation unveils the intricately woven stories linked to it, inviting users to immerse themselves in captivating narratives.
+*Fun Fact!* Os planetas foram ajustados com uma velocidade simulando a velocidade real no sistema solar.
 
-## Game
-The crown jewel of the project, the gaming page, awaits your exploration. Discover the simplicity of the game: select a card from your deck, choose an attribute, and witness the system unveil the opponent's card. The excitement peaks as the winner is revealed, claiming a card from the loser's deck. The game concludes when either the opponent's or the player's deck is depleted, proudly displaying the overall winner along with a final score. Ready to embark on this thrilling card game adventure?
+## 📖 Contos
+Clicando nas constelações, é possivel descobrir um pouco mais sobre a história dos personagens anteriormente apresentados.
+
+## 🃏 Jogo
+A parte principal do projeto. 
+#### Regras:
+- Selecione uma carta do seu baralho
+- Escolha um atributo
+- Aguarde o sistema revelar a carta do oponente
+- O jogador que perder todas as cartas do baralho é o perdedor
+
+## 🌟 Próximos passos
+Infelizmente não foi possível concluir todas as ilustrações, portanto o projeto está incompleto. Grande parte da lógica já foi concluída, com isto, o código precisaria de apenas alguns ajustes depois que as imagens fossem inseridas. No momento o projeto está em pausa.
